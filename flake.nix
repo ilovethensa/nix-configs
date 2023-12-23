@@ -90,7 +90,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/server.nix
+          ./nixos/thinkpad.nix
         ];
       };
     };
