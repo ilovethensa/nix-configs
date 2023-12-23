@@ -6,4 +6,18 @@
     # note: ssh-copy-id will add user@your-machine after the public key
     # but we can remove the "@your-machine" part
   ];
+
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+    settings = {
+      # Enable flakes and new 'nix' command
+      experimental-features = "nix-command flakes";
+      # Deduplicate and optimize nix store
+      auto-optimise-store = true;
+    };
+  };
 }

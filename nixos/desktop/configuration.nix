@@ -65,20 +65,6 @@
     })
     config.nix.registry;
 
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-    settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Deduplicate and optimize nix store
-      auto-optimise-store = true;
-    };
-  };
-
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
