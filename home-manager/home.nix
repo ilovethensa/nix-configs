@@ -61,7 +61,11 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    userEmail = "me@theholytachanka.com";
+    userName = "Linus Torvalds";
+  };
   programs.firefox = {
     enable = true;
     profiles.default = {
