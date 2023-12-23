@@ -10,5 +10,5 @@ declare -A server_devices=(
 for server in "${!server_devices[@]}"; do
     device="${server_devices[$server]}"
     echo "Updating server at IP: $server with device: $device"
-    ssh root@$server "nixos-rebuild switch --flake .#${device} --target-host root@$server --upgrade"
+    nixos-rebuild switch --flake .#$device --target-host root@$server --upgrade
 done
