@@ -22,6 +22,6 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./server/configuration.nix
-    ./common/deploy.nix
+    ./common.nix
   ];
 }

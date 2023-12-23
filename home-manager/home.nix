@@ -102,8 +102,8 @@
     '';
     enable = true;
     shellAliases = {
-      rebuild-sys = "sudo nixos-rebuild switch --flake /home/tht/Documents/nix";
-      rebuild-home = "home-manager switch --flake /home/tht/Documents/nix";
+      rebuild-sys = "sudo nixos-rebuild switch --flake /home/tht/Documents/nix#desktop";
+      rebuild-home = "home-manager switch --flake /home/tht/Documents/nix#desktop";
       rebuild = "rebuild-sys && rebuild-home";
     };
   };
