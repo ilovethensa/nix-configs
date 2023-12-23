@@ -68,17 +68,10 @@
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
-  networking.hostName = "desktop";
+  networking.hostName = "thinkpad";
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  environment.variables = {
-    ROC_ENABLE_PRE_VEGA = "1";  # Enable ROCM on my RX 580
-  };
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -111,7 +104,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
 
 
   # Enable the GNOME Desktop Environment.
@@ -136,17 +128,6 @@
     gnomeExtensions.appindicator
     gnomeExtensions.app-hider
   ];
-
-  # Gaming
-  programs.steam.enable = true;
-  hardware.opengl.driSupport = true; # This is already enabled by default
-  hardware.opengl.driSupport32Bit = true; # For 32 bit applications
-
-  # Enable flatpak
-  services.flatpak.enable = true;
-
-
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
