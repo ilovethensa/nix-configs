@@ -76,14 +76,14 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/desktop/configuration.nix
+          ./nixos/desktop.nix
         ];
       };
       server = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/server/configuration.nix
+          ./nixos/server.nix
         ];
       };
     };
