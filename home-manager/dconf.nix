@@ -105,5 +105,5 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/app-hider" = {
       hidden-apps = [ "nixos-manual.desktop" "yelp.desktop" "org.gnome.Tour.desktop" ];
     };
-   }
+   };
   }
