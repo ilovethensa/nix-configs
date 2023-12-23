@@ -1,8 +1,10 @@
+# Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
 { lib, ... }:
 
 with lib.hm.gvariant;
 
 {
+  dconf.settings = { 
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
@@ -103,5 +105,5 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/app-hider" = {
       hidden-apps = [ "nixos-manual.desktop" "yelp.desktop" "org.gnome.Tour.desktop" ];
     };
-
+   }
   }
