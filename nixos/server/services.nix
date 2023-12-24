@@ -57,7 +57,7 @@
     radarr = {
       image = "docker://lscr.io/linuxserver/radarr:latest";
       volumes = [
-        "/data/AppData/Sonarr:/config"
+        "/data/AppData/Radarr:/config"
         "/portainer/Downloads:/downloads"
         "/portainer/Movies:/movies"
       ];
