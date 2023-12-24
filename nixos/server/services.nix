@@ -66,5 +66,15 @@
       ];
       autoStart = true;
     };
+    prowlarr = {
+      image = "docker://lscr.io/linuxserver/prowlarr:1.11.3-develop";
+      volumes = [
+        "/data/AppData/Prowlarr:/config"
+      ];
+      ports = [ 
+        "9696:9696" 
+      ];
+      autoStart = true;
+    };
   };
 }
