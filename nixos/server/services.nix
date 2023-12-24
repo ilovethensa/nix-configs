@@ -7,6 +7,9 @@
     ./jellyfin.nix
   ];
 
+  # Enable docker socket for homepage docker integration
+  virtualisation.podman.dockerSocket.enable = true;
+
   virtualisation.oci-containers.containers = {
     #filebrowser = {
     #  image = "docker://filebrowser/filebrowser";
@@ -94,6 +97,7 @@
       image = "docker://ghcr.io/gethomepage/homepage:latest";
       volumes = [
         "/data/AppData/homepage/config:/app/config"
+        "/run/podman/podman.sock:/var/run/docker.sock"
       ];
       ports = [ 
         "80:3000" 
