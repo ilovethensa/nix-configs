@@ -176,5 +176,39 @@
       autoStart = true;
     };
 
+    sabnzbd = {
+      image = "docker://lscr.io/linuxserver/sabnzbd:latest";
+      volumes = [
+        "/data/AppData/sabnzbd:/config"
+        "/data/Downloads:/downloads"
+        "/data/TV:/tv"
+        "/data/Movies:/movies"
+      ];
+      ports = [ 
+        "4356:8080"
+      ];
+      autoStart = true;
+    };
+
+    glances = {
+      image = "docker://nicolargo/glances:latest-full";
+      extraOptions = [
+        "--network=host"
+        "--pid"
+        "host"
+      ];
+      ports = [
+        "61208-61209:61208-61209"
+      ];
+      environment = {
+        GLANCES_OPT = "-w";
+      };
+      volumes = [
+        "/var/run/docker.sock:/var/run/docker.sock:ro"
+        "/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro"
+      ]
+      autoStart = true;
+    };
+
   };
 }
