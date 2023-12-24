@@ -3,6 +3,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./jellyfin.nix
+  ];
+  
   virtualisation.oci-containers.containers = {
     #filebrowser = {
     #  image = "docker://filebrowser/filebrowser";
