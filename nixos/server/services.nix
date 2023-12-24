@@ -27,5 +27,17 @@
       ];
       autoStart = true;
     };
+    sonarr = {
+      image = "docker://lscr.io/linuxserver/sonarr:3.0.10";
+      volumes = [
+        "/data/AppData/Sonarr:/config"
+        "/portainer/Downloads:/downloads"
+        "/portainer/TV:/tv"
+      ];
+      ports = [ 
+        "8989:8989" 
+      ];
+      autoStart = true;
+    };
   };
 }
