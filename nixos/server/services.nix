@@ -12,5 +12,6 @@
     ports = [ 
       "1010:80" 
     ];
+    autoStart = true;
   };
 }
