@@ -9,10 +9,6 @@
       "/portainer:/srv"
       "filebrowser_db:/database.db"
     ];
-    user = {
-      uid = config.users.users.tht.uid;
-      gid = config.users.users.tht.gid;
-    };
     ports = [ 
       "1010:80" 
     ];
