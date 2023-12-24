@@ -121,9 +121,9 @@
     environment = {
       PUID = "1000";
       PGID = "1000";
-      DB_CONNECTION = "mysql";
+      DB_CONNECTION = "pgsql";
       DB_HOST = "db";
-      DB_PORT = "3306";
+      DB_PORT = "5432";
       DB_DATABASE = "speedtest_tracker";
       DB_USERNAME = "speedy";
       DB_PASSWORD = "password";
@@ -136,14 +136,13 @@
   };
 
   db = {
-    image = "mariadb:10";
+    image = "postgres:15";
     hostname = "db";
     autoStart = true;
     environment = {
-      MARIADB_DATABASE = "speedtest_tracker";
-      MARIADB_USER = "speedy";
-      MARIADB_PASSWORD = "password";
-      MARIADB_RANDOM_ROOT_PASSWORD = "true";
+      POSTGRES_DB = "speedtest_tracker";
+      POSTGRES_USER = "speedy";
+      POSTGRES_PASSWORD = "password";
     };
     volumes = [
       "speedtest-db:/var/lib/mysql"
