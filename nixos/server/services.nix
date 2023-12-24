@@ -176,19 +176,6 @@
       autoStart = true;
     };
 
-    sabnzbd = {
-      image = "docker://lscr.io/linuxserver/sabnzbd:latest";
-      volumes = [
-        "/data/AppData/sabnzbd:/config"
-        "/data/Downloads:/downloads"
-        "/data/TV:/tv"
-        "/data/Movies:/movies"
-      ];
-      ports = [ 
-        "4356:8080"
-      ];
-      autoStart = true;
-    };
 
     glances = {
       image = "docker://nicolargo/glances:latest-full";
