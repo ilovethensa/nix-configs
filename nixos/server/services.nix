@@ -194,16 +194,5 @@
       autoStart = true;
     };
 
-    lodestone = {
-      image = "docker://ghcr.io/lodestone-team/lodestone_core";
-      volumes = [
-        "/data/AppData/lodestone:/home/user/.lodestone"
-      ];
-      ports = [
-        "16662:16662"
-      ];
-      autoStart = true;
-    };
-
   };
 }
