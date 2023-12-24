@@ -138,7 +138,7 @@
   db = {
     image = "mariadb:10";
     hostname = "db";
-    restartPolicy = "always";
+    autoStart = true;
     environment = {
       MARIADB_DATABASE = "speedtest_tracker";
       MARIADB_USER = "speedy";
