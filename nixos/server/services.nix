@@ -100,7 +100,8 @@
         "/run/podman/podman.sock:/var/run/docker.sock"
       ];
       ports = [ 
-        "80:3000" 
+        "80:3000"
+        "443:3000"
       ];
       autoStart = true;
     };
