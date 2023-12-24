@@ -157,11 +157,8 @@
       volumes = [
         "/data/AppData/vaultwarden:/data"
       ];
-      environment = {
-        ROCKET_PORT = "6969";
-      };
       ports = [ 
-        "6969:6969" 
+        "6969:3000" 
       ];
       autoStart = true;
     };
