@@ -7,7 +7,7 @@
     image = "docker://filebrowser/filebrowser";
     volumes = [
       "/portainer:/srv"
-      "filebrowser_db:/database.db"
+      "/data/AppData/filebrowser/config/database.db:/database.db"
     ];
     ports = [ 
       "1010:80" 
