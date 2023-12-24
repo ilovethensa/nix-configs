@@ -135,21 +135,39 @@
     dependsOn = [ "db" ];
   };
 
-  db = {
-    image = "postgres:15";
-    hostname = "db";
-    autoStart = true;
-    environment = {
-      POSTGRES_DB = "speedtest_tracker";
-      POSTGRES_USER = "speedy";
-      POSTGRES_PASSWORD = "password";
+    db = {
+      image = "postgres:15";
+      hostname = "db";
+      autoStart = true;
+      environment = {
+        POSTGRES_DB = "speedtest_tracker";
+        POSTGRES_USER = "speedy";
+        POSTGRES_PASSWORD = "password";
+      };
+      volumes = [
+        "speedtest-db:/var/lib/mysql"
+      ];
+      ports = [
+        "5432:5432"
+      ];
     };
-    volumes = [
-      "speedtest-db:/var/lib/mysql"
-    ];
-    ports = [
-      "5432:5432"
-    ];
-  };
+
+    adguard = {
+      image = "docker://adguard/adguardhome:latest";
+      volumes = [
+        "/data/AppData/adguard/config:/opt/adguardhome/work"
+        "/data/AppData/adguard/work:/opt/adguardhome/conf"
+      ];
+      ports = [ 
+        "80:3000"
+        "53:53/tcp"
+        "53:53/udp"
+        "80:80/tcp"
+        "443:443/tcp"
+        "443:443/udp"
+        "3000:3000/tcp"
+      ];
+      autoStart = true;
+    };
   };
 }
