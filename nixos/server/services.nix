@@ -104,5 +104,15 @@
       ];
       autoStart = true;
     };
+    cloudflared-web = {
+      image = "docker://wisdomsky/cloudflared-web:latest";
+      volumes = [
+        "/data/AppData/cloudflare:/config"
+      ];
+      extraOptions = [
+        "--network=host"
+      ];
+      autoStart = true;
+    };
   };
 }
