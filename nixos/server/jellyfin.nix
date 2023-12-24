@@ -16,5 +16,8 @@
   };
 
   # 2. do not forget to enable jellyfin
-  services.jellyfin.enable = true;
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
 }
