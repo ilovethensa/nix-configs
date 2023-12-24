@@ -159,7 +159,7 @@
         "/data/AppData/adguard/work:/opt/adguardhome/conf"
       ];
       ports = [ 
-        "8888:3000"
+        "3000:3000"
         "53:53/tcp"
         "53:53/udp"
         "67:67/udp"
