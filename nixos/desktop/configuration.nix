@@ -145,6 +145,8 @@
   # Enable flatpak
   services.flatpak.enable = true;
 
+  networking.nameservers = [ "192.168.1.100" ]
+
 
 
 
