@@ -6,7 +6,7 @@
   imports = [
     ./jellyfin.nix
   ];
-  
+
   virtualisation.oci-containers.containers = {
     #filebrowser = {
     #  image = "docker://filebrowser/filebrowser";
@@ -23,8 +23,8 @@
       image = "docker://lscr.io/linuxserver/bazarr:1.4.0";
       volumes = [
         "/data/AppData/Bazarr:/config"
-        "/portainer/Movies:/movies"
-        "/portainer/TV:/tv"
+        "/data/Movies:/movies"
+        "/data/TV:/tv"
       ];
       ports = [ 
         "6767:6767" 
@@ -35,8 +35,8 @@
       image = "docker://lscr.io/linuxserver/sonarr:3.0.10";
       volumes = [
         "/data/AppData/Sonarr:/config"
-        "/portainer/Downloads:/downloads"
-        "/portainer/TV:/tv"
+        "/data/Downloads:/downloads"
+        "/data/TV:/tv"
       ];
       ports = [ 
         "8989:8989" 
@@ -47,9 +47,9 @@
       image = "docker://lscr.io/linuxserver/transmission:4.0.5";
       volumes = [
         "/data/AppData/Transmission:/config"
-        "/portainer/Downloads:/downloads"
-        "/portainer/TV:/tv"
-        "/portainer/Movies:/movies"
+        "/data/Downloads:/downloads"
+        "/data/TV:/tv"
+        "/data/Movies:/movies"
       ];
       ports = [ 
         "9091:9091"
@@ -62,8 +62,8 @@
       image = "docker://lscr.io/linuxserver/radarr:amd64-5.2.6-nightly";
       volumes = [
         "/data/AppData/Radarr:/config"
-        "/portainer/Downloads:/downloads"
-        "/portainer/Movies:/movies"
+        "/data/Downloads:/downloads"
+        "/data/Movies:/movies"
       ];
       ports = [ 
         "7878:7878" 
