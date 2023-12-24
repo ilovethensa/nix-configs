@@ -4,17 +4,17 @@
 
 {
   virtualisation.oci-containers.containers = {
-    filebrowser = {
-      image = "docker://filebrowser/filebrowser";
-      volumes = [
-        "/portainer:/srv"
-        "/data/AppData/filebrowser/config/database.db:/database.db"
-      ];
-      ports = [ 
-        "1010:80" 
-      ];
-      autoStart = true;
-    };
+    #filebrowser = {
+    #  image = "docker://filebrowser/filebrowser";
+    #  volumes = [
+    #    "/portainer:/srv"
+    #    "/data/AppData/filebrowser/config/database.db:/database.db"
+    #  ];
+    #  ports = [ 
+    #    "1010:80" 
+    #  ];
+    #  autoStart = true;
+    #};
     bazarr = {
       image = "docker://lscr.io/linuxserver/bazarr:1.4.0";
       volumes = [
@@ -73,6 +73,16 @@
       ];
       ports = [ 
         "9696:9696" 
+      ];
+      autoStart = true;
+    };
+    jellyseerr = {
+      image = "docker://fallenbagel/jellyseerr:1.7.0";
+      volumes = [
+        "/data/AppData/jellyseerr:/config"
+      ];
+      ports = [ 
+        "5055:5055" 
       ];
       autoStart = true;
     };
