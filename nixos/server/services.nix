@@ -77,7 +77,7 @@
       autoStart = true;
     };
     jellyseerr = {
-      image = "docker://fallenbagel/jellyseerr:1.6.0";
+      image = "docker://fallenbagel/jellyseerr:latest";
       volumes = [
         "/data/AppData/jellyseerr:/config"
       ];
