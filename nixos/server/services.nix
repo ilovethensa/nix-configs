@@ -147,6 +147,9 @@
     volumes = [
       "speedtest-db:/var/lib/mysql"
     ];
+    ports = [
+      "5432:5432"
+    ]
   };
   };
 }
