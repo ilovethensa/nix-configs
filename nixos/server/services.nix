@@ -159,10 +159,21 @@
         "/data/AppData/adguard/work:/opt/adguardhome/conf"
       ];
       ports = [ 
-        "5426:3000"
+        "8888:3000"
         "53:53/tcp"
         "53:53/udp"
-        "5788:80/tcp"
+        "67:67/udp"
+        "68:68/udp"
+        "4444:80/tcp"
+        "443:443/tcp"
+        "443:443/udp"
+        "3000:3000/tcp"
+        "853:853/tcp"
+        "784:784/udp"
+        "853:853/udp"
+        "8853:8853/udp"
+        "5443:5443/tcp"
+        "5443:5443/udp"
       ];
       autoStart = true;
     };
