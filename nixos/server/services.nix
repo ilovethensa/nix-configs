@@ -19,7 +19,7 @@
       image = "docker://lscr.io/linuxserver/bazarr:1.4.0";
       environment = [
         "TZ=Europe/Sofia"
-      ]
+      ];
       volumes = [
         "/data/AppData/Bazarr:/config"
         "/portainer/Movies:/movies"
