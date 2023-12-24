@@ -114,5 +114,41 @@
       ];
       autoStart = true;
     };
+  speedtest-tracker = {
+    image = "ghcr.io/alexjustesen/speedtest-tracker:latest";
+    hostname = "speedtest-tracker";
+    ports = [ "8080:80" "8443:443" ];
+    environment = {
+      PUID = "1000";
+      PGID = "1000";
+      DB_CONNECTION = "mysql";
+      DB_HOST = "db";
+      DB_PORT = "3306";
+      DB_DATABASE = "speedtest_tracker";
+      DB_USERNAME = "speedy";
+      DB_PASSWORD = "password";
+    };
+    volumes = [
+      "speedtest-app:/config"
+      "/path/to/directory/web:/etc/ssl/web"
+    ];
+    restartPolicy = "unless-stopped";
+    dependsOn = [ "db" ];
+  };
+
+  db = {
+    image = "mariadb:10";
+    hostname = "db";
+    restartPolicy = "always";
+    environment = {
+      MARIADB_DATABASE = "speedtest_tracker";
+      MARIADB_USER = "speedy";
+      MARIADB_PASSWORD = "password";
+      MARIADB_RANDOM_ROOT_PASSWORD = "true";
+    };
+    volumes = [
+      "speedtest-db:/var/lib/mysql"
+    ];
+  };
   };
 }
