@@ -199,7 +199,7 @@
       volumes = [
         "/data/AppData/lodestone:/home/user/.lodestone"
       ];
-      port = [
+      ports = [
         "16662:16662"
       ];
       autoStart = true;
