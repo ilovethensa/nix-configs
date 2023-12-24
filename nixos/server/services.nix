@@ -93,7 +93,7 @@
     homepage = {
       image = "docker://ghcr.io/gethomepage/homepage:latest";
       volumes = [
-        "/data/AppData/homepage:/app/config"
+        "/data/AppData/homepage/config:/app/config"
       ];
       ports = [ 
         "80:3000" 
