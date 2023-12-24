@@ -39,5 +39,20 @@
       ];
       autoStart = true;
     };
+    transmission = {
+      image = "docker://lscr.io/linuxserver/transmission:4.0.5";
+      volumes = [
+        "/data/AppData/Transmission:/config"
+        "/portainer/Downloads:/downloads"
+        "/portainer/TV:/tv"
+        "/portainer/Movies:/movies"
+      ];
+      ports = [ 
+        "9091:9091"
+        "51413:51413"
+        "51413:51413/udp"
+      ];
+      autoStart = true;
+    };
   };
 }
