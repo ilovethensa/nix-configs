@@ -130,9 +130,8 @@
     };
     volumes = [
       "speedtest-app:/config"
-      "/path/to/directory/web:/etc/ssl/web"
     ];
-    restartPolicy = "unless-stopped";
+    autoStart = true;
     dependsOn = [ "db" ];
   };
 
