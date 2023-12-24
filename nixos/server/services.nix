@@ -79,7 +79,7 @@
     jellyseerr = {
       image = "docker://fallenbagel/jellyseerr:latest";
       volumes = [
-        "/data/AppData/jellyseer:/config"
+        "/data/AppData/jellyseer:/app/config"
       ];
       ports = [ 
         "5055:5055" 
