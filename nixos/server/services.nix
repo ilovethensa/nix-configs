@@ -13,6 +13,8 @@
       uid = config.users.users.tht.uid;
       gid = config.users.users.tht.gid;
     };
-    ports = { "1010" = "80"; };
+    ports = [ 
+      "1010:80" 
+    ];
   };
 }
