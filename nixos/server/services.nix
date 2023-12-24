@@ -152,6 +152,20 @@
       ];
     };
 
+    pihole = {
+      image = "docker://pihole/pihole:latest";
+      volumes = [
+      "/data/AppData/pihole/config:/etc/pihole"
+      "/data/AppData/pihole/dnsmasq.d:/etc/dnsmasq.d"
+      ];
+      ports = [ 
+      "53:53/tcp"
+      "53:53/udp"
+      "80:80/tcp"
+      ];
+      autoStart = true;
+    };
+
     
   };
 }
