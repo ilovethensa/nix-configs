@@ -152,22 +152,6 @@
       ];
     };
 
-    adguard = {
-      image = "docker://adguard/adguardhome:latest";
-      volumes = [
-        "/data/AppData/adguard/config:/opt/adguardhome/work"
-        "/data/AppData/adguard/work:/opt/adguardhome/conf"
-      ];
-      ports = [ 
-        "5426:3000"
-        "53:53/tcp"
-        "53:53/udp"
-        "5788:80/tcp"
-        "3241:443/tcp"
-        "5674:443/udp"
-        "8976:3000/tcp"
-      ];
-      autoStart = true;
-    };
+    
   };
 }
