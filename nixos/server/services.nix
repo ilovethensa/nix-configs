@@ -20,7 +20,7 @@
     #  autoStart = true;
     #};
     bazarr = {
-      image = "docker://lscr.io/linuxserver/bazarr:1.4.0";
+      image = "docker://lscr.io/linuxserver/bazarr:latest";
       volumes = [
         "/data/AppData/Bazarr:/config"
         "/data/Movies:/movies"
@@ -32,7 +32,7 @@
       autoStart = true;
     };
     sonarr = {
-      image = "docker://lscr.io/linuxserver/sonarr:3.0.10";
+      image = "docker://lscr.io/linuxserver/sonarr:latest";
       volumes = [
         "/data/AppData/Sonarr:/config"
         "/data/Downloads:/downloads"
@@ -44,7 +44,7 @@
       autoStart = true;
     };
     transmission = {
-      image = "docker://lscr.io/linuxserver/transmission:4.0.5";
+      image = "docker://lscr.io/linuxserver/transmission:latest";
       volumes = [
         "/data/AppData/Transmission:/config"
         "/data/Downloads:/downloads"
@@ -59,7 +59,7 @@
       autoStart = true;
     };
     radarr = {
-      image = "docker://lscr.io/linuxserver/radarr:amd64-5.2.6-nightly";
+      image = "docker://lscr.io/linuxserver/radarr:latest";
       volumes = [
         "/data/AppData/Radarr:/config"
         "/data/Downloads:/downloads"
@@ -71,7 +71,7 @@
       autoStart = true;
     };
     prowlarr = {
-      image = "docker://lscr.io/linuxserver/prowlarr:1.11.3-develop";
+      image = "docker://lscr.io/linuxserver/prowlarr:latest";
       volumes = [
         "/data/AppData/Prowlarr:/config"
       ];
