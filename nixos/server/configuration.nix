@@ -140,7 +140,7 @@
   # List services that you want to enable:
   
   # Enable docker
-  virtualisation.docker.enable = true;
+  virtualisation.docker.enable = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
