@@ -54,5 +54,17 @@
       ];
       autoStart = true;
     };
+    radarr = {
+      image = "docker://lscr.io/linuxserver/radarr:amd64-5.2.6-nightly";
+      volumes = [
+        "/data/AppData/Sonarr:/config"
+        "/portainer/Downloads:/downloads"
+        "/portainer/Movies:/movies"
+      ];
+      ports = [ 
+        "7878:7878" 
+      ];
+      autoStart = true;
+    };
   };
 }
