@@ -55,7 +55,7 @@
       autoStart = true;
     };
     radarr = {
-      image = "docker://lscr.io/linuxserver/radarr:amd64-5.2.6-nightly";
+      image = "docker://lscr.io/linuxserver/radarr:latest";
       volumes = [
         "/data/AppData/Sonarr:/config"
         "/portainer/Downloads:/downloads"
