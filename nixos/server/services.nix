@@ -11,17 +11,17 @@
   virtualisation.podman.dockerSocket.enable = true;
 
   virtualisation.oci-containers.containers = {
-    #filebrowser = {
-    #  image = "docker://filebrowser/filebrowser";
-    #  volumes = [
-    #    "/portainer:/srv"
-    #    "/data/AppData/filebrowser/config/database.db:/database.db"
-    #  ];
-    #  ports = [ 
-    #    "1010:80" 
-    #  ];
-    #  autoStart = true;
-    #};
+    filebrowser = {
+      image = "docker://filebrowser/filebrowser";
+      volumes = [
+        "/data:/srv"
+        "/data/AppData/filebrowser/config/database.db:/database.db"
+      ];
+      ports = [ 
+        "1010:80" 
+      ];
+      autoStart = true;
+    };
     bazarr = {
       image = "docker://lscr.io/linuxserver/bazarr:latest";
       volumes = [
@@ -151,5 +151,17 @@
         "5432:5432"
       ];
     };
+
+    vaultwarden = {
+      image = "docker://ghcr.io/gethomepage/homepage:latest";
+      volumes = [
+        "/data/AppData/vaultwarden:/data"
+      ];
+      ports = [ 
+        "2456:80" 
+      ];
+      autoStart = true;
+    };
+
   };
 }
