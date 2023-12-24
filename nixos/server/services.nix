@@ -90,5 +90,15 @@
       ];
       autoStart = true;
     };
+    homepage = {
+      image = "docker://ghcr.io/gethomepage/homepage:latest";
+      volumes = [
+        "/data/AppData/homepage:/app/config"
+      ];
+      ports = [ 
+        "80:3000" 
+      ];
+      autoStart = true;
+    };
   };
 }
