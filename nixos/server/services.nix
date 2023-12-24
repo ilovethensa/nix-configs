@@ -153,12 +153,13 @@
     };
 
     vaultwarden = {
-      image = "docker://ghcr.io/gethomepage/homepage:latest";
+      image = "docker://vaultwarden/server:latest";
       volumes = [
         "/data/AppData/vaultwarden:/data"
       ];
+      
       ports = [ 
-        "6969:3000" 
+        "2456:80" 
       ];
       autoStart = true;
     };
