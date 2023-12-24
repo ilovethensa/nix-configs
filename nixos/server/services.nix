@@ -161,7 +161,7 @@
       ports = [ 
       "53:53/tcp"
       "53:53/udp"
-      "80:80/tcp"
+      "5426:80/tcp"
       ];
       autoStart = true;
     };
