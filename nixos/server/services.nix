@@ -15,6 +15,4 @@
     };
     ports = { "1010" = "80"; };
   };
-
-  virtualisation.oci-containers.volumes.filebrowser_db = {};
 }
