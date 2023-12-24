@@ -184,15 +184,23 @@
         "--pid"
         "host"
       ];
-      ports = [
-        "61208-61209:61208-61209"
-      ];
       environment = {
         GLANCES_OPT = "-w";
       };
       volumes = [
         "/var/run/docker.sock:/var/run/docker.sock:ro"
         "/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro"
+      ];
+      autoStart = true;
+    };
+
+    lodestone = {
+      image = "docker://ghcr.io/lodestone-team/lodestone_core";
+      volumes = [
+        "/data/AppData/lodestone:/home/user/.lodestone"
+      ];
+      port = [
+        "16662:16662"
       ];
       autoStart = true;
     };
