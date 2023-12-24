@@ -152,20 +152,22 @@
       ];
     };
 
-    pihole = {
-      image = "docker://pihole/pihole:latest";
+    adguard = {
+      image = "docker://adguard/adguardhome:latest";
       volumes = [
-      "/data/AppData/pihole/config:/etc/pihole"
-      "/data/AppData/pihole/dnsmasq.d:/etc/dnsmasq.d"
+        "/data/AppData/adguard/config:/opt/adguardhome/work"
+        "/data/AppData/adguard/work:/opt/adguardhome/conf"
       ];
       ports = [ 
-      "53:53/tcp"
-      "53:53/udp"
-      "5426:80/tcp"
+        "5426:3000"
+        "53:53/tcp"
+        "53:53/udp"
+        "5788:80/tcp"
+        "3241:443/tcp"
+        "5674:443/udp"
+        "8976:3000/tcp"
       ];
       autoStart = true;
     };
-
-    
   };
 }
