@@ -205,6 +205,9 @@
       volumes = [
         "/data/AppData/n8n:/home/node/.n8n"
       ];
+      environment = {
+        WEBHOOK_URL = "https://wbhk.theholytachanka.com";
+      };
       autoStart = true;
     };
 
