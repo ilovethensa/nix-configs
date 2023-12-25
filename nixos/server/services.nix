@@ -165,6 +165,19 @@
       autoStart = true;
     };
 
+    yarr = {
+      image = "docker://ghcr.io/wakeful-cloud/yarr:latest";
+      volumes = [
+        "/data/AppData/Yarr:/data"
+      ];
+      
+      ports = [ 
+        "7070:7070" 
+      ];
+      autoStart = true;
+    };
+
+
     glances = {
       image = "docker://nicolargo/glances:latest-full";
       extraOptions = [
