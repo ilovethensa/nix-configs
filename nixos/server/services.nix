@@ -197,5 +197,18 @@
       autoStart = true;
     };
 
+    n8n = {
+      image = "docker://docker.n8n.io/n8nio/n8n";
+      ports = [
+        "5678:5678"
+      ];
+      volumes = [
+        "/data/AppData/n8n:/home/node/.n8n"
+        "/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro"
+        "/:/hostfs:ro"
+      ];
+      autoStart = true;
+    };
+
   };
 }
