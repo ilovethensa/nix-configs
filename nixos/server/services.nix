@@ -211,20 +211,5 @@
       autoStart = true;
     };
 
-    freshrss = {
-      image = "docker://freshrss/freshrss";
-      ports = [
-        "5867:80"
-      ];
-      volumes = [
-        "/data/AppData/freshrss/data:/var/www/FreshRSS/data"
-        "/data/AppData/freshrss/extensions:/var/www/FreshRSS/extensions"
-      ];
-      environment = {
-        TZ = "Europe/Sofia";
-      };
-      autoStart = true;
-    };
-
   };
 }
