@@ -184,6 +184,7 @@
         "--network=host"
         "--pid"
         "host"
+        "--privileged"
       ];
       environment = {
         GLANCES_OPT = "-w";
