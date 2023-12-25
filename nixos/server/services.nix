@@ -204,8 +204,6 @@
       ];
       volumes = [
         "/data/AppData/n8n:/home/node/.n8n"
-        "/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro"
-        "/:/hostfs:ro"
       ];
       autoStart = true;
     };
