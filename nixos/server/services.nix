@@ -97,6 +97,7 @@
       image = "docker://ghcr.io/gethomepage/homepage:latest";
       volumes = [
         "/data/AppData/homepage/config:/app/config"
+        "/data:/data"
         "/run/podman/podman.sock:/var/run/docker.sock"
       ];
       ports = [ 
