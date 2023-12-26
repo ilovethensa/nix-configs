@@ -101,6 +101,7 @@
   security.sudo.execWheelOnly = true;
 
   services.openssh = {
+    enable = true;
     passwordAuthentication = false;
     allowSFTP = false; # Don't set this if you need sftp
     challengeResponseAuthentication = false;
@@ -111,10 +112,13 @@
       AllowStreamLocalForwarding no
       AuthenticationMethods publickey
     '';
-    settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
-    settings.PermitRootLogin = "no";
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+    };
   };
+
 
 
 
