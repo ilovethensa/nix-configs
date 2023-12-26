@@ -101,7 +101,7 @@
         "/run/podman/podman.sock:/var/run/docker.sock"
       ];
       ports = [ 
-        "420:3000"
+        "80:3000"
       ];
       autoStart = true;
     };
