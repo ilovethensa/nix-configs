@@ -192,7 +192,7 @@
       volumes = [
         "/var/run/docker.sock:/var/run/docker.sock:ro"
         "/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro"
-        "/:/hostfs:ro"
+        "/srv:/hostfs:ro"
       ];
       autoStart = true;
     };
@@ -208,6 +208,18 @@
       environment = {
         WEBHOOK_URL = "https://wbhk.theholytachanka.com";
       };
+      autoStart = true;
+    };
+
+    openvscode-server = {
+      image = "docker://lscr.io/linuxserver/openvscode-server:latest";
+      ports = [
+        "5678:5678"
+      ];
+      volumes = [
+        "/srv/AppData/VScode:/config"
+        "/srv/AppData:/AppData"
+      ];
       autoStart = true;
     };
 
