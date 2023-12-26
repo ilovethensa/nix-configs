@@ -112,11 +112,9 @@
       AllowStreamLocalForwarding no
       AuthenticationMethods publickey
     '';
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-      PermitRootLogin = "no";
-    };
+    PasswordAuthentication = false;
+    KbdInteractiveAuthentication = false;
+    PermitRootLogin = "no";
   };
 
 
