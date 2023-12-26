@@ -113,7 +113,7 @@
       KbdInteractiveAuthentication = false;
       challengeResponseAuthentication = false;
       PasswordAuthentication = false;
-      PermitRootLogin = "no";
+      PermitRootLogin = "yes";
     };
   };
 
