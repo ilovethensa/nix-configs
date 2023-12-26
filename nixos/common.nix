@@ -27,5 +27,6 @@
     settings.KbdInteractiveAuthentication = false;
     settings.PermitRootLogin = "yes";
   };
+  nixpkgs.config.allowUnfree = true;
   
 }
