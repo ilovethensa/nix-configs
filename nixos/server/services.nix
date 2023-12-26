@@ -203,7 +203,7 @@
         "5678:5678"
       ];
       volumes = [
-        "/srv/AppData/n8n:/home/node/.n8n"
+        "/srv/AppData/N8n:/home/node/.n8n"
       ];
       environment = {
         WEBHOOK_URL = "https://wbhk.theholytachanka.com";
