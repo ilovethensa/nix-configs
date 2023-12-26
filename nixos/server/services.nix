@@ -10,6 +10,9 @@
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
 
+  # Enable monitoring
+  services.netdata.enable = true;
+
   virtualisation.oci-containers.containers = {
     filebrowser = {
       image = "docker://filebrowser/filebrowser";
