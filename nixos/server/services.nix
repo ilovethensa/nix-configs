@@ -223,5 +223,13 @@
       autoStart = true;
     };
 
+    flaresolverr = {
+      image = "docker://ghcr.io/flaresolverr/flaresolverr:latest";
+      ports = [
+        "8191:8191"
+      ];
+      autoStart = true;
+    };
+
   };
 }
