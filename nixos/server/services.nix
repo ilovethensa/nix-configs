@@ -10,15 +10,6 @@
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
 
-  # Enable monitoring
-  services.netdata = {
-    enable = true;
-
-	 package = pkgs.netdata.override {
- 		withCloud = true;
- 	 };
-  };
-
   virtualisation.oci-containers.containers = {
     filebrowser = {
       image = "docker://filebrowser/filebrowser";
