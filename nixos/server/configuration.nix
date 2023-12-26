@@ -73,6 +73,9 @@
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
+
+  users.mutableUsers = false;
+
   users.users.tht = {
     isNormalUser = true;
     description = "tht";
@@ -83,11 +86,38 @@
       # note: ssh-copy-id will add user@your-machine after the public key
       # but we can remove the "@your-machine" part
     ];
-    initialPassword = "hunter2";
+    initialHashedPassword = "$y$j9T$R.EtRiy8oN715gMKYNMRU1$oVT/2FeQb3YnQfchAxMhb0NiLeljwN7quPVuX2N.1wC";
   };
-  users.users.root.initialPassword = "hunter2";
+  users.users.root.initialHashedPassword = "$y$j9T$R.EtRiy8oN715gMKYNMRU1$oVT/2FeQb3YnQfchAxMhb0NiLeljwN7quPVuX2N.1wC";
 
   boot.loader.efi.canTouchEfiVariables = true;
+
+  security.auditd.enable = true;
+  security.audit.enable = true;
+  security.audit.rules = [
+    "-a exit,always -F arch=b64 -S execve"
+  ];
+
+  security.sudo.execWheelOnly = true;
+
+  services.openssh = {
+    passwordAuthentication = false;
+    allowSFTP = false; # Don't set this if you need sftp
+    challengeResponseAuthentication = false;
+    extraConfig = ''
+      AllowTcpForwarding yes
+      X11Forwarding no
+      AllowAgentForwarding no
+      AllowStreamLocalForwarding no
+      AuthenticationMethods publickey
+    '';
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+    settings.PermitRootLogin = "no";
+  };
+
+
+
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 

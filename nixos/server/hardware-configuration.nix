@@ -23,6 +23,7 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/DBC0-0351";
       fsType = "vfat";
+
     };
 
   fileSystems."/nix" =
@@ -33,13 +34,13 @@
   fileSystems."/etc/nixos" =
     { device = "/nix/persist/etc/nixos";
       fsType = "none";
-      options = [ "bind" ];
+      options = [ "bind" "noexec" ];
     };
 
   fileSystems."/var/log" =
     { device = "/nix/persist/var/log";
       fsType = "none";
-      options = [ "bind" ];
+      options = [ "bind" "noexec" ];
     };
 
   swapDevices = [ ];
