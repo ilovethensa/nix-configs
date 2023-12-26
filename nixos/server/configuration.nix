@@ -7,7 +7,7 @@
   config,
   pkgs,
   ...
-}: {
+}:{
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -54,7 +54,7 @@
   # To make nix3 commands consistent with your flake
   nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
-  # This will additionally add your inputs to the system's legacy channels
+  /* # This will additionally add your inputs to the system's legacy channels
   # Making legacy nix commands consistent as well, awesome!
   nix.nixPath = ["/etc/nix/path"];
   environment.etc =
@@ -63,7 +63,7 @@
       name = "nix/path/${name}";
       value.source = value.flake;
     })
-    config.nix.registry;
+    config.nix.registry; */
 
   # FIXME: Add the rest of your current configuration
 
@@ -83,15 +83,10 @@
       # note: ssh-copy-id will add user@your-machine after the public key
       # but we can remove the "@your-machine" part
     ];
+    initialPassword = "hunter2";
   };
+  users.users.root.initialPassword = "hunter2";
 
-
-  # Btrfs configs
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "monthly";
-    fileSystems = [ "/" ];
-  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -121,14 +116,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget]
-  netdataCloud
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -149,7 +136,26 @@
   networking.firewall.enable = false;
 
 
+  environment.persistence."/nix/persist" = {
+    directories = [
+      "/etc/nixos" # nixos system config files, can be considered optional
+      "/srv"       # service data
+      "/var/lib"   # system service persistent data
+      "/var/log"   # the place that journald dumps it logs to
+    ];
+  };
 
+  environment.etc."ssh/ssh_host_rsa_key".source
+    = "/nix/persist/etc/ssh/ssh_host_rsa_key";
+  environment.etc."ssh/ssh_host_rsa_key.pub".source
+    = "/nix/persist/etc/ssh/ssh_host_rsa_key.pub";
+  environment.etc."ssh/ssh_host_ed25519_key".source
+    = "/nix/persist/etc/ssh/ssh_host_ed25519_key";
+  environment.etc."ssh/ssh_host_ed25519_key.pub".source
+    = "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
+
+  environment.etc."machine-id".source
+    = "/nix/persist/etc/machine-id";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

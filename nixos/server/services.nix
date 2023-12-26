@@ -10,17 +10,12 @@
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
 
-  # Enable monitoring
-  services.netdata = {
-    enable = true;
-  };
-
   virtualisation.oci-containers.containers = {
     filebrowser = {
       image = "docker://filebrowser/filebrowser";
       volumes = [
         "/data:/srv"
-        "/data/AppData/filebrowser/config/database.db:/database.db"
+        "/srv/AppData/Filebrowser/config/database.db:/database.db"
       ];
       ports = [ 
         "1010:80" 
@@ -30,9 +25,9 @@
     bazarr = {
       image = "docker://lscr.io/linuxserver/bazarr:latest";
       volumes = [
-        "/data/AppData/Bazarr:/config"
-        "/data/Movies:/movies"
-        "/data/TV:/tv"
+        "/srv/AppData/Bazarr:/config"
+        "/srv/Movies:/movies"
+        "/srv/TV:/tv"
       ];
       ports = [ 
         "6767:6767" 
@@ -42,9 +37,9 @@
     sonarr = {
       image = "docker://lscr.io/linuxserver/sonarr:latest";
       volumes = [
-        "/data/AppData/Sonarr:/config"
-        "/data/Downloads:/downloads"
-        "/data/TV:/tv"
+        "/srv/AppData/Sonarr:/config"
+        "/srv/Downloads:/downloads"
+        "/srv/TV:/tv"
       ];
       ports = [ 
         "8989:8989" 
@@ -54,10 +49,10 @@
     transmission = {
       image = "docker://lscr.io/linuxserver/transmission:latest";
       volumes = [
-        "/data/AppData/Transmission:/config"
-        "/data/Downloads:/downloads"
-        "/data/TV:/tv"
-        "/data/Movies:/movies"
+        "/srv/AppData/Transmission:/config"
+        "/srv/Downloads:/downloads"
+        "/srv/TV:/tv"
+        "/srv/Movies:/movies"
       ];
       ports = [ 
         "9091:9091"
@@ -69,9 +64,9 @@
     radarr = {
       image = "docker://lscr.io/linuxserver/radarr:latest";
       volumes = [
-        "/data/AppData/Radarr:/config"
-        "/data/Downloads:/downloads"
-        "/data/Movies:/movies"
+        "/srv/AppData/Radarr:/config"
+        "/srv/Downloads:/downloads"
+        "/srv/Movies:/movies"
       ];
       ports = [ 
         "7878:7878" 
@@ -81,7 +76,7 @@
     prowlarr = {
       image = "docker://lscr.io/linuxserver/prowlarr:latest";
       volumes = [
-        "/data/AppData/Prowlarr:/config"
+        "/srv/AppData/Prowlarr:/config"
       ];
       ports = [ 
         "9696:9696" 
@@ -91,7 +86,7 @@
     jellyseerr = {
       image = "docker://fallenbagel/jellyseerr:latest";
       volumes = [
-        "/data/AppData/jellyseer:/app/config"
+        "/srv/AppData/Jellyseer:/app/config"
       ];
       ports = [ 
         "5055:5055" 
@@ -101,8 +96,8 @@
     homepage = {
       image = "docker://ghcr.io/gethomepage/homepage:latest";
       volumes = [
-        "/data/AppData/homepage/config:/app/config"
-        "/data:/data"
+        "/srv/AppData/Homepage/config:/app/config"
+        "/srv:/srv"
         "/run/podman/podman.sock:/var/run/docker.sock"
       ];
       ports = [ 
@@ -113,7 +108,7 @@
     cloudflared-web = {
       image = "docker://wisdomsky/cloudflared-web:latest";
       volumes = [
-        "/data/AppData/cloudflare:/config"
+        "/srv/AppData/Cloudflare:/config"
       ];
       extraOptions = [
         "--network=host"
@@ -161,7 +156,7 @@
     vaultwarden = {
       image = "docker://vaultwarden/server:latest";
       volumes = [
-        "/data/AppData/vaultwarden:/data"
+        "/srv/AppData/Vaultwarden:/data"
       ];
       
       ports = [ 
@@ -173,7 +168,7 @@
     yarr = {
       image = "docker://ghcr.io/wakeful-cloud/yarr:latest";
       volumes = [
-        "/data/AppData/Yarr:/data"
+        "/srv/AppData/Yarr:/data"
       ];
       
       ports = [ 
@@ -208,7 +203,7 @@
         "5678:5678"
       ];
       volumes = [
-        "/data/AppData/n8n:/home/node/.n8n"
+        "/srv/AppData/n8n:/home/node/.n8n"
       ];
       environment = {
         WEBHOOK_URL = "https://wbhk.theholytachanka.com";

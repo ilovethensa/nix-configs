@@ -14,6 +14,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    impermanence.url = "github:nix-community/impermanence";
     
     # Spicetify
     spicetify-nix.url = "github:the-argus/spicetify-nix";
@@ -37,6 +39,7 @@
     nixpkgs,
     home-manager,
     firefox-addons,
+    impermanence,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -84,6 +87,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/server.nix
+          impermanence.nixosModules.impermanence
         ];
       };
       thinkpad = nixpkgs.lib.nixosSystem {
