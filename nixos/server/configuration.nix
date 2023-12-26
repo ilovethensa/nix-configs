@@ -112,7 +112,7 @@
     settings = {
       KbdInteractiveAuthentication = false;
       challengeResponseAuthentication = false;
-      passwordAuthentication = false;
+      PasswordAuthentication = false;
       PermitRootLogin = "no";
     };
   };
