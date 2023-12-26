@@ -214,7 +214,7 @@
     openvscode-server = {
       image = "docker://lscr.io/linuxserver/openvscode-server:latest";
       ports = [
-        "5678:5678"
+        "5978:3000"
       ];
       volumes = [
         "/srv/AppData/VScode:/config"
