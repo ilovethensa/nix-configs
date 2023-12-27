@@ -11,20 +11,31 @@
   virtualisation.podman.dockerSocket.enable = true;
 
   # Samba
-  services.samba = {
-    enable = true;
-    shares = {
-      { public =
-        { path = "/srv";
-          "read only" = false;
-          browseable = "yes";
-          "guest ok" = "yes";
-          comment = "Public samba share.";
-        };
-      }
+services.samba = {
+  enable = true;
+  securityType = "user";
+  extraConfig = ''
+    workgroup = WORKGROUP
+    server string = smbnix
+    netbios name = smbnix
+    security = user 
+    #use sendfile = yes
+    #max protocol = smb2
+    # note: localhost is the ipv6 localhost ::1
+    hosts allow = 192.168.0. 127.0.0.1 localhost
+    hosts deny = 0.0.0.0/0
+    guest account = nobody
+    map to guest = bad user
+  '';
+  shares = {
+    public = {
+      path = "/srv";
+      browseable = "yes";
+      "read only" = "no";
+      "guest ok" = "yes";
     };
-    
-  }
+  };
+};
 
   virtualisation.oci-containers.containers = {
     bazarr = {
