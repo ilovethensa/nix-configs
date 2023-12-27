@@ -10,6 +10,22 @@
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
 
+  # Samba
+  services.samba = {
+    enable = true;
+    shares = {
+      { public =
+        { path = "/srv";
+          "read only" = false;
+          browseable = "yes";
+          "guest ok" = "yes";
+          comment = "Public samba share.";
+        };
+      }
+    };
+    
+  }
+
   virtualisation.oci-containers.containers = {
     bazarr = {
       image = "docker://lscr.io/linuxserver/bazarr:latest";
