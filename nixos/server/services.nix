@@ -14,7 +14,7 @@
     filebrowser = {
       image = "docker://filebrowser/filebrowser";
       volumes = [
-        "/srv:/srv"
+        "/:/srv"
         "/srv/AppData/filebrowser/config/database.db:/database.db"
       ];
       ports = [ 
