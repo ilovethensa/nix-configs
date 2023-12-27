@@ -108,6 +108,9 @@
       PasswordAuthentication = false;
       PermitRootLogin = "yes";
     };
+    banner = ''
+Welcome
+    ''
   };
 
   nix.settings.trusted-users = [
