@@ -231,16 +231,5 @@
       autoStart = true;
     };
 
-    autobrr = {
-      image = "ghcr.io/autobrr/autobrr:latest";
-      ports = [
-        "7474:7474"
-      ];
-      volumes = [
-        "/srv/AppData/Autobrr:/config"
-      ];
-      autoStart = true;
-    };
-
   };
 }
