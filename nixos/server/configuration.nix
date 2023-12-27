@@ -110,7 +110,7 @@
     };
     banner = ''
 Welcome
-    ''
+    '';
   };
 
   nix.settings.trusted-users = [
