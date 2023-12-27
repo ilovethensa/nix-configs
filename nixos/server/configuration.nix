@@ -109,7 +109,12 @@
       PermitRootLogin = "yes";
     };
     banner = ''
-Welcome
++----------------------------------------------------+
+| This is a controlled access system. The activities |
+| on this system are monitored.                      |
+| Evidence of unauthorised activities may be         |
+| disclosed to the appropriate authorities.          |
++----------------------------------------------------+
     '';
   };
 
