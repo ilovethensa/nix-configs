@@ -102,17 +102,9 @@
 
   services.openssh = {
     enable = true;
-    extraConfig = ''
-      AllowTcpForwarding yes
-      X11Forwarding no
-      AllowAgentForwarding no
-      AllowStreamLocalForwarding no
-      AuthenticationMethods publickey
-    '';
     allowSFTP = true;
     settings = {
       KbdInteractiveAuthentication = false;
-      challengeResponseAuthentication = false;
       PasswordAuthentication = false;
       PermitRootLogin = "yes";
     };
