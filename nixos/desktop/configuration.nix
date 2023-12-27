@@ -93,10 +93,17 @@
       vscodium
       spotify
       vesktop
+      heroic
 
       # Themes
       adw-gtk3
       vimix-icon-theme
+
+      # Gaming
+      mangohud
+      gamemode
+      gamescope
+      goverlay
     ];
     shell = pkgs.fish;
   };

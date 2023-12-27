@@ -109,6 +109,7 @@
       AllowStreamLocalForwarding no
       AuthenticationMethods publickey
     '';
+    allowSFTP = true;
     settings = {
       KbdInteractiveAuthentication = false;
       challengeResponseAuthentication = false;
