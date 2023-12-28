@@ -20,12 +20,16 @@
       auto-optimise-store = true;
     };
   };
-  /* services.openssh = {
-    enable = true;
-    # require public key authentication for better security
-    settings.PasswordAuthentication = true;
-    settings.KbdInteractiveAuthentication = true;
-    settings.PermitRootLogin = "yes";
-  }; */
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
   
 }
