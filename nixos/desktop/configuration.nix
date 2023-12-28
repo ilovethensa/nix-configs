@@ -83,30 +83,7 @@
 
   programs.fish.enable = true;
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users.tht = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      # Gui
-      firefox
-      vscodium
-      spotify
-      vesktop
-      heroic
 
-      # Themes
-      adw-gtk3
-      vimix-icon-theme
-
-      # Gaming
-      mangohud
-      gamemode
-      gamescope
-      goverlay
-    ];
-    shell = pkgs.fish;
-  };
 
   # Btrfs configs
   services.btrfs.autoScrub = {
@@ -141,7 +118,26 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.appindicator
     gnomeExtensions.app-hider
+    # Gui
+    firefox
+    vscodium
+    spotify
+    vesktop
+    heroic
+    # Themes
+    adw-gtk3
+    vimix-icon-theme
+    # Gaming
+    mangohud
+    gamemode
+    gamescope
+    goverlay
   ];
+
+  # Virtual machines
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
 
   # Gaming
   programs.steam.enable = true;

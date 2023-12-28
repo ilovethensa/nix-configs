@@ -77,23 +77,17 @@
 
   programs.fish.enable = true;
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users.tht = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      # Gui
-      firefox
-      vscodium
-      spotify
-      vesktop
+  environment.systemPackages = with pkgs; [
+    # Gui
+    firefox
+    vscodium
+    spotify
+    vesktop
+    # Themes
+    adw-gtk3
+    vimix-icon-theme
+  ]
 
-      # Themes
-      adw-gtk3
-      vimix-icon-theme
-    ];
-    shell = pkgs.fish;
-  };
 
   # Btrfs configs
   services.btrfs.autoScrub = {
