@@ -98,10 +98,6 @@
     options kvm ignore_msrs=1
   '';
 
-  programs.fish.enable = true;
-
-
-
   # Btrfs configs
   services.btrfs.autoScrub = {
     enable = true;

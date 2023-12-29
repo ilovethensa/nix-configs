@@ -75,8 +75,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  programs.fish.enable = true;
-
   environment.systemPackages = with pkgs; [
     # Gui
     firefox
