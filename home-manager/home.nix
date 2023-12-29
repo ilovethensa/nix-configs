@@ -99,9 +99,9 @@
     interactiveShellInit = ''
     starship init fish | source
     thefuck --alias | source 
-help() {
-  tldr "$1" || man "$1"
-}
+function help
+    tldr $argv; or man $argv;
+end
 
     '';
     enable = true;
