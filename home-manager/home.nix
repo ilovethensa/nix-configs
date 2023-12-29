@@ -105,7 +105,7 @@
       rebuild-sys = "sudo nixos-rebuild switch --flake /home/tht/Documents/nix#desktop";
       rebuild-home = "home-manager switch --flake /home/tht/Documents/nix";
       rebuild = "rebuild-sys && rebuild-home";
-      help = "tldr $argv || man $argv";
+      help = "tldr $1 || man $1";
     };
   };
   programs.thefuck.enable = true;
