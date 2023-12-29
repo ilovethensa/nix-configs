@@ -99,13 +99,16 @@
     interactiveShellInit = ''
     starship init fish | source
     thefuck --alias | source 
+help() {
+  tldr "$1" || man "$1"
+}
+
     '';
     enable = true;
     shellAliases = {
       rebuild-sys = "sudo nixos-rebuild switch --flake /home/tht/Documents/nix#desktop";
       rebuild-home = "home-manager switch --flake /home/tht/Documents/nix";
       rebuild = "rebuild-sys && rebuild-home";
-      help = "tldr \"$@\" || man \"$@\"";
     };
   };
   programs.thefuck.enable = true;
