@@ -166,6 +166,8 @@
     gamemode
     gamescope
     goverlay
+    # Cli
+    tealdeer
   ];
 
   # Virtual machines
