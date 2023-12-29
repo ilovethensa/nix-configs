@@ -55,12 +55,12 @@
         "/srv/Movies:/movies"
       ];
       ports = [ 
-        "7654:8080"
+        "7654:7654"
         "35232:35232"
         "35232:35232/udp"
       ];
       environment = {
-        WEBUI_PORT = "8080";
+        WEBUI_PORT = "7654";
       };
       autoStart = true;
     };
