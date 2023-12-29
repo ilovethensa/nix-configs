@@ -46,19 +46,22 @@
       ];
       autoStart = true;
     };
-    transmission = {
-      image = "docker://lscr.io/linuxserver/transmission:latest";
+    qbittorrent = {
+      image = "docker://lscr.io/linuxserver/qbittorrent:latest";
       volumes = [
-        "/srv/AppData/Transmission:/config"
+        "/srv/AppData/Qbittorrent:/config"
         "/srv/Downloads:/downloads"
         "/srv/TV:/tv"
         "/srv/Movies:/movies"
       ];
       ports = [ 
-        "9091:9091"
-        "51413:51413"
-        "51413:51413/udp"
+        "8080:8080"
+        "35232:35232"
+        "35232:35232/udp"
       ];
+      environment = {
+        WEBUI_PORT = "8080";
+      };
       autoStart = true;
     };
     radarr = {
