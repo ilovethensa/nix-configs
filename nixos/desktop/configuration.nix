@@ -169,6 +169,7 @@
     # Cli
     tealdeer
     wget
+    hashcat
   ];
 
   # Virtual machines
@@ -180,6 +181,7 @@
   programs.steam.enable = true;
   hardware.opengl.driSupport = true; # This is already enabled by default
   hardware.opengl.driSupport32Bit = true; # For 32 bit applications
+  hardware.opengl.extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime ]; # For hashcat
 
   # Enable flatpak
   services.flatpak.enable = true;
