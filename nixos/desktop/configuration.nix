@@ -168,6 +168,7 @@
     goverlay
     # Cli
     tealdeer
+    wget
   ];
 
   # Virtual machines
