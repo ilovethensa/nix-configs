@@ -166,6 +166,7 @@
     tealdeer
     wget
     hashcat
+    itch
   ];
 
   # Virtual machines
