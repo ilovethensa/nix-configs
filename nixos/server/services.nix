@@ -14,6 +14,7 @@
     proto.http = {
       address = "0.0.0.0";
       enable = true;
+      port = "5383";
     };
   };
 
