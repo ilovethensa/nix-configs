@@ -23,6 +23,7 @@
       };
     };
     addressbook.defaulturl = "http://i2p-projekt.i2p/hosts.txt";
+    upnp.enable = true;
   };
 
   virtualisation.oci-containers.containers = {
@@ -190,7 +191,7 @@
       ];
       
       ports = [ 
-        "7070:7070" 
+        "6060:7070" 
       ];
       autoStart = true;
     };
