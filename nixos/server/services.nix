@@ -22,6 +22,7 @@
         port = 5383;
       };
     };
+    addressbook.defaulturl = "https://i2pplus.github.io/hosts.txt";
   };
 
   virtualisation.oci-containers.containers = {
