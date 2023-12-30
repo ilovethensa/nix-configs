@@ -241,5 +241,17 @@
       autoStart = true;
     };
 
+    i2p = {
+      image = "docker://geti2p/i2p";
+      extraOptions = [
+        "--network=host"
+      ];
+      volumes = [
+        "/srv/AppData/i2p/config:/i2p/.i2p"
+        "/srv/AppData/i2p/snark:/i2psnark"
+      ];
+      autoStart = true;
+    };
+
   };
 }
