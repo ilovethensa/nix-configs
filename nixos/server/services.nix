@@ -14,10 +14,10 @@
     proto = {
       i2pControl = {
         enable = true;
-        #address = "0.0.0.0";
+        address = "0.0.0.0";
       };
       http = {
-        #address = "0.0.0.0";
+        address = "0.0.0.0";
         enable = true;
       };
       httpProxy = {
