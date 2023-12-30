@@ -21,6 +21,9 @@
         port = 7071;
         enable = true;
       };
+      httpProxy = {
+        enable = true;
+      };
       socksProxy.port = 4447;
       socksProxy.enable = true;
     };
