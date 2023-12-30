@@ -25,6 +25,18 @@
       };
     };
     addressbook.defaulturl = "http://i2p-projekt.i2p/hosts.txt";
+    addressbook.subscriptions = [
+    "http://linuxfarm.i2p/hosts.txt"
+    "http://notbob.i2p/hosts.txt"
+    "http://reg.i2p/export/hosts.txt"
+    "http://skank.i2p/hosts.txt"
+    "http://identiguy.i2p/hosts.txt "
+    "http://inr.i2p/export/alive-hosts.txt "
+    "http://no.i2p/export/alive-hosts.txt "
+    "http://stats.i2p/cgi-bin/newhosts.txt "
+    "http://reg.rus.i2p/public/a-hosts.txt "
+    "http://skank.i2p/static/hosts.txt"
+    ];
     upnp.enable = true;
   };
 
