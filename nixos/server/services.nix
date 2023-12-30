@@ -16,17 +16,18 @@
     bandwidth = 1024;
     port = 29392;
     proto = {
-      http = {
-        # web admin; available on localhost
-        port = 7071;
-        enable = true;
-      };
-      httpProxy = {
-        enable = true;
-      };
-      socksProxy.port = 4447;
-      socksProxy.enable = true;
-    };
+          i2pControl = {
+            enable = true;
+            address = "0.0.0.0";
+          };
+          http = {
+            address = "0.0.0.0";
+            enable = true;
+          };
+          httpProxy = {
+            enable = true;
+          };
+        };
     addressbook.defaulturl = "http://i2p-projekt.i2p/hosts.txt";
     addressbook.subscriptions = [
     "http://linuxfarm.i2p/hosts.txt"
