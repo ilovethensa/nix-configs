@@ -97,7 +97,7 @@
       autoStart = true;
     };
     homepage = {
-      image = "docker://ghcr.io/gethomepage/homepage:latest";
+      image = "docker://ghcr.io/gethomepage/homepage:v0.8.4";
       volumes = [
         "/srv/AppData/Homepage/config:/app/config"
         "/srv:/srv"
