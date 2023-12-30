@@ -11,10 +11,16 @@
   virtualisation.podman.dockerSocket.enable = true;
   services.i2pd = {
     enable = true;
-    proto.http = {
-      address = "0.0.0.0";
-      enable = true;
-      port = 5383;
+    proto = {
+      i2pControl = {
+        enable = true;
+        address = "0.0.0.0";
+      };
+      http = {
+        address = "0.0.0.0";
+        enable = true;
+        port = 5383;
+      };
     };
   };
 
