@@ -11,18 +11,18 @@
   virtualisation.podman.dockerSocket.enable = true;
   services.i2pd = {
     enable = true;
+    enableIPv4 = true;
+    enableIPv6 = true;
+    bandwidth = 1024;
+    port = 29392;
     proto = {
-      i2pControl = {
-        enable = true;
-        #address = "192.168.1.100";
-      };
       http = {
-        #address = "192.168.1.100";
+        # web admin; available on localhost
+        port = 7071;
         enable = true;
       };
-      httpProxy = {
-        enable = true;
-      };
+      socksProxy.port = 4447;
+      socksProxy.enable = true;
     };
     addressbook.defaulturl = "http://i2p-projekt.i2p/hosts.txt";
     addressbook.subscriptions = [
