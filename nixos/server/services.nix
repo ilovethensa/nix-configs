@@ -20,6 +20,9 @@
         #address = "0.0.0.0";
         enable = true;
       };
+      httpProxy = {
+        enable = true;
+      };
     };
     addressbook.defaulturl = "http://i2p-projekt.i2p/hosts.txt";
     upnp.enable = true;
