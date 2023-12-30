@@ -9,7 +9,13 @@
 
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
-  services.i2p.enable = true;
+  services.i2pd = {
+    enable = true;
+    proto.http = {
+      address = "0.0.0.0";
+      enable = true;
+    };
+  };
 
   virtualisation.oci-containers.containers = {
     #filebrowser = {
