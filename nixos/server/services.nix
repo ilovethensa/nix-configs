@@ -22,7 +22,7 @@
         port = 5383;
       };
     };
-    addressbook.defaulturl = " http://i2p-projekt.i2p/hosts.txt";
+    addressbook.defaulturl = "http://i2p-projekt.i2p/hosts.txt";
   };
 
   virtualisation.oci-containers.containers = {
