@@ -14,12 +14,11 @@
     proto = {
       i2pControl = {
         enable = true;
-        address = "0.0.0.0";
+        #address = "0.0.0.0";
       };
       http = {
-        address = "0.0.0.0";
+        #address = "0.0.0.0";
         enable = true;
-        port = 5383;
       };
     };
     addressbook.defaulturl = "http://i2p-projekt.i2p/hosts.txt";
