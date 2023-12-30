@@ -9,6 +9,7 @@
 
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
+  services.i2p.enable = true;
 
   virtualisation.oci-containers.containers = {
     #filebrowser = {
@@ -237,18 +238,6 @@
       image = "docker://containrrr/watchtower:latest";
       volumes = [
         "/var/run/docker.sock:/var/run/docker.sock"
-      ];
-      autoStart = true;
-    };
-
-    i2p = {
-      image = "docker://geti2p/i2p";
-      extraOptions = [
-        "--network=host"
-      ];
-      volumes = [
-        "/srv/AppData/i2p/config:/i2p/.i2p"
-        "/srv/AppData/i2p/data:/i2psnark"
       ];
       autoStart = true;
     };
