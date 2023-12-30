@@ -88,24 +88,6 @@
 
   security.sudo.execWheelOnly = true;
 
-  services.openssh = {
-    enable = true;
-    allowSFTP = true;
-    settings = {
-      KbdInteractiveAuthentication = false;
-      PasswordAuthentication = false;
-      PermitRootLogin = "yes";
-    };
-    banner = ''
-+----------------------------------------------------+
-| This is a controlled access system. The activities |
-| on this system are monitored.                      |
-| Evidence of unauthorised activities may be         |
-| disclosed to the appropriate authorities.          |
-+----------------------------------------------------+
-    '';
-  };
-
   nix.settings.trusted-users = [
     "root"
     "@wheel"

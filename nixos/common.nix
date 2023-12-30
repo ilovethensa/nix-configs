@@ -47,5 +47,22 @@
     initialHashedPassword = "$y$j9T$R.EtRiy8oN715gMKYNMRU1$oVT/2FeQb3YnQfchAxMhb0NiLeljwN7quPVuX2N.1wC";
   };
   programs.fish.enable = true;
+  services.openssh = {
+    enable = true;
+    allowSFTP = true;
+    settings = {
+      KbdInteractiveAuthentication = false;
+      PasswordAuthentication = false;
+      PermitRootLogin = "yes";
+    };
+    banner = ''
++----------------------------------------------------+
+| This is a controlled access system. The activities |
+| on this system are monitored.                      |
+| Evidence of unauthorised activities may be         |
+| disclosed to the appropriate authorities.          |
++----------------------------------------------------+
+    '';
+  };
   
 }
