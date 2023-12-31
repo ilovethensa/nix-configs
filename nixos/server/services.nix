@@ -278,14 +278,11 @@
 
     reiverr = {
       image = "docker://ghcr.io/aleksilassila/reiverr:latest";
-      volumes = [
-        "/var/run/docker.sock:/var/run/docker.sock"
-      ];
       ports = [
         "9494:9494"
       ];
       volumes = [
-        "/srv/AppData/reiverr:/config"
+        "/srv/AppData/Reiverr:/config"
       ];
       autoStart = true;
     };
