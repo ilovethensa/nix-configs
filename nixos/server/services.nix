@@ -14,7 +14,7 @@
     enableIPv4 = true;
     enableIPv6 = true;
     bandwidth = 1024;
-    port = 29392;
+    port = 2654;
     proto = {
           i2pControl = {
             enable = true;
