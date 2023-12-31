@@ -276,5 +276,21 @@
       autoStart = true;
     };
 
+    minecraft = {
+      image = "docker://thisredh/purpurmc:latest";
+      volumes = [
+        "/srv/AppData/Minecraft:/home/server"
+      ];
+      ports = [
+        "25565:25565"
+      ];
+      environment = {
+        MC_VERSION = "1.20.1";
+        MC_EULA = "true";
+        MC_RAM_XMS = "1536M";
+        MC_RAM_XMX = "4092M";
+      }
+      autoStart = true;
+    };
   };
 }
