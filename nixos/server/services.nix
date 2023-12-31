@@ -289,7 +289,7 @@
         MC_EULA = "true";
         MC_RAM_XMS = "1536M";
         MC_RAM_XMX = "4092M";
-      }
+      };
       autoStart = true;
     };
   };
