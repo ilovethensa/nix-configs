@@ -276,16 +276,5 @@
       autoStart = true;
     };
 
-    reiverr = {
-      image = "docker://ghcr.io/aleksilassila/reiverr:latest";
-      ports = [
-        "9494:9494"
-      ];
-      volumes = [
-        "/srv/AppData/Reiverr:/config"
-      ];
-      autoStart = true;
-    };
-
   };
 }
