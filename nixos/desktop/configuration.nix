@@ -41,7 +41,7 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-        (final: prev: {
+/*         (final: prev: {
         gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
           mutter = gnomePrev.mutter.overrideAttrs ( old: {
             src = pkgs.fetchgit {
@@ -52,7 +52,7 @@
             };
           } );
         });
-      })
+      }) */
     ];
     # Configure your nixpkgs instance
     config = {
