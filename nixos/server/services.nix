@@ -277,19 +277,16 @@
     };
 
     minecraft = {
-      image = "docker://thisredh/purpurmc:latest";
+      image = "docker://daweedpanic/papermc:1.20.4";
       volumes = [
-        "/srv/AppData/Minecraft:/home/server"
+      "/srv/AppData/Minecraft/config:/server/config"
+      "/srv/AppData/Minecraft/logs:/server/logs"
+      "/srv/AppData/Minecraft/plugins:/server/plugins"
+      "/srv/AppData/Minecraft/worlds:/server/worlds"
       ];
       ports = [
         "25565:25565"
       ];
-      environment = {
-        MC_VERSION = "1.20.1";
-        MC_EULA = "true";
-        MC_RAM_XMS = "1536M";
-        MC_RAM_XMX = "4092M";
-      };
       autoStart = true;
     };
   };
