@@ -97,6 +97,14 @@
     options kvm_amd emulate_invalid_guest_state=0
     options kvm ignore_msrs=1
   '';
+  boot.binfmt.registrations.appimage = {
+    wrapInterpreterInShell = false;
+    interpreter = "${pkgs.appimage-run}/bin/appimage-run";
+    recognitionType = "magic";
+    offset = 0;
+    mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
+    magicOrExtension = ''\x7fELF....AI\x02'';
+  };
 
   # Btrfs configs
   services.btrfs.autoScrub = {
@@ -167,6 +175,7 @@
     wget
     hashcat
     itch
+    appimage-run
   ];
 
   # Virtual machines
