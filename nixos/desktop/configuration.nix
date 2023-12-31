@@ -176,6 +176,12 @@
     hashcat
     itch
     appimage-run
+
+    # For minecraft
+    jdk8
+    jdk11
+    jdk17
+    jdk21
   ];
 
   # Virtual machines
