@@ -278,6 +278,9 @@
 
     minecraft = {
       image = "docker://daweedpanic/papermc:1.20.4";
+      extraOptions = [
+        "-it"
+      ];
       volumes = [
       "/srv/AppData/Minecraft/config:/server/config"
       "/srv/AppData/Minecraft/logs:/server/logs"
