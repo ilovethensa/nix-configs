@@ -178,10 +178,9 @@
     appimage-run
 
     # For minecraft
-    openjdk8
-    openjdk11
+    openjdk19
     openjdk17
-    openjdk21
+    openjdk8
   ];
 
   # Virtual machines
