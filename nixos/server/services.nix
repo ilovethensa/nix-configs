@@ -28,7 +28,7 @@
             enable = true;
           };
         };
-    addressbook.defaulturl = "http://i2p-projekt.i2p/hosts.txt";
+    addressbook.defaulturl = "http://no.i2p/export/alive-hosts.txt";
     addressbook.subscriptions = [
     "http://linuxfarm.i2p/hosts.txt"
     "http://notbob.i2p/hosts.txt"
