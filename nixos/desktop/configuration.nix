@@ -198,6 +198,7 @@
   services.flatpak.enable = true;
 
   services.icecream.daemon.enable = true;
+  services.icecream.daemon.openFirewall = false;
 
 
 
