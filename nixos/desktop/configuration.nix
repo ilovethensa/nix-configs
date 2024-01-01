@@ -201,6 +201,7 @@
   services.icecream.daemon.openFirewall = false;
   services.icecream.daemon.openBroadcast = true;
   services.icecream.scheduler.enable = true;
+  services.icecream.scheduler.openFirewall = false;
 
 
 
