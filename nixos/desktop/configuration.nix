@@ -197,7 +197,7 @@
   # Enable flatpak
   services.flatpak.enable = true;
 
-  services.distccd.enable = true;
+  services.icecream.daemon.enable = true;
 
 
 
