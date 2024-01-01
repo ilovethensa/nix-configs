@@ -9,8 +9,6 @@
 
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
-  services.icecream.daemon.enable = true;
-  services.icecream.daemon.openFirewall = false;
   services.i2pd = {
     enable = true;
     enableIPv4 = true;
