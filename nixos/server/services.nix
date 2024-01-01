@@ -228,7 +228,6 @@
       };
       volumes = [
         "/var/run/docker.sock:/var/run/docker.sock:ro"
-        "/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro"
         "/srv:/hostfs:ro"
       ];
       autoStart = true;
