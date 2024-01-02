@@ -80,6 +80,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/desktop.nix
+          impermanence.nixosModules.impermanence
         ];
       };
       server = nixpkgs.lib.nixosSystem {

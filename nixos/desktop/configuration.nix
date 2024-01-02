@@ -197,6 +197,16 @@
   # Enable flatpak
   services.flatpak.enable = true;
 
+  environment.persistence."/nix/persist" = {
+    directories = [
+      "/etc/nixos" # nixos system config files, can be considered optional
+      "/srv"       # service data
+      "/var/lib"   # system service persistent data
+      "/var/log"   # the place that journald dumps it logs to
+      { directory = "/home/tht"; user = "tht"; }
+    ];
+  };
+
 
 
 
