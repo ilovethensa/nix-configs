@@ -184,8 +184,6 @@
     openjdk19
     openjdk17
     openjdk8
-    v4l2-relayd
-    linuxKernel.packages.linux_6_6.v4l2loopback
   ];
 
   # Virtual machines
@@ -211,8 +209,6 @@
       { directory = "/home/tht"; user = "tht"; }
     ];
   };
-
-  programs.droidcam.enable = true;
 
 
 
