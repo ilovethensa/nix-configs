@@ -210,6 +210,8 @@
     ];
   };
 
+  programs.droidcam.enable = true;
+
 
 
 
