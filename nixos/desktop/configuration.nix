@@ -96,7 +96,11 @@
     options kvm_amd nested=1
     options kvm_amd emulate_invalid_guest_state=0
     options kvm ignore_msrs=1
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
@@ -184,6 +188,8 @@
     openjdk19
     openjdk17
     openjdk8
+
+    droidcam
   ];
 
   # Virtual machines
