@@ -184,6 +184,7 @@
     openjdk19
     openjdk17
     openjdk8
+    v4l2-relayd
   ];
 
   # Virtual machines
