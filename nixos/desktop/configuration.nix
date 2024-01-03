@@ -110,6 +110,8 @@
     magicOrExtension = ''\x7fELF....AI\x02'';
   };
 
+  security.polkit.enable = true;
+
   # Btrfs configs
   services.btrfs.autoScrub = {
     enable = true;
