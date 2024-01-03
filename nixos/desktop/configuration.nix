@@ -171,6 +171,8 @@
     vesktop
     heroic
     resources
+    obs-studio
+    droidcam
     # Themes
     adw-gtk3
     vimix-icon-theme
@@ -190,8 +192,6 @@
     openjdk19
     openjdk17
     openjdk8
-
-    droidcam
   ];
 
   # Virtual machines
