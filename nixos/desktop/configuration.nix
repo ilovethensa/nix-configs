@@ -185,6 +185,7 @@
     openjdk17
     openjdk8
     v4l2-relayd
+    linuxKernel.packages.linux_6_6.v4l2loopback
   ];
 
   # Virtual machines
