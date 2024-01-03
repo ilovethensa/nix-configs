@@ -116,6 +116,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.excludePackages = with pkgs; [
+    xterm
+  ];
 
 
   # Enable the GNOME Desktop Environment.
