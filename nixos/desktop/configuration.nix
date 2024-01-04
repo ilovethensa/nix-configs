@@ -176,6 +176,7 @@
     droidcam
     qbittorrent
     bottles
+    piper
     # Themes
     adw-gtk3
     vimix-icon-theme
@@ -220,6 +221,8 @@
       { directory = "/home/tht"; user = "tht"; }
     ];
   };
+
+  services.ratbagd.enable = true;
 
 
 
