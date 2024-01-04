@@ -174,6 +174,7 @@
     resources
     obs-studio
     droidcam
+    spot
     # Themes
     adw-gtk3
     vimix-icon-theme
