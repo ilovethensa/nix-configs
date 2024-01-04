@@ -174,7 +174,7 @@
     resources
     obs-studio
     droidcam
-    spot
+    qbittorrent
     # Themes
     adw-gtk3
     vimix-icon-theme
