@@ -175,6 +175,7 @@
     obs-studio
     droidcam
     qbittorrent
+    bottles
     # Themes
     adw-gtk3
     vimix-icon-theme
