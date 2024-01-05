@@ -291,5 +291,27 @@
       ];
       autoStart = true;
     };
+
+    mealie = {
+      image = "docker://ghcr.io/mealie-recipes/mealie:v1.0.0-RC1.1";
+      volumes = [
+      "/srv/AppData/Mealie:/app/data/"
+      ];
+      ports = [
+        "9925:9000"
+      ];
+      environment = {
+        ALLOW_SIGNUP = "true";
+        PUID = "1000";
+        PGID = "1000";
+        TZ = "Europe/Sofia";
+        MAX_WORKERS = "1";
+        WEB_CONCURRENCY = "1";
+      };
+      autoStart = true;
+    };
+
   };
+
+
 }
