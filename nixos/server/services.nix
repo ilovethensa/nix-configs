@@ -302,9 +302,6 @@
       ];
       environment = {
         ALLOW_SIGNUP = "true";
-        PUID = "1000";
-        PGID = "1000";
-        TZ = "Europe/Sofia";
         MAX_WORKERS = "1";
         WEB_CONCURRENCY = "1";
       };
