@@ -177,6 +177,7 @@
     qbittorrent
     bottles
     piper
+    feishin
     # Themes
     adw-gtk3
     vimix-icon-theme
