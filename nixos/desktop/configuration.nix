@@ -184,9 +184,6 @@
   hardware.opengl.driSupport32Bit = true; # For 32 bit applications
   hardware.opengl.extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime ]; # For hashcat
 
-  # Enable flatpak
-  services.flatpak.enable = true;
-
   environment.persistence."/nix/persist" = {
     directories = [
       "/etc/nixos" # nixos system config files, can be considered optional
