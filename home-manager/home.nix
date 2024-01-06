@@ -79,7 +79,7 @@ function help
     tldr $argv; or man $argv;
 end  */
   programs.fish = {
-    promptInit = ''
+    interactiveShellInit = ''
     starship init fish | source
     '';
     enable = true;
