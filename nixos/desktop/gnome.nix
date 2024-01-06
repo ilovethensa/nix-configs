@@ -25,4 +25,7 @@
     gnomeExtensions.app-hider
     resources
   ];
+  environment.sessionVariables = rec {
+    QT_QPA_PLATFORMTHEME  = "gtk2";
+  };
 }

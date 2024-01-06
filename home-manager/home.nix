@@ -56,6 +56,7 @@
     homeDirectory = "/home/tht";
     packages = with pkgs; [
       adw-gtk3
+      adwaita-qt
       vimix-icon-theme
       vimix-cursors
     ];
