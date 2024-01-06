@@ -54,6 +54,11 @@
   home = {
     username = "tht";
     homeDirectory = "/home/tht";
+    packages = with pks; [
+      adw-gtk3
+      vimix-icon-theme
+      vimix-cursors
+    ];
   };
 
   # Add stuff for your user as you see fit:
@@ -97,6 +102,12 @@ end
 
       # package.disabled = true;
     };
+  };
+  gtk = {
+    enable =true;
+    theme.name = "Adw-gtk3-dark";
+    cursorTheme.name = "Bibata-Modern-Ice";
+    iconTheme.name = "Vimix-Doder-dark";
   };
 
   # Nicely reload system units when changing configs

@@ -24,7 +24,5 @@
     gnomeExtensions.appindicator
     gnomeExtensions.app-hider
     resources
-    adw-gtk3
-    vimix-icon-theme
   ];
 }

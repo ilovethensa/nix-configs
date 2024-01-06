@@ -1,4 +1,4 @@
-{ pkgs, lib, spicetify-nix, ... }:
+{ pkgs, lib, inputs, ... }:
 {
   programs.firefox = {
     enable = true;
