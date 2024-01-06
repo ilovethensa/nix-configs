@@ -159,6 +159,7 @@
     mangohud
     gamemode
     gamescope
+    steamtinkerlaunch
     goverlay
     # Cli
     tealdeer
