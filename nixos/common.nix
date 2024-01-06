@@ -65,7 +65,10 @@
     '';
     ports = [584];
   };
-  services.endlessh.enable = true;
+  services.endlessh = {
+    enable = true;
+    port = 22;
+  };
   services.tailscale.enable = true;
   
 }
