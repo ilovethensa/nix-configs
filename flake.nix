@@ -42,7 +42,7 @@
     home-manager,
     firefox-addons,
     impermanence,
-    xremap-flake
+    xremap-flake,
     ...
   } @ inputs: let
     inherit (self) outputs;
