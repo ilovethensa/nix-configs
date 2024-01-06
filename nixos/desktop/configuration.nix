@@ -153,6 +153,7 @@
     droidcam
     transmission_4-gtk
     bottles
+    lutris
     piper
     #skiff-desktop
     # Gaming
