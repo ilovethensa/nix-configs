@@ -26,6 +26,7 @@
       pkgs.gnomeExtensions.appindicator
       pkgs.gnomeExtensions.app-hider
       pkgs.resources
+      
     ]
   ];
 }
