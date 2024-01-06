@@ -23,8 +23,6 @@ with lib.hm.gvariant;
       color-scheme = "prefer-dark";
       font-antialiasing = "rgba";
       font-hinting = "full";
-      gtk-theme = "adw-gtk3-dark";
-      icon-theme = "Vimix-Doder-dark";
       show-battery-percentage = true;
     };
 
