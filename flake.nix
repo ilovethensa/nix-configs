@@ -81,7 +81,6 @@
           # > Our main nixos configuration file <
           ./nixos/desktop.nix
           impermanence.nixosModules.impermanence
-          inputs.xremap-flake.nixosModules.default
         ];
       };
       server = nixpkgs.lib.nixosSystem {
