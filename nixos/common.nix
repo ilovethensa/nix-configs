@@ -63,7 +63,7 @@
 | disclosed to the appropriate authorities.          |
 +----------------------------------------------------+
     '';
-    ports = ["584"];
+    ports = [584];
   };
   services.endlessh.enable = true;
   services.tailscale.enable = true;
