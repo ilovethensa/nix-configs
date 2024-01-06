@@ -4,7 +4,7 @@
 with lib.hm.gvariant;
 
 {
-  dconf.settings = { 
+  dconf.settings = {
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
@@ -28,17 +28,9 @@ with lib.hm.gvariant;
       show-battery-percentage = true;
     };
 
-    "org/gnome/desktop/notifications" = {
-      application-children = [ "org-gnome-settings" ];
-    };
-
-    "org/gnome/desktop/notifications/application/org-gnome-settings" = {
-      application-id = "org.gnome.Settings.desktop";
-    };
-
     "org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "flat";
-      speed = -0.852713;
+      speed = -0.6031128404669261;
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -78,13 +70,20 @@ with lib.hm.gvariant;
       num-workspaces = 1;
     };
 
-    "org/gnome/evolution-data-server" = {
-      migrated = true;
-    };
-
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       edge-tiling = true;
+    };
+
+    "org/gnome/nautilus/preferences" = {
+      default-folder-viewer = "list-view";
+      migrated-gtk-settings = true;
+      search-filter-time-type = "last_modified";
+    };
+
+    "org/gnome/nautilus/window-state" = {
+      initial-size = mkTuple [ 890 550 ];
+      maximized = true;
     };
 
     "org/gnome/settings-daemon/plugins/color" = {
@@ -99,11 +98,13 @@ with lib.hm.gvariant;
       app-picker-layout = "[{'org.gnome.Geary.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.gnome.Extensions.desktop': <{'position': <5>}>, 'org.gnome.Photos.desktop': <{'position': <6>}>, 'org.gnome.Totem.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'org.gnome.eog.desktop': <{'position': <9>}>, 'simple-scan.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'gnome-system-monitor.desktop': <{'position': <12>}>, 'nixos-manual.desktop': <{'position': <13>}>, 'org.gnome.TextEditor.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'org.gnome.Tour.desktop': <{'position': <16>}>, 'yelp.desktop': <{'position': <17>}>, 'xterm.desktop': <{'position': <18>}>, 'org.gnome.Cheese.desktop': <{'position': <19>}>, 'org.gnome.Calendar.desktop': <{'position': <20>}>, 'org.gnome.Epiphany.desktop': <{'position': <21>}>}, {'org.gnome.Music.desktop': <{'position': <0>}>}]";
       enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "app-hider@lynith.dev" ];
       favorite-apps = [ "org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "codium.desktop" ];
+      remember-mount-password = false;
       welcome-dialog-last-shown-version = "45.2";
     };
 
     "org/gnome/shell/extensions/app-hider" = {
       hidden-apps = [ "nixos-manual.desktop" "yelp.desktop" "org.gnome.Tour.desktop" ];
     };
-   };
-  }
+
+  };
+}
