@@ -16,6 +16,8 @@
     };
 
     impermanence.url = "github:nix-community/impermanence";
+
+    xremap-flake.url = "github:xremap/nix-flake";
     
     # Spicetify
     spicetify-nix.url = "github:the-argus/spicetify-nix";
@@ -40,6 +42,7 @@
     home-manager,
     firefox-addons,
     impermanence,
+    xremap-flake
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -81,6 +84,7 @@
           # > Our main nixos configuration file <
           ./nixos/desktop.nix
           impermanence.nixosModules.impermanence
+          inputs.xremap-flake.nixosModules.default
         ];
       };
       server = nixpkgs.lib.nixosSystem {

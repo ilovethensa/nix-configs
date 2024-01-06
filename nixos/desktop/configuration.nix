@@ -203,6 +203,19 @@
     };
   };
 
+  services.xremap = {
+    /* NOTE: since this sample configuration does not have any DE, xremap needs to be started manually by systemctl --user start xremap */
+    serviceMode = "user";
+    userName = "alice";
+  };
+
+  services.xremap.config.modmap = [
+    {
+      name = "Global";
+      remap = { "BTN_0" = "Enter"; }; # globally remap CapsLock to Esc
+    }
+  ];
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }
