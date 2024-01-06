@@ -151,7 +151,7 @@
     heroic
     obs-studio
     droidcam
-    qbittorrent
+    transmission_4-gtk
     bottles
     piper
     #skiff-desktop
