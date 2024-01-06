@@ -22,6 +22,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    ./gnome.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -129,27 +130,6 @@
   ];
 
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    cheese # webcam tool
-    gnome-music
-    epiphany # web browser
-    geary # email reader
-    evince # document viewer
-    totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-    gnome-system-monitor # Resource monitor
-  ]);
-
-
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   services.pipewire = {
@@ -163,16 +143,12 @@
   hardware.pulseaudio.enable = false;
 
   environment.systemPackages = with pkgs; [ 
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.appindicator
-    gnomeExtensions.app-hider
     # Gui
     firefox
     vscodium
     spotify
     vesktop
     heroic
-    resources
     obs-studio
     droidcam
     qbittorrent
