@@ -177,6 +177,7 @@
     qbittorrent
     bottles
     piper
+    #skiff-desktop
     # Themes
     adw-gtk3
     vimix-icon-theme
