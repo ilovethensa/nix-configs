@@ -19,10 +19,12 @@
     atomix # puzzle game
     gnome-system-monitor # Resource monitor
   ]);
-  environment.systemPackages = [ 
-      pkgs.gnomeExtensions.blur-my-shell
-      pkgs.gnomeExtensions.appindicator
-      pkgs.gnomeExtensions.app-hider
-      pkgs.resources
+  environment.systemPackages = with pkgs; [ 
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.appindicator
+    gnomeExtensions.app-hider
+    resources
+    adw-gtk3
+    vimix-icon-theme
   ];
 }
