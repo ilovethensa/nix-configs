@@ -19,14 +19,10 @@
     atomix # puzzle game
     gnome-system-monitor # Resource monitor
   ]);
-  environment.systemPackages = lib.mkMerge [
-    config.environment.systemPackages
-    [ 
+  environment.systemPackages = [ 
       pkgs.gnomeExtensions.blur-my-shell
       pkgs.gnomeExtensions.appindicator
       pkgs.gnomeExtensions.app-hider
       pkgs.resources
-      
-    ]
   ];
 }
