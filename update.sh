@@ -5,7 +5,7 @@ declare -A server_devices=(
     ["192.168.1.100"]="server"
     ["192.168.1.102"]="desktop"
 )
-
+nix flake update
 # Loop through each server and run the nixos-rebuild command
 for server in "${!server_devices[@]}"; do
     device="${server_devices[$server]}"
