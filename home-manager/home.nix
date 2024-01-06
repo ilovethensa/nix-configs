@@ -109,6 +109,14 @@ end
     cursorTheme.name = "Vimix-cursors";
     iconTheme.name = "Vimix-Doder-dark";
   };
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
