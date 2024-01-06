@@ -105,8 +105,8 @@ end
   };
   gtk = {
     enable =true;
-    theme.name = "Adw-gtk3-dark";
-    cursorTheme.name = "Bibata-Modern-Ice";
+    theme.name = "adw-gtk3-dark";
+    cursorTheme.name = "Vimix-cursors";
     iconTheme.name = "Vimix-Doder-dark";
   };
 
