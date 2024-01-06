@@ -54,7 +54,7 @@
   home = {
     username = "tht";
     homeDirectory = "/home/tht";
-    packages = with pks; [
+    packages = with pkgs; [
       adw-gtk3
       vimix-icon-theme
       vimix-cursors
