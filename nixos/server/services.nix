@@ -267,14 +267,6 @@
       autoStart = true;
     };
 
-    watchtower = {
-      image = "docker://containrrr/watchtower:latest";
-      volumes = [
-        "/var/run/docker.sock:/var/run/docker.sock"
-      ];
-      autoStart = true;
-    };
-
     minecraft = {
       image = "docker://daweedpanic/papermc:1.20.4";
       extraOptions = [
