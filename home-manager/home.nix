@@ -73,14 +73,14 @@
     userEmail = "me@theholytachanka.com";
     userName = "Linus Torvalds";
   };
-  programs.fish = {
-    interactiveShellInit = ''
-    starship init fish | source
-    thefuck --alias | source 
+
+/*        thefuck --alias | source 
 function help
     tldr $argv; or man $argv;
-end
-
+end  */
+  programs.fish = {
+    promptInit = ''
+    starship init fish | source
     '';
     enable = true;
     shellAliases = {
