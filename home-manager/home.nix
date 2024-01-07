@@ -59,6 +59,7 @@
       adwaita-qt
       vimix-icon-theme
       vimix-cursors
+      fira-code-nerdfont
     ];
   };
 
