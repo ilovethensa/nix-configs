@@ -25,6 +25,14 @@
   };
   services.nginx.virtualHosts."server".listen = [ { addr = "0.0.0.0"; port = 6245; } ];
 
+  services.openvscode-server = {
+    enable = true;
+    telemetryLevel = "off";
+    serverDataDir = "/srv/AppData/Openvscode/data";
+    host = "0.0.0.0";
+    connectionTokenFile = "/srv/AppData/Openvscode/token"
+  };
+
   virtualisation.oci-containers.containers = {
     bazarr = {
       image = "docker://lscr.io/linuxserver/bazarr:latest";
@@ -214,18 +222,6 @@
       environment = {
         WEBHOOK_URL = "https://wbhk.theholytachanka.com";
       };
-      autoStart = true;
-    };
-
-    openvscode-server = {
-      image = "docker://lscr.io/linuxserver/openvscode-server:latest";
-      ports = [
-        "5978:3000"
-      ];
-      volumes = [
-        "/srv/AppData/VScode:/config"
-        "/srv/AppData:/AppData"
-      ];
       autoStart = true;
     };
 
