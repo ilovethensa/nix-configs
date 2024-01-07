@@ -15,6 +15,7 @@
     config.extraTrustedDomains = [
       "https://cloud.theholytachanka.com"
     ];
+    hostName = "cloud.theholytachanka.com"
   };
 
   virtualisation.oci-containers.containers = {
