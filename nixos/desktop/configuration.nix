@@ -154,12 +154,6 @@
     transmission_4-gtk
     bottles
     lutris
-    #(lutris.override {
-    #   extraPkgs = pkgs: [
-    #     wine
-    #   ];
-    #})
-    wineWowPackages.staging
     piper
     #skiff-desktop
     # Gaming
@@ -168,6 +162,7 @@
     gamescope
     steamtinkerlaunch
     goverlay
+    wineWowPackages.staging
     # Cli
     tealdeer
     wget
