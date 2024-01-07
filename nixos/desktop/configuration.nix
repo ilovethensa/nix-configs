@@ -154,11 +154,12 @@
     transmission_4-gtk
     bottles
     lutris
-    (lutris.override {
-       extraPkgs = pkgs: [
-         wine
-       ];
-    })
+    #(lutris.override {
+    #   extraPkgs = pkgs: [
+    #     wine
+    #   ];
+    #})
+    wineWowPackages.staging
     piper
     #skiff-desktop
     # Gaming
