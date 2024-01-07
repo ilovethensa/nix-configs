@@ -84,27 +84,14 @@ end  */
     starship init fish | source
     '';
     enable = true;
-    shellAliases = {
-      rebuild-sys = "sudo nixos-rebuild switch --flake /home/tht/Documents/nix#desktop";
-      rebuild-home = "home-manager switch --flake /home/tht/Documents/nix";
-      rebuild = "rebuild-sys && rebuild-home";
-    };
+    #shellAliases = {
+    #  rebuild-sys = "sudo nixos-rebuild switch --flake /home/tht/Documents/nix#desktop";
+    #  rebuild-home = "home-manager switch --flake /home/tht/Documents/nix";
+    #  rebuild = "rebuild-sys && rebuild-home";
+    #};
   };
   programs.thefuck.enable = true;
-  programs.starship = {
-    enable = true;
-    # Configuration written to ~/.config/starship.toml
-    settings = {
-      # add_newline = false;
-
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
-
-      # package.disabled = true;
-    };
-  };
+  programs.starship.enable = true;
   gtk = {
     enable =true;
     theme.name = "adw-gtk3-dark";
