@@ -9,40 +9,7 @@
 
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
-  services.i2pd = {
-    enable = true;
-    enableIPv4 = true;
-    enableIPv6 = true;
-    bandwidth = 1024;
-    port = 2654;
-    proto = {
-          i2pControl = {
-            enable = true;
-            #address = "0.0.0.0";
-          };
-          http = {
-            #address = "0.0.0.0";
-            enable = true;
-          };
-          httpProxy = {
-            enable = true;
-          };
-        };
-    addressbook.defaulturl = "http://no.i2p/export/alive-hosts.txt";
-    addressbook.subscriptions = [
-    "http://linuxfarm.i2p/hosts.txt"
-    "http://notbob.i2p/hosts.txt"
-    "http://reg.i2p/export/hosts.txt"
-    "http://skank.i2p/hosts.txt"
-    "http://identiguy.i2p/hosts.txt "
-    "http://inr.i2p/export/alive-hosts.txt "
-    "http://no.i2p/export/alive-hosts.txt "
-    "http://stats.i2p/cgi-bin/newhosts.txt "
-    "http://reg.rus.i2p/public/a-hosts.txt "
-    "http://skank.i2p/static/hosts.txt"
-    ];
-    upnp.enable = true;
-  };
+  
 
   virtualisation.oci-containers.containers = {
     #filebrowser = {
