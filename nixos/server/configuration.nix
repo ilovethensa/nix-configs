@@ -150,6 +150,7 @@
       "/srv"       # service data
       "/var/lib"   # system service persistent data
       "/var/log"   # the place that journald dumps it logs to
+      { directory = "/home/openvscode-server"; user = "openvscode-server"; }
     ];
   };
 
