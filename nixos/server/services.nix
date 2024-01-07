@@ -13,7 +13,7 @@
     enable = true;
     package = pkgs.nextcloud28;
     hostName = "server";
-    config.adminpassFile = "/srv/AppData/Nextcloud/config/pass";
+    #config.adminpassFile = "/srv/AppData/Nextcloud/config/pass";
     extraOptions.trusted_domains = [
         "192.168.1.100"
         "server.tail8383e.ts.net"
