@@ -32,6 +32,9 @@
     host = "0.0.0.0";
     #connectionTokenFile = "/srv/AppData/Openvscode/token";
     withoutConnectionToken = true;
+    extraPackages = with pkgs; [
+      git
+    ];
   };
 
   virtualisation.oci-containers.containers = {
