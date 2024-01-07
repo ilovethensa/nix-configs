@@ -30,7 +30,7 @@
     telemetryLevel = "off";
     serverDataDir = "/srv/AppData/Openvscode/data";
     host = "0.0.0.0";
-    connectionTokenFile = "/srv/AppData/Openvscode/token"
+    connectionTokenFile = "/srv/AppData/Openvscode/token";
   };
 
   virtualisation.oci-containers.containers = {
