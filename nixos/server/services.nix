@@ -9,7 +9,13 @@
 
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
-  
+  services.nextcloud = {
+    enable = true;
+    home = "/srv/AppData/Nextcloud/home"
+    config.extraTrustedDomains = [
+      "https://cloud.theholytachanka.com"
+    ];
+  };
 
   virtualisation.oci-containers.containers = {
     #filebrowser = {
