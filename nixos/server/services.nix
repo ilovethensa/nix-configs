@@ -17,6 +17,7 @@
     home = "/srv/AppData/Nextcloud/storage";
     configureRedis = true;
   };
+  services.nginx.virtualHosts."localhost".listen = [ { addr = "127.0.0.1"; port = 6245; } ];
 
   virtualisation.oci-containers.containers = {
     #filebrowser = {
