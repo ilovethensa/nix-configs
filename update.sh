@@ -2,7 +2,7 @@
 
 # Associative array mapping server IPs to device names
 declare -A server_devices=(
-    ["192.168.1.100"]="server"
+    ["server"]="server"
     ["192.168.1.102"]="desktop"
 )
 nix flake update
@@ -10,5 +10,5 @@ nix flake update
 for server in "${!server_devices[@]}"; do
     device="${server_devices[$server]}"
     echo "Updating server at IP: $server with device: $device"
-    nixos-rebuild switch --flake .#$device --target-host root@$server:584 --upgrade
+    nixos-rebuild switch --flake .#$device --target-host root@$server --upgrade
 done
