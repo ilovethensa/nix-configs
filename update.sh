@@ -3,7 +3,7 @@
 # Associative array mapping server IPs to device names
 declare -A server_devices=(
     ["server"]="server"
-    ["192.168.1.102"]="desktop"
+    ["desktop"]="desktop"
 )
 nix flake update
 # Loop through each server and run the nixos-rebuild command
