@@ -11,7 +11,7 @@
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
