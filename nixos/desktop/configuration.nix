@@ -155,6 +155,7 @@
     bottles
     lutris
     piper
+    celeste
     #skiff-desktop
     # Gaming
     mangohud
