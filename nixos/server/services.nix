@@ -15,6 +15,7 @@
     hostName = "localhost";
     config.adminpassFile = "/srv/AppData/Nextcloud/config/pass";
     home = "/srv/AppData/Nextcloud/storage";
+    configureRedis = true;
   };
 
   virtualisation.oci-containers.containers = {
