@@ -152,6 +152,7 @@
     lutris
     piper
     celeste
+    #itch
     #skiff-desktop
     # Gaming
     mangohud
@@ -164,7 +165,6 @@
     tealdeer
     wget
     hashcat
-    itch
     appimage-run
 
     # For minecraft
