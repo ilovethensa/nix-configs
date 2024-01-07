@@ -23,7 +23,7 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.appindicator
     gnomeExtensions.app-hider
-    resources
+    #resources
   ];
   environment.sessionVariables = rec {
     QT_QPA_PLATFORMTHEME  = "gtk2";
