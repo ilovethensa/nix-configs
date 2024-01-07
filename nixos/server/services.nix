@@ -300,6 +300,23 @@
       autoStart = true;
     };
 
+    unmanic = {
+      image = "docker://josh5/unmanic:latest";
+      extraOptions = [
+        "--device=/dev/dri"
+      ];
+      volumes = [
+      "/srv/AppData/Unmanic/config:/config"
+      "/srv/AppData/Unmanic/cache:/tmp/unmanic"
+      "/srv/TV:/library/TV"
+      "/srv/Movies:/library/Movies"
+      ];
+      ports = [
+        "8888:8888"
+      ];
+      autoStart = true;
+    };
+
   };
 
 
