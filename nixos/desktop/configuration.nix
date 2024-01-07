@@ -154,6 +154,11 @@
     transmission_4-gtk
     bottles
     lutris
+    (lutris.override {
+       extraPkgs = pkgs: [
+         wine
+       ];
+    })
     piper
     #skiff-desktop
     # Gaming
@@ -195,6 +200,7 @@
       { directory = "/home/tht"; user = "tht"; }
     ];
   };
+
 
   services.ratbagd.enable = true;
   home-manager = {
