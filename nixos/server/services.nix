@@ -18,6 +18,7 @@
         "192.168.1.100"
         "server.tail8383e.ts.net"
         "100.108.163.105"
+        "cloud.theholytachanka.com"
     ];
     home = "/srv/AppData/Nextcloud/storage";
     configureRedis = true;
