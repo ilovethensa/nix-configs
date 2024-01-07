@@ -13,7 +13,12 @@
     enable = true;
     package = pkgs.nextcloud28;
     hostName = "server";
-    config.adminpassFile = "/srv/AppData/Nextcloud/config/pass";
+    config = {
+      adminpassFile = "/srv/AppData/Nextcloud/config/pass";
+      extraTrustedDomains = [
+        "192.168.1.100"
+      ];
+    };
     home = "/srv/AppData/Nextcloud/storage";
     configureRedis = true;
   };
