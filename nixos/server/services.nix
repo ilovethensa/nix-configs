@@ -11,7 +11,7 @@
   virtualisation.podman.dockerSocket.enable = true;
   services.nextcloud = {
     enable = true;
-    home = "/srv/AppData/Nextcloud/home"
+    home = "/srv/AppData/Nextcloud/home";
     config.extraTrustedDomains = [
       "https://cloud.theholytachanka.com"
     ];
