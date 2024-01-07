@@ -12,12 +12,12 @@
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud28;
-    hostName = "localhost";
+    hostName = "server";
     config.adminpassFile = "/srv/AppData/Nextcloud/config/pass";
     home = "/srv/AppData/Nextcloud/storage";
     configureRedis = true;
   };
-  services.nginx.virtualHosts."localhost".listen = [ { addr = "127.0.0.1"; port = 6245; } ];
+  services.nginx.virtualHosts."server".listen = [ { addr = "0.0.0.0"; port = 6245; } ];
 
   virtualisation.oci-containers.containers = {
     #filebrowser = {
