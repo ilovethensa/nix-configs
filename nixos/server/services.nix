@@ -248,23 +248,6 @@
       autoStart = true;
     };
 
-    minecraft = {
-      image = "docker://daweedpanic/papermc:1.20.4";
-      extraOptions = [
-        "-it"
-      ];
-      volumes = [
-      "/srv/AppData/Minecraft/config:/server/config"
-      "/srv/AppData/Minecraft/logs:/server/logs"
-      "/srv/AppData/Minecraft/plugins:/server/plugins"
-      "/srv/AppData/Minecraft/worlds:/server/worlds"
-      ];
-      ports = [
-        "25565:25565"
-      ];
-      autoStart = true;
-    };
-
     mealie = {
       image = "docker://ghcr.io/mealie-recipes/mealie:v1.0.0-RC1.1";
       volumes = [
