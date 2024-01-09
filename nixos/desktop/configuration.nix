@@ -168,6 +168,10 @@
     appimage-run
     cargo
     gcc
+    rustc 
+    gcc 
+    rustfmt 
+    clippy
 
     # For minecraft
     openjdk19
