@@ -109,7 +109,7 @@ end  */
 
   programs.vscode = {
   enable = true;
-  package = pkgs.vscode.fhsWithPackages (ps: with ps; [ cargo zlib openssl.dev pkg-config ]);
+  package = pkgs.vscode.fhsWithPackages (ps: with ps; [ gcc cargo zlib openssl.dev pkg-config ]);
   extensions = with pkgs.vscode-extensions; [
     rust-lang.rust-analyzer
     tamasfe.even-better-toml

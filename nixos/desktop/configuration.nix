@@ -167,6 +167,7 @@
     hashcat
     appimage-run
     cargo
+    gcc
 
     # For minecraft
     openjdk19
