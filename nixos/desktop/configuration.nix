@@ -166,6 +166,7 @@
     wget
     hashcat
     appimage-run
+    cargo
 
     # For minecraft
     openjdk19
