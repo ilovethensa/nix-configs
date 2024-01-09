@@ -57,6 +57,7 @@
     packages = with pkgs; [
       adw-gtk3
       adwaita-qt
+      adwaita-qt6
       vimix-icon-theme
       vimix-cursors
       fira-code-nerdfont
