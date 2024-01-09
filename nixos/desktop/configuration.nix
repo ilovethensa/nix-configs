@@ -152,6 +152,7 @@
     lutris
     piper
     celeste
+    cartridges
     #itch
     #skiff-desktop
     # Gaming
