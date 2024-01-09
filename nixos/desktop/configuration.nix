@@ -88,6 +88,7 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   environment.variables = {
     ROC_ENABLE_PRE_VEGA = "1";  # Enable ROCM on my RX 580
+    RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
   };
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
