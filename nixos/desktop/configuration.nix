@@ -147,7 +147,7 @@
     heroic
     obs-studio
     droidcam
-    transmission_4-gtk
+    qbittorrent
     bottles
     lutris
     piper
