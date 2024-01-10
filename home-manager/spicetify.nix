@@ -1,28 +1,20 @@
 { pkgs, lib, spicetify-nix, ... }:
-let spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
-in {
-  imports = [ spicetify-nix.homeManagerModule ];
-  programs.spicetify = {
-    # spotifyPackage = pkgs.spotify-wrapped;
-    enable = false;
-    /* injectCss = true;
-        replaceColors = true;
+let
+  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+in
+{
+  # allow spotify to be installed if you don't have unfree enabled already
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "spotify"
+  ];
 
-        overwriteAssets = true;
-        sidebarConfig = true;
-        enabledExtensions = with spicePkgs.extensions; [
-          fullAppDisplay
-          shuffle # shuffle+ (special characters are sanitized out of ext names)
-          hidePodcasts
-          playlistIcons
-          lastfm
-          genre
-          historyShortcut
-          bookmark
-          fullAlbumDate
-          groupSession
-          popupLyrics
-        ];
-    */
+  # import the flake's module for your system
+  imports = [ spicetify-nix.homeManagerModule ];
+
+  # configure spicetify :)
+  programs.spicetify ={
+    enable = true;
+    theme = spicePkgs.themes.Onepunch;
+    colorScheme = "dark";
   };
 }
