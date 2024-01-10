@@ -4,7 +4,7 @@ let
 in
 {
   programs.spicetify = {
-    spotifyPackage = self'.packages.spotify-wrapped;
+    spotifyPackage = pkgs.spotify-wrapped;
     enable = true;
     injectCss = true;
     replaceColors = true;
