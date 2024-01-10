@@ -112,43 +112,43 @@
     }
         {
       name = "soft redflag";
-      patch = nixos/desktop/patches/kernel/0003-glitched-base.patch;
+      patch = ./patches/kernel/0003-glitched-base.patch;
     }
         {
       name = "soft redflag";
-      patch = nixos/desktop/patches/kernel/0003-glitched-cfs.patch;
+      patch = ./patches/kernel/0003-glitched-cfs.patch;
     }
         {
       name = "soft redflag";
-      patch = nixos/desktop/patches/kernel/0003-glitched-eevdf-additions.patch;
+      patch = ./patches/kernel/0003-glitched-eevdf-additions.patch;
     }
         {
       name = "soft redflag";
-      patch = nixos/desktop/patches/kernel/0006-add-acs-overrides_iommu.patch;
+      patch = ./patches/kernel/0006-add-acs-overrides_iommu.patch;
     }
         {
       name = "soft redflag";
-      patch = nixos/desktop/patches/kernel/0007-v6.6-fsync1_via_futex_waitv.patch;
+      patch = ./patches/kernel/0007-v6.6-fsync1_via_futex_waitv.patch;
     }
         {
       name = "soft redflag";
-      patch = nixos/desktop/patches/kernel/0007-v6.6-winesync.patch;
+      patch = ./patches/kernel/0007-v6.6-winesync.patch;
     }
         {
       name = "soft redflag";
-      patch = nixos/desktop/patches/kernel/0008-6.6-bcachefs.patch;
+      patch = ./patches/kernel/0008-6.6-bcachefs.patch;
     }
         {
       name = "soft redflag";
-      patch = nixos/desktop/patches/kernel/0012-misc-additions.patch;
+      patch = ./patches/kernel/0012-misc-additions.patch;
     }
         {
       name = "soft redflag";
-      patch = nixos/desktop/patches/kernel/0013-optimize_harder_O3.patch;
+      patch = ./patches/kernel/0013-optimize_harder_O3.patch;
     }
         {
       name = "soft redflag";
-      patch = nixos/desktop/patches/kernel/0014-OpenRGB.patch;
+      patch = ./patches/kernel/0014-OpenRGB.patch;
     }
   ];
   boot.binfmt.registrations.appimage = {
