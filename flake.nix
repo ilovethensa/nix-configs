@@ -78,7 +78,7 @@
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs ; };
           extraSpecialArgs = {
-            inherit inputs.spicetify-nix;
+            inherit spicetify-nix;
           };
           modules = [
             # > Our main nixos configuration file <
