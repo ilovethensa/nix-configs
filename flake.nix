@@ -19,7 +19,7 @@
     impermanence.url = "github:nix-community/impermanence";
 
     # Spicetify
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix.url = github:the-argus/spicetify-nix;
 
     # Firefox extensions
     firefox-addons = {
