@@ -3,6 +3,7 @@ let
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
 in
 {
+  imports = [ spicetify-nix.homeManagerModule ];
   programs.spicetify = {
     spotifyPackage = pkgs.spotify-wrapped;
     enable = true;
