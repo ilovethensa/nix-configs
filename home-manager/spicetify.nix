@@ -5,9 +5,9 @@ in
 {
   imports = [ spicetify-nix.homeManagerModule ];
   programs.spicetify = {
-    spotifyPackage = pkgs.spotify-wrapped;
+    /* spotifyPackage = pkgs.spotify-wrapped; */
     enable = true;
-    injectCss = true;
+/*     injectCss = true;
     replaceColors = true;
 
     overwriteAssets = true;
@@ -24,6 +24,6 @@ in
       fullAlbumDate
       groupSession
       popupLyrics
-    ];
+    ]; */
   };
 }
