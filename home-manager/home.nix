@@ -20,6 +20,9 @@
     # ./nvim.nix
     ./dconf.nix
     ./gui/firefox.nix
+    ./gui/vscode.nix
+    ./gui/themes.nix
+    ./cli/shell.nix
     #./spicetify.nix
   ];
 
@@ -54,19 +57,6 @@
   home = {
     username = "tht";
     homeDirectory = "/home/tht";
-    packages = with pkgs; [
-      adw-gtk3
-      adwaita-qt
-      adwaita-qt6
-      vimix-icon-theme
-      vimix-cursors
-      fira-code-nerdfont
-      zoxide
-      eza
-      fuc
-      bat
-      fd
-    ];
   };
 
   # Add stuff for your user as you see fit:
@@ -80,51 +70,6 @@
     userEmail = "me@theholytachanka.com";
     userName = "Linus Torvalds";
   };
-
-/*        thefuck --alias | source 
-function help
-    tldr $argv; or man $argv;
-end  */
-  programs.fish = {
-    interactiveShellInit = ''
-    starship init fish | source
-    zoxide init fish | source
-    '';
-    enable = true;
-    shellAliases = {
-      ls = "exa";
-      cd = "z";
-      cat = "bat";
-    };
-  };
-  programs.thefuck.enable = true;
-  programs.starship.enable = true;
-  gtk = {
-    enable =true;
-    theme.name = "adw-gtk3-dark";
-    cursorTheme.name = "Vimix-cursors";
-    iconTheme.name = "Vimix-Doder-dark";
-  };
-  qt = {
-    enable = true;
-    platformTheme = "gtk";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
-  };
-
-  programs.vscode = {
-  enable = true;
-  package = pkgs.vscode.fhsWithPackages (ps: with ps; [zlib openssl.dev pkg-config ]);
-  extensions = with pkgs.vscode-extensions; [
-    rust-lang.rust-analyzer
-    tamasfe.even-better-toml
-    eamodio.gitlens
-    usernamehw.errorlens
-    jnoortheen.nix-ide
-  ];
-};
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
