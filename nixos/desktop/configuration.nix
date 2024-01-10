@@ -25,6 +25,9 @@
     ./gnome.nix
     ./kernel.nix
     ./gpu.nix
+    ./audio.nix
+    ./gaming.nix
+    ./misc.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -88,19 +91,6 @@
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
-
-  
-  boot.binfmt.registrations.appimage = {
-    wrapInterpreterInShell = false;
-    interpreter = "${pkgs.appimage-run}/bin/appimage-run";
-    recognitionType = "magic";
-    offset = 0;
-    mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
-    magicOrExtension = ''\x7fELF....AI\x02'';
-  };
-
-  security.polkit.enable = true;
-
   # Btrfs configs
   services.btrfs.autoScrub = {
     enable = true;
@@ -110,23 +100,9 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
   services.xserver.excludePackages = with pkgs; [
     xterm
   ];
-
-
-  # rtkit is optional but recommended
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-  };
-  hardware.pulseaudio.enable = false;
 
   environment.systemPackages = with pkgs; [ 
     # Gui
@@ -137,21 +113,7 @@
     obs-studio
     droidcam
     qbittorrent
-    bottles
-    lutris
-    piper
     celeste
-    cartridges
-    #itch
-    #skiff-desktop
-    # Gaming
-    mangohud
-    gamemode
-    gamescope
-    steamtinkerlaunch
-    goverlay
-    wineWowPackages.staging
-    # Cli
     tealdeer
     wget
     hashcat
@@ -173,10 +135,6 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
-
-  # Gaming
-  programs.steam.enable = true;
-
   environment.persistence."/nix/persist" = {
     directories = [
       "/etc/nixos" # nixos system config files, can be considered optional
@@ -187,8 +145,6 @@
     ];
   };
 
-
-  services.ratbagd.enable = true;
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
