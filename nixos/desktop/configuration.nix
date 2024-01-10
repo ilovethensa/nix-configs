@@ -103,8 +103,12 @@
   '';
   boot.kernelPatches = [
     {
-      name = "add";
-      patch = ./patches/kernel/0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch;
+      name = "Clear linux patches";
+      patch = ./patches/kernel/0001-clear-patches.patch;
+    }
+    {
+      name = "soft redflag";
+      patch = ./patches/kernel/0002-mm-Support-soft-dirty-flag-read-with-reset.patch;
     }
   ];
   boot.binfmt.registrations.appimage = {
