@@ -36,7 +36,7 @@
   };
 
   outputs =
-    { self, nixpkgs, home-manager, firefox-addons, impermanence, ... }@inputs:
+    { self, nixpkgs, home-manager, firefox-addons, impermanence, spicetify-nix, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
