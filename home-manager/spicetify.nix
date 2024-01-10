@@ -6,7 +6,7 @@ in
   imports = [ spicetify-nix.homeManagerModule ];
   programs.spicetify = {
     /* spotifyPackage = pkgs.spotify-wrapped; */
-    enable = true;
+    enable = false;
 /*     injectCss = true;
     replaceColors = true;
 
