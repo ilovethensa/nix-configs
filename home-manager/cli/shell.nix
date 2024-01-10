@@ -12,7 +12,7 @@
   };
   programs.thefuck.enable = true;
   programs.starship.enable = true;
-  home.packages = with pkg; [
+  home.packages = with pkgs; [
       eza
       fuc
       bat
