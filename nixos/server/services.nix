@@ -35,6 +35,11 @@
       addr = "0.0.0.0";
       port = 6245;
     }];
+    invidious = {
+      enable = true;
+      port = 5634;
+      domain = "yt.theholytachanka.com"
+    };
   };
 
   virtualisation.oci-containers.containers = {
