@@ -47,10 +47,10 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
+      pkgs = import nixpkgs { system = "x86_64-linux"; };
       # This is a function that generates an attribute by calling a function you
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      pkgs = import nixpkgs { system = "x86_64-linux"; };
     in {
       # Your custom packages
       # Accessible through 'nix build', 'nix shell', etc
@@ -77,6 +77,7 @@
       nixosConfigurations = {
         # FIXME replace with your hostname
         desktop = nixpkgs.lib.nixosSystem {
+          inherit pkgs;
           specialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main nixos configuration file <
