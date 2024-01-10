@@ -111,43 +111,35 @@
       patch = ./patches/kernel/0002-mm-Support-soft-dirty-flag-read-with-reset.patch;
     }
         {
-      name = "soft redflag";
+      name = "Glitched base";
       patch = ./patches/kernel/0003-glitched-base.patch;
     }
-        {
-      name = "soft redflag";
-      patch = ./patches/kernel/0003-glitched-cfs.patch;
-    }
-        {
-      name = "soft redflag";
-      patch = ./patches/kernel/0003-glitched-eevdf-additions.patch;
-    }
-        {
-      name = "soft redflag";
+    {
+      name = "iommu";
       patch = ./patches/kernel/0006-add-acs-overrides_iommu.patch;
     }
         {
-      name = "soft redflag";
+      name = "fsync";
       patch = ./patches/kernel/0007-v6.6-fsync1_via_futex_waitv.patch;
     }
         {
-      name = "soft redflag";
+      name = "winesync";
       patch = ./patches/kernel/0007-v6.6-winesync.patch;
     }
         {
-      name = "soft redflag";
+      name = "bcachefs";
       patch = ./patches/kernel/0008-6.6-bcachefs.patch;
     }
         {
-      name = "soft redflag";
+      name = "misc";
       patch = ./patches/kernel/0012-misc-additions.patch;
     }
         {
-      name = "soft redflag";
+      name = "optimize harder";
       patch = ./patches/kernel/0013-optimize_harder_O3.patch;
     }
         {
-      name = "soft redflag";
+      name = "OpenRGB";
       patch = ./patches/kernel/0014-OpenRGB.patch;
     }
   ];
