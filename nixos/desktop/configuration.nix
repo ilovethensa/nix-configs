@@ -90,60 +90,63 @@
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
-
-  # Btrfs configs
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "monthly";
-    fileSystems = [ "/" ];
+  
+  services = {
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "monthly";
+      fileSystems = [ "/" ];
+    };
+    xserver = {
+      enable = true;
+      excludePackages = with pkgs; [
+        xterm
+      ];
+    };
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.excludePackages = with pkgs; [
-    xterm
-  ];
+  environment = {
+    systemPackages = with pkgs; [ 
+      # Gui
+      firefox
+      spotify
+      vesktop
+      heroic
+      obs-studio
+      droidcam
+      qbittorrent
+      celeste
+      tealdeer
+      wget
+      hashcat
+      appimage-run
+      cargo
+      gcc
+      rustc 
+      gcc 
+      rustfmt 
+      clippy
 
-  environment.systemPackages = with pkgs; [ 
-    # Gui
-    firefox
-    spotify
-    vesktop
-    heroic
-    obs-studio
-    droidcam
-    qbittorrent
-    celeste
-    tealdeer
-    wget
-    hashcat
-    appimage-run
-    cargo
-    gcc
-    rustc 
-    gcc 
-    rustfmt 
-    clippy
-
-    # For minecraft
-    openjdk19
-    openjdk17
-    openjdk8
-  ];
+      # For minecraft
+      openjdk19
+      openjdk17
+      openjdk8
+    ];
+    persistence."/nix/persist" = {
+      directories = [
+        "/etc/nixos" # nixos system config files, can be considered optional
+        "/srv"       # service data
+        "/var/lib"   # system service persistent data
+        "/var/log"   # the place that journald dumps it logs to
+        { directory = "/home/tht"; user = "tht"; }
+      ];
+    };
+  };
 
   # Virtual machines
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-
-  environment.persistence."/nix/persist" = {
-    directories = [
-      "/etc/nixos" # nixos system config files, can be considered optional
-      "/srv"       # service data
-      "/var/lib"   # system service persistent data
-      "/var/log"   # the place that journald dumps it logs to
-      { directory = "/home/tht"; user = "tht"; }
-    ];
-  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

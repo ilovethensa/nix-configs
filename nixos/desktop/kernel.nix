@@ -1,14 +1,16 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.extraModprobeConfig = ''
-    options kvm_amd nested=1
-    options kvm_amd emulate_invalid_guest_state=0
-    options kvm ignore_msrs=1
-    options snd-aloop index=3
-  '';
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot = {
+    initrd.kernelModules = [ "amdgpu" ];
+    extraModprobeConfig = ''
+      options kvm_amd nested=1
+      options kvm_amd emulate_invalid_guest_state=0
+      options kvm ignore_msrs=1
+      options snd-aloop index=3
+    '';
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
   /* boot.kernelPatches = [
     {
       name = "Clear linux patches";

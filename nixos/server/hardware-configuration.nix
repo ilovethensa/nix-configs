@@ -8,40 +8,38 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "defaults" "size=4G" "mode=755" ];
+  boot = {
+    initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+    initrd.kernelModules = [ ];
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
   };
 
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/DBC0-0351";
-      fsType = "vfat";
-
+  filesystems = {
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=4G" "mode=755" ];
     };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/804148fb-3cbc-4191-8d3c-61b8da93d501";
+    "/boot" = { 
+      device = "/dev/disk/by-uuid/DBC0-0351";
+      fsType = "vfat";
+      };
+    "/nix" = { 
+      device = "/dev/disk/by-uuid/804148fb-3cbc-4191-8d3c-61b8da93d501";
       fsType = "ext4";
     };
-
-  fileSystems."/etc/nixos" =
-    { device = "/nix/persist/etc/nixos";
+    "/etc/nixos" = { 
+      device = "/nix/persist/etc/nixos";
       fsType = "none";
       options = [ "bind" "noexec" ];
     };
-
-  fileSystems."/var/log" =
-    { device = "/nix/persist/var/log";
+    "/var/log" = { 
+      device = "/nix/persist/var/log";
       fsType = "none";
       options = [ "bind" "noexec" ];
     };
+  };
 
   swapDevices = [ ];
 

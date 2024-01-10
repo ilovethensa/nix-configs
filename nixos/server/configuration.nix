@@ -57,7 +57,7 @@
   /* # This will additionally add your inputs to the system's legacy channels
   # Making legacy nix commands consistent as well, awesome!
   nix.nixPath = ["/etc/nix/path"];
-  environment.etc =
+   =
     lib.mapAttrs'
     (name: value: {
       name = "nix/path/${name}";
@@ -68,7 +68,12 @@
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
-  networking.hostName = "server";
+  networking = {
+    hostName = "server";
+    networkmanager.enable = true;
+    firewall.enable = false;
+  };
+  
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
@@ -80,11 +85,15 @@
 
   boot.loader.efi.canTouchEfiVariables = true;
 
-  security.auditd.enable = true;
-  security.audit.enable = true;
-  security.audit.rules = [
-    "-a exit,always -F arch=b64 -S execve"
-  ];
+  security = {
+    auditd.enable = true;
+    audit = {
+      rules = [
+        "-a exit,always -F arch=b64 -S execve"
+      ];
+      enable = true;
+    };
+  };
 
   security.sudo.execWheelOnly = true;
 
@@ -102,9 +111,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Sofia";
@@ -137,34 +143,26 @@
   # Enable docker
   virtualisation.docker.enable = false;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
-
-
-  environment.persistence."/nix/persist" = {
-    directories = [
-      "/etc/nixos" # nixos system config files, can be considered optional
-      "/srv"       # service data
-      "/var/lib"   # system service persistent data
-      "/var/log"   # the place that journald dumps it logs to
-      { directory = "/home/openvscode-server"; user = "openvscode-server"; }
-    ];
+  environment = {
+    persistence."/nix/persist" = {
+      directories = [
+        "/etc/nixos" # nixos system config files, can be considered optional
+        "/srv"       # service data
+        "/var/lib"   # system service persistent data
+        "/var/log"   # the place that journald dumps it logs to
+        { directory = "/home/openvscode-server"; user = "openvscode-server"; }
+      ];
+    };
+    etc = {
+  "ssh/ssh_host_rsa_key".source = "/nix/persist/etc/ssh/ssh_host_rsa_key";
+  "ssh/ssh_host_rsa_key.pub".source = "/nix/persist/etc/ssh/ssh_host_rsa_key.pub";
+  "ssh/ssh_host_ed25519_key".source = "/nix/persist/etc/ssh/ssh_host_ed25519_key";
+  "ssh/ssh_host_ed25519_key.pub".source = "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
+  "machine-id".source = "/nix/persist/etc/machine-id";
+    };
   };
 
-  environment.etc."ssh/ssh_host_rsa_key".source
-    = "/nix/persist/etc/ssh/ssh_host_rsa_key";
-  environment.etc."ssh/ssh_host_rsa_key.pub".source
-    = "/nix/persist/etc/ssh/ssh_host_rsa_key.pub";
-  environment.etc."ssh/ssh_host_ed25519_key".source
-    = "/nix/persist/etc/ssh/ssh_host_ed25519_key";
-  environment.etc."ssh/ssh_host_ed25519_key.pub".source
-    = "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
 
-  environment.etc."machine-id".source
-    = "/nix/persist/etc/machine-id";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

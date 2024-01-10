@@ -8,9 +8,11 @@
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
-  hardware.opengl.driSupport = true; # This is already enabled by default
-  hardware.opengl.driSupport32Bit = true; # For 32 bit applications
-  hardware.opengl.extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime ]; # For hashcat
+  hardware.opengl = {
+    driSupport = true; # This is already enabled by default
+    driSupport32Bit = true; # For 32 bit applications
+    extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime ]; # For hashcat
+  };
 
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;

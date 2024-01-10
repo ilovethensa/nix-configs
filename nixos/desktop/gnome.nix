@@ -3,7 +3,8 @@
 {
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = (with pkgs; [
+  environment = {
+    gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
   ]) ++ (with pkgs.gnome; [
@@ -19,13 +20,14 @@
     atomix # puzzle game
     gnome-system-monitor # Resource monitor
   ]);
-  environment.systemPackages = with pkgs; [ 
+  systemPackages = with pkgs; [ 
     gnomeExtensions.blur-my-shell
     gnomeExtensions.appindicator
     gnomeExtensions.app-hider
     #resources
   ];
-  environment.sessionVariables = rec {
+  sessionVariables = rec {
     QT_QPA_PLATFORMTHEME  = "gtk2";
+  };
   };
 }

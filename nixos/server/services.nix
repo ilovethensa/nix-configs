@@ -9,32 +9,33 @@
 
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
-  services.nextcloud = {
-    enable = true;
-    package = pkgs.nextcloud28;
-    hostName = "server";
-    config.adminpassFile = "/srv/AppData/Nextcloud/config/pass";
-    extraOptions.trusted_domains = [
-        "192.168.1.100"
-        "server.tail8383e.ts.net"
-        "100.108.163.105"
-        "cloud.theholytachanka.com"
-    ];
-    home = "/srv/AppData/Nextcloud/storage";
-    configureRedis = true;
-  };
-  services.nginx.virtualHosts."server".listen = [ { addr = "0.0.0.0"; port = 6245; } ];
-
-  services.openvscode-server = {
-    enable = true;
-    telemetryLevel = "off";
-    serverDataDir = "/srv/AppData/Openvscode/data";
-    host = "0.0.0.0";
-    #connectionTokenFile = "/srv/AppData/Openvscode/token";
-    withoutConnectionToken = true;
-    extraPackages = with pkgs; [
-      git
-    ];
+  services = {
+    nextcloud = {
+      enable = true;
+      package = pkgs.nextcloud28;
+      hostName = "server";
+      config.adminpassFile = "/srv/AppData/Nextcloud/config/pass";
+      extraOptions.trusted_domains = [
+          "192.168.1.100"
+          "server.tail8383e.ts.net"
+          "100.108.163.105"
+          "cloud.theholytachanka.com"
+      ];
+      home = "/srv/AppData/Nextcloud/storage";
+      configureRedis = true;
+    };
+    openvscode-server = {
+      enable = true;
+      telemetryLevel = "off";
+      serverDataDir = "/srv/AppData/Openvscode/data";
+      host = "0.0.0.0";
+      #connectionTokenFile = "/srv/AppData/Openvscode/token";
+      withoutConnectionToken = true;
+      extraPackages = with pkgs; [
+        git
+      ];
+    };
+    nginx.virtualHosts."server".listen = [ { addr = "0.0.0.0"; port = 6245; } ];
   };
 
   virtualisation.oci-containers.containers = {
