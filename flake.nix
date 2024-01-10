@@ -77,7 +77,7 @@
         # FIXME replace with your hostname
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs ; };
-          extraArgs = {
+          extraSpecialArgs = {
             inherit spicetify-nix;
           };
           modules = [
