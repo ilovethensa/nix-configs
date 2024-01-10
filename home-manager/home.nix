@@ -15,7 +15,9 @@
     ./gui/firefox.nix
     ./gui/vscode.nix
     ./gui/themes.nix
+    ./spotify.nix
     ./cli/shell.nix
+    ./cli/mangohud.nix
     #./spicetify.nix
   ];
 
