@@ -15,7 +15,7 @@
   };
 
 
-  filesystems = {
+  fileSystems = {
     "/" = {
       device = "none";
       fsType = "tmpfs";
