@@ -61,6 +61,11 @@
       vimix-icon-theme
       vimix-cursors
       fira-code-nerdfont
+      zoxide
+      eza
+      fuc
+      bat
+      fd
     ];
   };
 
@@ -83,13 +88,14 @@ end  */
   programs.fish = {
     interactiveShellInit = ''
     starship init fish | source
+    zoxide init fish | source
     '';
     enable = true;
-    #shellAliases = {
-    #  rebuild-sys = "sudo nixos-rebuild switch --flake /home/tht/Documents/nix#desktop";
-    #  rebuild-home = "home-manager switch --flake /home/tht/Documents/nix";
-    #  rebuild = "rebuild-sys && rebuild-home";
-    #};
+    shellAliases = {
+      ls = "exa";
+      cd = "z";
+      cat = "bat";
+    };
   };
   programs.thefuck.enable = true;
   programs.starship.enable = true;
