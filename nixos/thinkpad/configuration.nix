@@ -62,16 +62,22 @@
   networking.hostName = "thinkpad";
 
   services = {
+    fprintd.enable = true;
+    thermald.enable = true;
+    power-profiles-daemon.enable = true;
+
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
+
     };
     btrfs.autoScrub = {
       enable = true;
       interval = "monthly";
       fileSystems = [ "/" ];
     };
+
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -80,6 +86,42 @@
       # If you want to use JACK applications, uncomment this
       #jack.enable = true;
     };
+
+    undervolt = {
+      enable = true;
+      coreOffset = -100;
+      gpuOffset = -80;
+      tempBat = 65;
+    };
+
+    # DBus service that provides power management support to applications.
+    upower = {
+      enable = true;
+      percentageLow = 15;
+      percentageCritical = 5;
+      percentageAction = 3;
+      criticalPowerAction = "Hibernate";
+    };
+
+    # superior power management (brought to you by raf :3)
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        battery = {
+          governor = "powersave";
+          #scaling_min_freq = mkDefault (MHz 1800);
+          #scaling_max_freq = mkDefault (MHz 3600);
+          turbo = "never";
+        };
+        charger = {
+          governor = "performance";
+          #scaling_min_freq = mkDefault (MHz 2000);
+          #scaling_max_freq = mkDefault (MHz 4800);
+          turbo = "auto";
+        };
+      };
+    };
+
   };
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
@@ -99,11 +141,17 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.appindicator
     gnomeExtensions.app-hider
+    acpi
+    powertop
   ];
 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
+  hardware.bluetooth = {
+    enable = true;
+    package = pkgs.bluez5-experimental;
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
