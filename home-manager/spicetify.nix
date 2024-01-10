@@ -11,14 +11,6 @@ in
 
     overwriteAssets = true;
     sidebarConfig = true;
-    enabledCustomApps = with spicePkgs.apps; [
-      lyrics-plus
-      new-releases
-    ];
-
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
-
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
       shuffle # shuffle+ (special characters are sanitized out of ext names)
