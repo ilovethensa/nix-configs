@@ -93,8 +93,7 @@
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
-
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModprobeConfig = ''
     options kvm_amd nested=1
     options kvm_amd emulate_invalid_guest_state=0
