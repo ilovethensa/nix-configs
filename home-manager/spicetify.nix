@@ -1,6 +1,6 @@
 { pkgs, lib, spicetify-nix, ... }:
 let
-  spicePkgs = spicetify-nix.packages.x86_64-linux.default;
+  spicePkgs = spicetify-nix.packages."x86_64-linux".default;
 in
 {
   # allow spotify to be installed if you don't have unfree enabled already
