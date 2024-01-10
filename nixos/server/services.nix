@@ -37,8 +37,37 @@
     }];
     invidious = {
       enable = true;
-      port = 5634;
+
       domain = "yt.theholytachanka.com";
+      address = "0.0.0.0";
+      port = 8007;
+
+      database = { createLocally = true; };
+
+      settings = {
+        db = {
+          user = "invidious";
+          dbname = "invidious";
+        };
+
+        external_port = 443;
+        https_only = true;
+
+        use_quic = true;
+
+        statistics_enabled = false;
+
+        registration_enabled = false;
+        login_enabled = false;
+        captcha_enabled = false;
+        admins = [ ];
+
+        use_pubsub_feeds = false;
+        channel_refresh_interval = "15m";
+      };
+
+
+      nginx.enable = false;
     };
   };
 

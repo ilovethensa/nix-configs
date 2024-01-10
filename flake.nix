@@ -19,7 +19,7 @@
     impermanence.url = "github:nix-community/impermanence";
 
     # Spicetify
-    spicetify-nix.url = github:the-argus/spicetify-nix;
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     # Firefox extensions
     firefox-addons = {
@@ -35,8 +35,8 @@
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, firefox-addons, impermanence, spicetify-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, firefox-addons, impermanence
+    , spicetify-nix, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
