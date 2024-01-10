@@ -16,22 +16,22 @@
 
 
   filesystems = {
-  "/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "defaults" "size=4G" "mode=755" ];
-  };
-
-
-  "/boot" = { 
-      device = "/dev/disk/by-uuid/4C24-167B";
-      fsType = "vfat";
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=4G" "mode=755" ];
     };
 
-  "/nix" = { 
-      device = "/dev/disk/by-uuid/e32c56b9-3886-42f0-aa97-cda3fdc7aad0";
-      fsType = "btrfs";
-    };
+
+    "/boot" = { 
+        device = "/dev/disk/by-uuid/4C24-167B";
+        fsType = "vfat";
+      };
+
+    "/nix" = { 
+        device = "/dev/disk/by-uuid/e32c56b9-3886-42f0-aa97-cda3fdc7aad0";
+        fsType = "btrfs";
+      };
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
