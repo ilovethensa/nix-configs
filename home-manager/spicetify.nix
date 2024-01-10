@@ -1,4 +1,7 @@
 { pkgs, lib, spicetify-nix, ... }:
+let
+  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+in
 {
   programs.spicetify = {
     spotifyPackage = self'.packages.spotify-wrapped;
@@ -12,7 +15,7 @@
       lyrics-plus
       new-releases
     ];
-    
+
     theme = spicePkgs.themes.catppuccin;
     colorScheme = "mocha";
 
