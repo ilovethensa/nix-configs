@@ -68,7 +68,6 @@
     libreddit = {
       enable = true;
       port = 2938;
-
     };
   };
 
