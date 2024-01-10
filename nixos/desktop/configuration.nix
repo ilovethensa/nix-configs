@@ -93,6 +93,7 @@
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
+  
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModprobeConfig = ''
     options kvm_amd nested=1
@@ -100,6 +101,12 @@
     options kvm ignore_msrs=1
     options snd-aloop index=3
   '';
+  boot.kernelPatches = [
+    {
+      name = "add";
+      patch = ./patches/kernel/0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch;
+    }
+  ];
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
