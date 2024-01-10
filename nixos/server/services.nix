@@ -50,12 +50,9 @@
           dbname = "invidious";
         };
 
-        external_port = 443;
-        https_only = true;
-
         use_quic = true;
 
-        statistics_enabled = false;
+        statistics_enabled = true;
 
         registration_enabled = false;
         login_enabled = false;
