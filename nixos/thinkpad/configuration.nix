@@ -84,7 +84,10 @@
     # Themes
     adw-gtk3
     vimix-icon-theme
-  ]
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.appindicator
+    gnomeExtensions.app-hider
+  ];
 
 
   # Btrfs configs
@@ -114,12 +117,6 @@
     #jack.enable = true;
   };
   hardware.pulseaudio.enable = false;
-
-  environment.systemPackages = with pkgs; [ 
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.appindicator
-    gnomeExtensions.app-hider
-  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
