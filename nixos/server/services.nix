@@ -63,8 +63,12 @@
         channel_refresh_interval = "15m";
       };
 
-
       nginx.enable = false;
+    };
+    libreddit = {
+      enable = true;
+      port = 2938;
+
     };
   };
 
