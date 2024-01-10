@@ -4,12 +4,11 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+    initrd.availableKernelModules =
+      [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
     initrd.kernelModules = [ ];
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
@@ -21,20 +20,20 @@
       fsType = "tmpfs";
       options = [ "defaults" "size=4G" "mode=755" ];
     };
-    "/boot" = { 
+    "/boot" = {
       device = "/dev/disk/by-uuid/DBC0-0351";
       fsType = "vfat";
-      };
-    "/nix" = { 
+    };
+    "/nix" = {
       device = "/dev/disk/by-uuid/804148fb-3cbc-4191-8d3c-61b8da93d501";
       fsType = "ext4";
     };
-    "/etc/nixos" = { 
+    "/etc/nixos" = {
       device = "/nix/persist/etc/nixos";
       fsType = "none";
       options = [ "bind" "noexec" ];
     };
-    "/var/log" = { 
+    "/var/log" = {
       device = "/nix/persist/var/log";
       fsType = "none";
       options = [ "bind" "noexec" ];
@@ -51,5 +50,6 @@
   # networking.interfaces.enp2s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

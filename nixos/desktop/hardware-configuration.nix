@@ -4,16 +4,14 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+    initrd.availableKernelModules =
+      [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
     initrd.kernelModules = [ ];
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
   };
-
 
   fileSystems = {
     "/" = {
@@ -22,16 +20,15 @@
       options = [ "defaults" "size=4G" "mode=755" ];
     };
 
+    "/boot" = {
+      device = "/dev/disk/by-uuid/4C24-167B";
+      fsType = "vfat";
+    };
 
-    "/boot" = { 
-        device = "/dev/disk/by-uuid/4C24-167B";
-        fsType = "vfat";
-      };
-
-    "/nix" = { 
-        device = "/dev/disk/by-uuid/e32c56b9-3886-42f0-aa97-cda3fdc7aad0";
-        fsType = "btrfs";
-      };
+    "/nix" = {
+      device = "/dev/disk/by-uuid/e32c56b9-3886-42f0-aa97-cda3fdc7aad0";
+      fsType = "btrfs";
+    };
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -42,5 +39,6 @@
   # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

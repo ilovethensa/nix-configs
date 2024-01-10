@@ -4,32 +4,31 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
     initrd = {
-      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
+      availableKernelModules =
+        [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
       kernelModules = [ ];
     };
-  kernelModules = [ ];
-  extraModulePackages = [ ];
+    kernelModules = [ ];
+    extraModulePackages = [ ];
   };
 
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/a99a8cff-edb0-441b-9328-a38e5894ff96";
+    fsType = "btrfs";
+    options = [ "subvol=@" ];
+  };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a99a8cff-edb0-441b-9328-a38e5894ff96";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
-    };
+  boot.initrd.luks.devices."luks-57a578b3-9ece-427e-aefe-41c676782fc0".device =
+    "/dev/disk/by-uuid/57a578b3-9ece-427e-aefe-41c676782fc0";
 
-  boot.initrd.luks.devices."luks-57a578b3-9ece-427e-aefe-41c676782fc0".device = "/dev/disk/by-uuid/57a578b3-9ece-427e-aefe-41c676782fc0";
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/66C2-D7E1";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/66C2-D7E1";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
@@ -42,5 +41,6 @@
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

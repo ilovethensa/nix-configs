@@ -1,9 +1,8 @@
-{ pkgs, lib, inputs, ... }:
-{
+{ pkgs, lib, inputs, ... }: {
   programs = {
     fish = {
       interactiveShellInit = ''
-      starship init fish | source
+        starship init fish | source
       '';
       enable = true;
       shellAliases = {
@@ -14,10 +13,5 @@
     thefuck.enable = true;
     starship.enable = true;
   };
-  home.packages = with pkgs; [
-      eza
-      fuc
-      bat
-      fd
-  ];
+  home.packages = with pkgs; [ eza fuc bat fd ];
 }

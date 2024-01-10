@@ -1,13 +1,6 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -48,18 +41,19 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-/*         (final: prev: {
-        gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
-          mutter = gnomePrev.mutter.overrideAttrs ( old: {
-            src = pkgs.fetchgit {
-              url = "https://gitlab.gnome.org/vanvugt/mutter.git";
-              # GNOME 45: triple-buffering-v4-45
-              rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
-              sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
-            };
-          } );
-        });
-      }) */
+      /* (final: prev: {
+              gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
+                mutter = gnomePrev.mutter.overrideAttrs ( old: {
+                  src = pkgs.fetchgit {
+                    url = "https://gitlab.gnome.org/vanvugt/mutter.git";
+                    # GNOME 45: triple-buffering-v4-45
+                    rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
+                    sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
+                  };
+                } );
+              });
+            })
+      */
     ];
     # Configure your nixpkgs instance
     config = {
@@ -70,18 +64,16 @@
 
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
-  nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; }))
+    ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
   # This will additionally add your inputs to the system's legacy channels
   # Making legacy nix commands consistent as well, awesome!
-  nix.nixPath = ["/etc/nix/path"];
-  environment.etc =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
+  nix.nixPath = [ "/etc/nix/path" ];
+  environment.etc = lib.mapAttrs' (name: value: {
+    name = "nix/path/${name}";
+    value.source = value.flake;
+  }) config.nix.registry;
 
   # FIXME: Add the rest of your current configuration
 
@@ -90,7 +82,7 @@
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
-  
+
   services = {
     btrfs.autoScrub = {
       enable = true;
@@ -99,15 +91,13 @@
     };
     xserver = {
       enable = true;
-      excludePackages = with pkgs; [
-        xterm
-      ];
+      excludePackages = with pkgs; [ xterm ];
     };
   };
 
   # Enable the X11 windowing system.
   environment = {
-    systemPackages = with pkgs; [ 
+    systemPackages = with pkgs; [
       # Gui
       firefox
       spotify
@@ -123,9 +113,9 @@
       appimage-run
       cargo
       gcc
-      rustc 
-      gcc 
-      rustfmt 
+      rustc
+      gcc
+      rustfmt
       clippy
 
       # For minecraft
@@ -136,10 +126,13 @@
     persistence."/nix/persist" = {
       directories = [
         "/etc/nixos" # nixos system config files, can be considered optional
-        "/srv"       # service data
-        "/var/lib"   # system service persistent data
-        "/var/log"   # the place that journald dumps it logs to
-        { directory = "/home/tht"; user = "tht"; }
+        "/srv" # service data
+        "/var/lib" # system service persistent data
+        "/var/log" # the place that journald dumps it logs to
+        {
+          directory = "/home/tht";
+          user = "tht";
+        }
       ];
     };
   };

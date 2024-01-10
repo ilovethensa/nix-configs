@@ -1,7 +1,6 @@
-{ pkgs, lib, ... }:
-{
+{ pkgs, lib, ... }: {
   gtk = {
-    enable =true;
+    enable = true;
     theme.name = "adw-gtk3-dark";
     cursorTheme.name = "Vimix-cursors";
     iconTheme.name = "Vimix-Doder-dark";
@@ -15,11 +14,11 @@
     };
   };
   home.packages = with pkgs; [
-      adw-gtk3
-      adwaita-qt
-      adwaita-qt6
-      vimix-icon-theme
-      vimix-cursors
-      fira-code-nerdfont
-    ];
+    adw-gtk3
+    adwaita-qt
+    adwaita-qt6
+    vimix-icon-theme
+    vimix-cursors
+    fira-code-nerdfont
+  ];
 }

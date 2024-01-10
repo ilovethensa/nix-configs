@@ -1,13 +1,6 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}:{
+{ inputs, outputs, lib, config, pkgs, ... }: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -52,18 +45,20 @@
 
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
-  nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; }))
+    ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
   /* # This will additionally add your inputs to the system's legacy channels
-  # Making legacy nix commands consistent as well, awesome!
-  nix.nixPath = ["/etc/nix/path"];
-   =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry; */
+     # Making legacy nix commands consistent as well, awesome!
+     nix.nixPath = ["/etc/nix/path"];
+      =
+       lib.mapAttrs'
+       (name: value: {
+         name = "nix/path/${name}";
+         value.source = value.flake;
+       })
+       config.nix.registry;
+  */
 
   # FIXME: Add the rest of your current configuration
 
@@ -73,38 +68,25 @@
     networkmanager.enable = true;
     firewall.enable = false;
   };
-  
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
-
   users.mutableUsers = false;
-
-
 
   boot.loader.efi.canTouchEfiVariables = true;
 
   security = {
     auditd.enable = true;
     audit = {
-      rules = [
-        "-a exit,always -F arch=b64 -S execve"
-      ];
+      rules = [ "-a exit,always -F arch=b64 -S execve" ];
       enable = true;
     };
   };
 
   security.sudo.execWheelOnly = true;
 
-  nix.settings.trusted-users = [
-    "root"
-    "@wheel"
-  ];
-
-
-
-
+  nix.settings.trusted-users = [ "root" "@wheel" ];
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -139,7 +121,7 @@
   # };
 
   # List services that you want to enable:
-  
+
   # Enable docker
   virtualisation.docker.enable = false;
 
@@ -147,22 +129,26 @@
     persistence."/nix/persist" = {
       directories = [
         "/etc/nixos" # nixos system config files, can be considered optional
-        "/srv"       # service data
-        "/var/lib"   # system service persistent data
-        "/var/log"   # the place that journald dumps it logs to
-        { directory = "/home/openvscode-server"; user = "openvscode-server"; }
+        "/srv" # service data
+        "/var/lib" # system service persistent data
+        "/var/log" # the place that journald dumps it logs to
+        {
+          directory = "/home/openvscode-server";
+          user = "openvscode-server";
+        }
       ];
     };
     etc = {
-  "ssh/ssh_host_rsa_key".source = "/nix/persist/etc/ssh/ssh_host_rsa_key";
-  "ssh/ssh_host_rsa_key.pub".source = "/nix/persist/etc/ssh/ssh_host_rsa_key.pub";
-  "ssh/ssh_host_ed25519_key".source = "/nix/persist/etc/ssh/ssh_host_ed25519_key";
-  "ssh/ssh_host_ed25519_key.pub".source = "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
-  "machine-id".source = "/nix/persist/etc/machine-id";
+      "ssh/ssh_host_rsa_key".source = "/nix/persist/etc/ssh/ssh_host_rsa_key";
+      "ssh/ssh_host_rsa_key.pub".source =
+        "/nix/persist/etc/ssh/ssh_host_rsa_key.pub";
+      "ssh/ssh_host_ed25519_key".source =
+        "/nix/persist/etc/ssh/ssh_host_ed25519_key";
+      "ssh/ssh_host_ed25519_key.pub".source =
+        "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
+      "machine-id".source = "/nix/persist/etc/machine-id";
     };
   };
-
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

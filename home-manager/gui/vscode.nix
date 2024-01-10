@@ -1,8 +1,8 @@
-{ pkgs, lib, ... }:
-{
+{ pkgs, lib, ... }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhsWithPackages (ps: with ps; [zlib openssl.dev pkg-config ]);
+    package = pkgs.vscode.fhsWithPackages
+      (ps: with ps; [ zlib openssl.dev pkg-config ]);
     extensions = with pkgs.vscode-extensions; [
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
