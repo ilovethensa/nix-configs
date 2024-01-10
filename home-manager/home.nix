@@ -17,7 +17,7 @@
     ./gui/themes.nix
     ./cli/shell.nix
     ./cli/mangohud.nix
-    ./spicetify.nix
+    #./spicetify.nix
   ];
 
   nixpkgs = {
