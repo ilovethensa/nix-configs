@@ -38,7 +38,7 @@
     invidious = {
       enable = true;
       port = 5634;
-      domain = "yt.theholytachanka.com"
+      domain = "yt.theholytachanka.com";
     };
   };
 
