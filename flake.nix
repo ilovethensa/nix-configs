@@ -76,10 +76,7 @@
       nixosConfigurations = {
         # FIXME replace with your hostname
         desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs ; };
-          extraSpecialArgs = {
-            inherit spicetify-nix;
-          };
+          specialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main nixos configuration file <
             ./nixos/desktop.nix
