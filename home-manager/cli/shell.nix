@@ -8,6 +8,7 @@
       shellAliases = {
         ls = "exa";
         cat = "bat";
+        nix-init = "nix flake init -t"
       };
     };
     thefuck.enable = true;
