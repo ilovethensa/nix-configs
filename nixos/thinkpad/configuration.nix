@@ -15,7 +15,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    ./spotify.nix
+    ./gnome.nix
   ];
 
   nixpkgs = {
@@ -71,11 +71,6 @@
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
 
-    };
-    btrfs.autoScrub = {
-      enable = true;
-      interval = "monthly";
-      fileSystems = [ "/" ];
     };
 
     pipewire = {
@@ -135,12 +130,6 @@
     vscodium
     spotify
     vesktop
-    # Themes
-    adw-gtk3
-    vimix-icon-theme
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.appindicator
-    gnomeExtensions.app-hider
     acpi
     powertop
   ];
@@ -151,6 +140,14 @@
   hardware.bluetooth = {
     enable = true;
     package = pkgs.bluez5-experimental;
+  };
+  
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      tht = import ../../home-manager/home.nix;
+    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
