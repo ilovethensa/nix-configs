@@ -23,8 +23,13 @@
         inputs.firefox-addons.packages."x86_64-linux".augmented-steam
       ];
       settings = {
+"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+"browser.uidensity" = 0;
+"svg.context-properties.content.enabled" = true;
+"browser.theme.dark-private-windows" = false;
+"widget.gtk.rounded-bottom-corners.enabled" = true;
 "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-"content.notify.interval" = 100000;
+
 "gfx.canvas.accelerated.cache-items" = 4096;
 "gfx.canvas.accelerated.cache-size" = 512;
 "gfx.content.skia-font-cache-size" = 20;
@@ -136,7 +141,6 @@
 "browser.tabs.tabmanager.enabled" = false;
 "browser.aboutConfig.showWarning" = false;
 "browser.aboutwelcome.enabled" = false;
-"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 "browser.compactmode.show" = true;
 "browser.display.focus_ring_on_anything" = true;
 "browser.display.focus_ring_style" = 0;
@@ -163,7 +167,7 @@
 "browser.bookmarks.openInTabClosesMenu" = false;
 "browser.menu.showViewImageInfo" = true;
 "findbar.highlightAll" = true;
-"layout.word_select.eat_space_to_next_word" = false;
+"layout.word_select.eat_space_to_next_word" = false; 
       };
   userChrome = ''
     @import "firefox-gnome-theme/userChrome.css";
@@ -171,6 +175,47 @@
   userContent = ''
     @import "firefox-gnome-theme/userContent.css";
   '';
+  search = {
+    default = "Brave";
+    privateDefault = "Brave";
+    force = true;
+    order = [
+      "Brave"
+      "NixOS Wiki"
+      "Nix Packages"
+    ];
+    engines = {
+      "Nix Packages" = {
+        urls = [{
+          template = "https://search.nixos.org/packages";
+          params = [
+            { name = "type"; value = "packages"; }
+            { name = "query"; value = "{searchTerms}"; }
+          ];
+        }];
+
+        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+        definedAliases = [ "np" ];
+      };
+
+      "NixOS Wiki" = {
+        urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
+        iconUpdateURL = "https://nixos.wiki/favicon.png";
+        updateInterval = 24 * 60 * 60 * 1000; # every day
+        definedAliases = [ "nw" ];
+      };
+      "Brave" = {
+        urls = [{ template = "https://search.brave.com/search?q={searchTerms}"; }];
+        iconUpdateURL = "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
+        updateInterval = 24 * 60 * 60 * 1000; # every day
+        definedAliases = [ "br" ];
+      };
+      "Bing".metaData.hidden = true;
+      "Google".metaData.hidden = true;
+      "Amazon".metaData.hidden = true;
+};
+  };
+  
 
     };
   };
