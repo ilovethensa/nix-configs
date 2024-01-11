@@ -16,5 +16,5 @@
   ];
   programs.steam.enable = true;
   services.ratbagd.enable = true;
-  chaotic.mesa-git.enable = true;
+  #chaotic.mesa-git.enable = true;
 }
