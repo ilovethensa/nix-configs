@@ -7,7 +7,7 @@ function nix-init
     if test -z $argv
         echo "Usage: nix-init <ARGUMENT>"
     else
-        nix flake init -t ~/nixos-configs#$argv
+        nix flake init -t ~/nix-configs#$argv
     end
 end
 
