@@ -1,4 +1,8 @@
 { pkgs, lib, inputs, ... }: {
+  home.file."firefox-gnome-theme" = {
+      target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
+      source = (fetchTarball "https://github.com/rafaelmardojai/firefox-gnome-theme/archive/master.tar.gz");
+};
   programs.firefox = {
     enable = true;
     profiles.default = {
@@ -164,6 +168,10 @@
 "layout.word_select.eat_space_to_next_word" = false;
 
       };
+      userChrome = ''
+         @import "firefox-gnome-theme/userChrome.css";
+         @import "firefox-gnome-theme/theme/colors/dark.css"; 
+      '';
 
     };
   };
