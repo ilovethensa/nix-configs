@@ -23,6 +23,7 @@
         inputs.firefox-addons.packages."x86_64-linux".augmented-steam
       ];
       settings = {
+"extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
 "content.notify.interval" = 100000;
 "gfx.canvas.accelerated.cache-items" = 4096;
 "gfx.canvas.accelerated.cache-size" = 512;
@@ -161,7 +162,7 @@
 "browser.download.open_pdf_attachments_inline" = true;
 "browser.bookmarks.openInTabClosesMenu" = false;
 "browser.menu.showViewImageInfo" = true;
-#"findbar.highlightAll" = true;
+"findbar.highlightAll" = true;
 "layout.word_select.eat_space_to_next_word" = false;
       };
   userChrome = ''
