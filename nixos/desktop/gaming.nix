@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, chaotic, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -6,7 +6,8 @@
     lutris
     piper
     cartridges
-    mangohud
+    mangohud_git
+    mangohud32_git
     gamemode
     gamescope
     steamtinkerlaunch
@@ -15,4 +16,5 @@
   ];
   programs.steam.enable = true;
   services.ratbagd.enable = true;
+  chaotic.mesa-git.enable = true;
 }
