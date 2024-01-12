@@ -24,10 +24,6 @@
       vram_color = "ad64c1";
       ram = true;
       ram_color = "c26693";
-      fps = true;
-      engine_color = "eb5b5b";
-      wine_color = "eb5b5b";
-      frame_timing = 1;
       media_player_color = "ffffff";
       background_alpha = 0.4;
       font_size = 24;
@@ -40,6 +36,10 @@
       upload_log = "F5";
       output_folder = "/home/tht";
       media_player_name = "spotify";
+      fps = true;
+      engine_color = "eb5b5b";
+      wine_color = "eb5b5b";
+      frame_timing = 1;
     };
   };
 }
