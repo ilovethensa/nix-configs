@@ -40,7 +40,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, firefox-addons, impermanence
-    , spicetify-nix, chaotic, ... }@inputs:
+    , spicetify-nix, chaotic, nur, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
