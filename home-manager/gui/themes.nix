@@ -20,6 +20,6 @@
     vimix-icon-theme
     vimix-cursors
     fira-code-nerdfont
-    morewaita-icon-theme
+    morewaita
   ];
 }
