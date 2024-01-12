@@ -83,17 +83,10 @@
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
-  services = {
-    btrfs.autoScrub = {
-      enable = true;
-      interval = "monthly";
-      fileSystems = [ "/" ];
-    };
-    xserver = {
+  services.xserver = {
       enable = true;
       excludePackages = with pkgs; [ xterm ];
     };
-  };
 
   # Enable the X11 windowing system.
   environment = {
