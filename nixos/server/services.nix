@@ -69,6 +69,12 @@
       enable = true;
       port = 2938;
     };
+    freshrss = {
+      enable = true;
+      dataDir = "/srv/AppData/Freshrss/config";
+      baseUrl = "https://rss.theholytachanka.com";
+      passwordFile = "/srv/AppData/Freshrss/pass";
+    };
   };
 
   virtualisation.oci-containers.containers = {
