@@ -179,14 +179,6 @@
       autoStart = true;
     };
 
-    yarr = {
-      image = "docker://ghcr.io/wakeful-cloud/yarr:latest";
-      volumes = [ "/srv/AppData/Yarr:/data" ];
-
-      ports = [ "6060:7070" ];
-      autoStart = true;
-    };
-
     glances = {
       image = "docker://nicolargo/glances:latest-full";
       extraOptions = [ "--network=host" "--pid" "host" "--privileged" ];
