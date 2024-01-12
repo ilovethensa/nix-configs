@@ -232,6 +232,23 @@
       ports = [ "6754:80" ];
       autoStart = true;
     };
+    crafty = {
+      image = "docker://registry.gitlab.com/crafty-controller/crafty-4:latest";
+      volumes = [ 
+        "/srv/AppData/Crafty/backups:/crafty/backups"
+        "/srv/AppData/Crafty/logs:/crafty/logs"
+        "/srv/AppData/Crafty/servers:/crafty/servers"
+        "/srv/AppData/Crafty/config:/crafty/app/config"
+        "/srv/AppData/Crafty/import:/crafty/import"
+        ];
+      ports = [ 
+        "8000:8000" 
+        "8123:8123"
+        "19132:19132/udp"
+        "25500-25600:25500-25600"
+      ];
+      autoStart = true;
+    };
   };
 
 }
