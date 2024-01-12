@@ -1,24 +1,29 @@
-{ pkgs, lib, nur, ... }: {
+{ inputs, outputs, lib, config, pkgs, spicetify-nix, nur, ... }: {
+  home.file.".local/share/icons/MoreWaita/".source = inputs.morewaita;
   gtk = {
     enable = true;
-    theme.name = "adw-gtk3-dark";
-    cursorTheme.name = "Vimix-cursors";
-    iconTheme.pkg = nur.repos.federicoschonborn.morewaita;
+
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3-dark";
+    };
+
+    cursorTheme = {
+      package = pkgs.vimix-cursors;
+      name = "Vimix-cursors";
+    };
+    iconTheme.name = "MoreWaita";
+    font = {
+      package = pkgs.fira-code-nerdfont;
+      name = "FiraCode Nerd Font";
+    };
   };
   qt = {
     enable = true;
     platformTheme = "gtk";
     style = {
       name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
+      package = pkgs.adwaita-qt6;
     };
   };
-  home.packages = with pkgs; [
-    adw-gtk3
-    adwaita-qt
-    adwaita-qt6
-    vimix-icon-theme
-    vimix-cursors
-    fira-code-nerdfont
-  ];
 }

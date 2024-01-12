@@ -47,11 +47,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1705059518,
-        "narHash": "sha256-6bjyI9XwF+oppkLOFFUlZuIt3MHlA4z8B9SP1BoB+IY=",
+        "lastModified": 1705069194,
+        "narHash": "sha256-hLonLHQb6OVo+Ixc7/oU04DAKrma9Hv5F9chjb0c+YA=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "4d74a941ab7d9c02fdc456cff154b77dfc2b67b6",
+        "rev": "27f2d691df31110ce4f194eeea94aff912c1849c",
         "type": "gitlab"
       },
       "original": {
@@ -176,6 +176,22 @@
         "type": "github"
       }
     },
+    "morewaita": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700249054,
+        "narHash": "sha256-A/XigUb903ebJo7TmhdqOm4uy5HWcCSHFaxhb5plPQE=",
+        "owner": "somepaulo",
+        "repo": "MoreWaita",
+        "rev": "05c406b47326cdb0f481486156a6c9c9b28ef304",
+        "type": "github"
+      },
+      "original": {
+        "owner": "somepaulo",
+        "repo": "MoreWaita",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1704722960,
@@ -260,6 +276,7 @@
         "firefox-gnome-theme": "firefox-gnome-theme",
         "home-manager": "home-manager_2",
         "impermanence": "impermanence",
+        "morewaita": "morewaita",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
