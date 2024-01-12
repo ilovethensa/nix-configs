@@ -3,4 +3,5 @@
 pkgs: {
   example = pkgs.callPackage ./example { };
   #skiff-desktop = pkgs.callPackage ./skiff-desktop { };
+  morewaita = pkgs.callPackage ./morewaita { };
 }
