@@ -69,12 +69,6 @@
       enable = true;
       port = 2938;
     };
-    freshrss = {
-      enable = true;
-      dataDir = "/srv/AppData/Freshrss/config";
-      baseUrl = "https://rss.theholytachanka.com";
-      passwordFile = "/srv/AppData/Freshrss/pass";
-    };
   };
 
   virtualisation.oci-containers.containers = {
@@ -240,7 +234,12 @@
       ports = [ "8888:8888" ];
       autoStart = true;
     };
-
+    freshrss = {
+      image = "docker://lscr.io/linuxserver/freshrss:latest";
+      volumes = [ "/srv/AppData/Freshrss:/config" ];
+      ports = [ "6754:80" ];
+      autoStart = true;
+    };
   };
 
 }
