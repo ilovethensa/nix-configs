@@ -139,38 +139,6 @@
       extraOptions = [ "--network=host" ];
       autoStart = true;
     };
-    speedtest-tracker = {
-      image = "ghcr.io/alexjustesen/speedtest-tracker:latest";
-      hostname = "speedtest-tracker";
-      ports = [ "8080:80" "8443:443" ];
-      environment = {
-        PUID = "1000";
-        PGID = "1000";
-        DB_CONNECTION = "pgsql";
-        DB_HOST = "192.168.1.100";
-        DB_PORT = "5432";
-        DB_DATABASE = "speedtest_tracker";
-        DB_USERNAME = "speedy";
-        DB_PASSWORD = "password";
-      };
-      volumes = [ "speedtest-app:/config" ];
-      autoStart = true;
-      dependsOn = [ "db" ];
-    };
-
-    db = {
-      image = "postgres:15";
-      hostname = "db";
-      autoStart = true;
-      environment = {
-        POSTGRES_DB = "speedtest_tracker";
-        POSTGRES_USER = "speedy";
-        POSTGRES_PASSWORD = "password";
-      };
-      volumes = [ "speedtest-db:/var/lib/mysql" ];
-      ports = [ "5432:5432" ];
-    };
-
     vaultwarden = {
       image = "docker://vaultwarden/server:latest";
       volumes = [ "/srv/AppData/Vaultwarden:/data" ];
