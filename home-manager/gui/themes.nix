@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, nur, ... }: {
   gtk = {
     enable = true;
     theme.name = "adw-gtk3-dark";
