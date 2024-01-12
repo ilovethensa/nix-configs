@@ -6,8 +6,7 @@
     lutris
     piper
     cartridges
-    mangohud_git
-    mangohud32_git
+    mangohud
     gamemode
     gamescope
     goverlay
@@ -15,5 +14,4 @@
   ];
   programs.steam.enable = true;
   services.ratbagd.enable = true;
-  #chaotic.mesa-git.enable = true;
 }

@@ -47,7 +47,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, firefox-addons, impermanence
-    , spicetify-nix, chaotic, nur, morewaita, ... }@inputs:
+    , spicetify-nix, nur, morewaita, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
@@ -92,7 +92,6 @@
             # > Our main nixos configuration file <
             ./nixos/desktop.nix
             impermanence.nixosModules.impermanence
-            chaotic.nixosModules.default
             nur.nixosModules.nur
           ];
         };
