@@ -3,7 +3,7 @@
     enable = true;
     theme.name = "adw-gtk3-dark";
     cursorTheme.name = "Vimix-cursors";
-    iconTheme.pkg = morewaita;
+    iconTheme.pkg = config.nur.repos.federicoschonborn.morewaita;
   };
   qt = {
     enable = true;

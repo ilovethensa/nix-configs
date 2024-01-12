@@ -28,6 +28,7 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = github:nix-community/NUR;
     firefox-gnome-theme = { url = "github:rafaelmardojai/firefox-gnome-theme"; flake = false; };
 
     # TODO: Add any other flake you might need
@@ -85,6 +86,7 @@
             ./nixos/desktop.nix
             impermanence.nixosModules.impermanence
             chaotic.nixosModules.default
+            nur.nixosModules.nur
           ];
         };
         server = nixpkgs.lib.nixosSystem {
