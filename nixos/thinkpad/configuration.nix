@@ -128,7 +128,6 @@
   environment.systemPackages = with pkgs; [
     # Gui
     firefox
-    vscodium
     spotify
     vesktop
     acpi
