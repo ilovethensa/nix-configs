@@ -10,7 +10,6 @@
     mangohud32_git
     gamemode
     gamescope
-    steamtinkerlaunch
     goverlay
     wineWowPackages.staging
   ];
