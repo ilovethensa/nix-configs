@@ -17,12 +17,14 @@
         hitori # sudoku game
         atomix # puzzle game
         gnome-system-monitor # Resource monitor
+        eog # Image viewer
       ]);
     systemPackages = with pkgs; [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.appindicator
       gnomeExtensions.app-hider
-      #resources
+      resources
+      loupe
     ];
     sessionVariables = rec { QT_QPA_PLATFORMTHEME = "gtk2"; };
   };
