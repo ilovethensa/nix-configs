@@ -110,11 +110,21 @@
       gcc
       rustfmt
       clippy
+      (appimage-run.override {
+        extraLibraries =  pkgs: [
+        openjdk19
+        openjdk17
+        openjdk8
+        ];
+       extraPkgs = pkgs: [
+        openjdk19
+        openjdk17
+        openjdk8
+       ];
+      })
 
       # For minecraft
-      openjdk19
-      openjdk17
-      openjdk8
+
     ];
     persistence."/nix/persist" = {
       directories = [
