@@ -4,13 +4,12 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
     initrd = {
-      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
+      availableKernelModules =
+        [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
       kernelModules = [ ];
     };
     kernelModules = [ ];
@@ -18,11 +17,11 @@
   };
 
   fileSystems = {
-    "/" = { 
+    "/" = {
       device = "UUID=c1e78c2f-ada8-464b-84b5-4e72c9704077";
       fsType = "bcachefs";
     };
-    "/boot" = { 
+    "/boot" = {
       device = "/dev/disk/by-uuid/C70C-EA11";
       fsType = "vfat";
     };
@@ -38,5 +37,6 @@
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

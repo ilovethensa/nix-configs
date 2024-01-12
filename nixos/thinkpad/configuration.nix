@@ -141,7 +141,7 @@
     enable = true;
     package = pkgs.bluez5-experimental;
   };
-  
+
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {

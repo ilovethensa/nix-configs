@@ -84,9 +84,9 @@
   boot.loader.systemd-boot.enable = true;
 
   services.xserver = {
-      enable = true;
-      excludePackages = with pkgs; [ xterm ];
-    };
+    enable = true;
+    excludePackages = with pkgs; [ xterm ];
+  };
 
   # Enable the X11 windowing system.
   environment = {

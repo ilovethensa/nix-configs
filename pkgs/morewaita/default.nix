@@ -1,10 +1,4 @@
-{
-  lib,
-  stdenvNoCC,
-  fetchFromGitHub,
-  gtk3,
-  xdg-utils,
-}:
+{ lib, stdenvNoCC, fetchFromGitHub, gtk3, xdg-utils, }:
 stdenvNoCC.mkDerivation rec {
   pname = "morewaita";
   version = "43.2";
@@ -16,10 +10,7 @@ stdenvNoCC.mkDerivation rec {
     hash = "sha256-efeZEysuWdE1+ws3njFlhWjAjavRlMuIuSL2VT25lUk=";
   };
 
-  nativeBuildInputs = [
-    gtk3
-    xdg-utils
-  ];
+  nativeBuildInputs = [ gtk3 xdg-utils ];
 
   installPhase = ''
     runHook preInstall

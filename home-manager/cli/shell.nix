@@ -2,14 +2,14 @@
   programs = {
     fish = {
       interactiveShellInit = ''
-        starship init fish | source
-function nix-init
-    if test -z $argv
-        echo "Usage: nix-init <ARGUMENT>"
-    else
-        nix flake init -t ~/nix-configs#$argv
-    end
-end
+                starship init fish | source
+        function nix-init
+            if test -z $argv
+                echo "Usage: nix-init <ARGUMENT>"
+            else
+                nix flake init -t ~/nix-configs#$argv
+            end
+        end
 
       '';
       enable = true;
@@ -17,7 +17,7 @@ end
         ls = "exa";
         cat = "bat";
       };
-      
+
     };
     thefuck.enable = true;
     starship.enable = true;
