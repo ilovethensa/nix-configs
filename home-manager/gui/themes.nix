@@ -3,7 +3,7 @@
     enable = true;
     theme.name = "adw-gtk3-dark";
     cursorTheme.name = "Vimix-cursors";
-    iconTheme.name = "Vimix-Doder-dark";
+    iconTheme.pkg = morewaita;
   };
   qt = {
     enable = true;
@@ -20,6 +20,5 @@
     vimix-icon-theme
     vimix-cursors
     fira-code-nerdfont
-    morewaita
   ];
 }
