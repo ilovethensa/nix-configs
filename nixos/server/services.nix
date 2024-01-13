@@ -218,6 +218,39 @@
       ];
       autoStart = true;
     };
+    orpington-news = {
+      image = "docker://ghcr.io/frysztak/orpington-news:latest";
+      environment = {
+        APP_URL = "https://news.my.domain";
+        DB_HOST = "192.168.1.100";
+        DB_PORT = "5432";
+        DB_PASS = "dbpass";
+        COOKIE_SECRET = "xdchubIox+JBI/2ULCtF9i08uGBmgAGdClII6tFppjHWwXu3MY3yzRbj0ryc1Jca
+YWbTei3N6jSt4ZYT8gvKcw==";
+      };
+      ports = [ 
+        "8000:8000" 
+        "8443:8443"
+        "8123:8123"
+        "19132:19132/udp"
+        "25500-25600:25500-25600"
+      ];
+      autoStart = true;
+      dependsOn = [ "db" ];
+    };
+
+    orpington-news-postgres = {
+      image = "docker://postgres:14-alpine";
+      volumes = [ 
+        "/srv/AppData/orpington/db:/var/lib/postgresql/data"
+        ];
+      environment = {
+        POSTGRES_USER = "postgres";
+        POSTGRES_PASSWORD = "dbpas";
+      };
+      ports = [ "5432:5432" ];
+      autoStart = true;
+    };
   };
 
 }
