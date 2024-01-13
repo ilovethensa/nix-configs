@@ -194,12 +194,6 @@
       ports = [ "8888:8888" ];
       autoStart = true;
     };
-    freshrss = {
-      image = "docker://lscr.io/linuxserver/freshrss:latest";
-      volumes = [ "/srv/AppData/Freshrss:/config" ];
-      ports = [ "6754:80" ];
-      autoStart = true;
-    };
     crafty = {
       image = "docker://registry.gitlab.com/crafty-controller/crafty-4:latest";
       volumes = [ 
@@ -218,37 +212,32 @@
       ];
       autoStart = true;
     };
-    orpington-news = {
-      image = "docker://ghcr.io/frysztak/orpington-news:latest";
+    miniflux = {
+      image = "docker://miniflux/miniflux:latest";
       environment = {
-        APP_URL = "https://news.my.domain";
-        DB_HOST = "192.168.1.100";
-        DB_PORT = "5432";
-        DB_PASS = "dbpass";
-        COOKIE_SECRET = "xdchubIox+JBI/2ULCtF9i08uGBmgAGdClII6tFppjHWwXu3MY3yzRbj0ryc1Jca
-YWbTei3N6jSt4ZYT8gvKcw==";
+        DATABASE_URL = "postgres://miniflux:secret@db/miniflux?sslmode=disable";
+        RUN_MIGRATIONS = "1";
+        CREATE_ADMIN = "1";
+        ADMIN_USERNAME = "admin";
+        ADMIN_PASSWORD = "test123";
       };
       ports = [ 
-        "8000:8000" 
-        "8443:8443"
-        "8123:8123"
-        "19132:19132/udp"
-        "25500-25600:25500-25600"
+        "6554:8080"
       ];
       autoStart = true;
       dependsOn = [ "db" ];
     };
 
-    orpington-news-postgres = {
-      image = "docker://postgres:14-alpine";
+    db = {
+      image = "docker://postgres:15";
       volumes = [ 
-        "/srv/AppData/orpington/db:/var/lib/postgresql/data"
+        "/srv/AppData/Miniflux/db:/var/lib/postgresql/data"
         ];
       environment = {
-        POSTGRES_USER = "postgres";
-        POSTGRES_PASSWORD = "dbpas";
+        POSTGRES_USER = "miniflux";
+        POSTGRES_PASSWORD = "secret";
+        POSTGRES_DB = "miniflux";
       };
-      ports = [ "5432:5432" ];
       autoStart = true;
     };
   };
