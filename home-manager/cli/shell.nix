@@ -16,11 +16,12 @@
       shellAliases = {
         ls = "exa";
         cat = "bat";
+        cp = "fcp";
       };
 
     };
     thefuck.enable = true;
     starship.enable = true;
   };
-  home.packages = with pkgs; [ eza fuc bat fd ];
+  home.packages = with pkgs; [ eza fuc bat fd fcp ];
 }

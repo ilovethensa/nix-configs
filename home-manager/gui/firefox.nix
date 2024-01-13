@@ -22,7 +22,6 @@
         boring-rss
         bitwarden
         augmented-steam
-        omnivore
         enhanced-github
       ];
       settings = {
