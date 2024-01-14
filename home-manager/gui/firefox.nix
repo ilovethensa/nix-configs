@@ -23,6 +23,7 @@
         bitwarden
         augmented-steam
         enhanced-github
+        cookie-autodelete
       ];
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
