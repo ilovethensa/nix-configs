@@ -100,6 +100,8 @@
       droidcam
       qbittorrent
       celeste
+      webtorrent_desktop
+      # Cli
       tealdeer
       wget
       hashcat
