@@ -217,9 +217,12 @@
       environment = {
         DATABASE_URL = "postgres://miniflux:secret@db/miniflux?sslmode=disable";
         RUN_MIGRATIONS = "1";
-        CREATE_ADMIN = "1";
+        CREATE_ADMIN = "0";
         ADMIN_USERNAME = "admin";
         ADMIN_PASSWORD = "test123";
+        FETCH_YOUTUBE_WATCH_TIME = "1";
+        BASE_URL = "rss.theholytachanka.com";
+        INVIDIOUS_INSTANCE = "yt.theholytachanka.com";
       };
       ports = [ 
         "6554:8080"
