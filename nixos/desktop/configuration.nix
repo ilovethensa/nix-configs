@@ -100,6 +100,7 @@
       droidcam
       celeste
       webtorrent_desktop
+      vlc
       # Cli
       tealdeer
       wget
