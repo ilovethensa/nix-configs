@@ -98,7 +98,6 @@
       heroic
       obs-studio
       droidcam
-      qbittorrent
       celeste
       webtorrent_desktop
       # Cli
