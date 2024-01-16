@@ -99,7 +99,7 @@
       obs-studio
       droidcam
       celeste
-      webtorrent_desktop
+      qbittorrent
       vlc
       gnome-feeds
       # Cli
