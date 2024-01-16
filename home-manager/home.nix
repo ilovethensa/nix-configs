@@ -11,10 +11,10 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    #./dconf.nix
+    ./dconf.nix
     ./gui/firefox.nix
     ./gui/vscode.nix
-    #./gui/themes.nix
+    ./gui/themes.nix
     ./cli/shell.nix
     ./cli/mangohud.nix
     #./spicetify.nix
