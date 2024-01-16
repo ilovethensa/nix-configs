@@ -96,12 +96,13 @@ with lib.hm.gvariant;
         "appindicatorsupport@rgcjonas.gmail.com"
         "blur-my-shell@aunetx"
         "app-hider@lynith.dev"
+        "dash-to-dock@micxgx.gmail.com"
       ];
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
         "org.gnome.Console.desktop"
         "firefox.desktop"
-        "codium.desktop"
+        "vscode.desktop"
       ];
       remember-mount-password = false;
       welcome-dialog-last-shown-version = "45.2";

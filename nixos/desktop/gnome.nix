@@ -23,6 +23,7 @@
       gnomeExtensions.blur-my-shell
       gnomeExtensions.appindicator
       gnomeExtensions.app-hider
+      gnomeExtensions.dash-to-dock
       resources
       loupe
     ];
