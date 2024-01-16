@@ -104,7 +104,6 @@
       vlc
       gnome-feeds
       jetbrains.idea-community-bin
-      parsec-bin
       # Cli
       tealdeer
       wget
