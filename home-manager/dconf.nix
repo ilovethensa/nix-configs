@@ -112,6 +112,15 @@ with lib.hm.gvariant;
       hidden-apps =
         [ "nixos-manual.desktop" "yelp.desktop" "org.gnome.Tour.desktop" ];
     };
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      apply-custom-theme = false;
+      background-opacity = "0.5";
+      dash-max-icon-size = "48";
+      dock-position = "BOTTOM";
+      height-fraction = "0.90000000000000002";
+      transparency-mode = "FIXED";
+    };
+
 
   };
 }
