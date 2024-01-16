@@ -101,6 +101,7 @@
       celeste
       webtorrent_desktop
       vlc
+      gnome-feeds
       # Cli
       tealdeer
       wget
