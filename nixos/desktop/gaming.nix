@@ -11,6 +11,7 @@
     gamescope
     goverlay
     wineWowPackages.staging
+    grapejuice
   ];
   programs.steam.enable = true;
   services.ratbagd.enable = true;
