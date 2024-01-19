@@ -9,11 +9,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1705534402,
-        "narHash": "sha256-mOWT45HLd8dm8FJNmrgngotE5NRJ+2arz65m1Kk0LBA=",
+        "lastModified": 1705660110,
+        "narHash": "sha256-q5cEuYpgWEsgcKhRzJ7i87N2hf1saMX42WBQc9LrKO4=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "6a928ce99e4ccb09e59c1f58052bd65027249c8a",
+        "rev": "516de0615e77d6e4d1ea5c405c776c0b0d6c1e4c",
         "type": "gitlab"
       },
       "original": {
@@ -79,8 +79,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1705535278,
-        "narHash": "sha256-V5+XKfNbiY0bLKLQlH+AXyhHttEL7XcZBH9iSbxxexA=",
+        "lastModified": 1705660020,
+        "narHash": "sha256-1tOuNh+UbiZlaC8RrpQzzypgnLBC67eRlBunfkE4sbQ=",
         "type": "tarball",
         "url": "https://github.com/nix-community/home-manager/archive/master.tar.gz"
       },
@@ -107,11 +107,11 @@
     "morewaita": {
       "flake": false,
       "locked": {
-        "lastModified": 1705589273,
-        "narHash": "sha256-l3/1tn74t80h2put6fwOXNKF5Wn952JQPk/UYc1aYgk=",
+        "lastModified": 1705617242,
+        "narHash": "sha256-T3bbypT2LeEcsrci/lhw45fwNrBZOOYkeBd0DHjGY3Q=",
         "owner": "somepaulo",
         "repo": "MoreWaita",
-        "rev": "297f0549534cc383ad02ad4dabcc94ed9405cf6b",
+        "rev": "4996d3c94276519cd375f2d11462216f280de0b0",
         "type": "github"
       },
       "original": {
@@ -170,11 +170,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1705602701,
-        "narHash": "sha256-FkR40ElbG1pW3f/mpSzbRON9Tjx5pkT2IBWNtd3YKDQ=",
+        "lastModified": 1705674901,
+        "narHash": "sha256-sXJAurZAOfIZgs5x+CuBCopWKLRn5XY+jAeYqzNpHCM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "66c3aec51e9d40381a053798de41b5e477d4b665",
+        "rev": "750734b35cbc48450a8bfa04586fbe3610e2f2c3",
         "type": "github"
       },
       "original": {
