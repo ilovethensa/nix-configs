@@ -26,6 +26,7 @@
       gnomeExtensions.dash-to-dock
       resources
       loupe
+      newsflash
     ];
     sessionVariables = rec { QT_QPA_PLATFORMTHEME = "gtk2"; };
   };
