@@ -16,6 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-alien.url = "github:thiagokokada/nix-alien";
+
 
     impermanence.url = "github:nix-community/impermanence";
 
@@ -46,7 +48,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, firefox-addons, impermanence
-    , spicetify-nix, nur, morewaita, ... }@inputs:
+    , spicetify-nix, nur, morewaita, nix-alien, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
