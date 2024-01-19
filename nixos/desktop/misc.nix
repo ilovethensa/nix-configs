@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, inputs, ... }:
 
 {
   environment.variables = {
@@ -26,9 +26,7 @@
     mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
     magicOrExtension = "\\x7fELF....AI\\x02";
   };
-  environment.systemPackages = with self.inputs.nix-alien.packages.${system}; [
-    nix-alien
+  environment.systemPackages = [
+    comma
   ];
-  # Optional, needed for `nix-alien-ld`
-  programs.nix-ld.enable = true;
 }
