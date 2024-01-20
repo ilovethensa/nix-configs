@@ -81,7 +81,6 @@
       enable = true;
       port = 22;
     };
-    tailscale.enable = true;
   };
   system.autoUpgrade = {
     enable = true;
