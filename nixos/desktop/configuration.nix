@@ -136,6 +136,8 @@
   # Virtual machines
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  # Disabled firewall
+  networking.firewall.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
