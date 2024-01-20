@@ -102,7 +102,7 @@
       celeste
       qbittorrent
       vlc
-      anytype
+      obsidian
       jetbrains.idea-community-bin
       # Cli
       tealdeer
