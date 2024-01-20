@@ -115,6 +115,7 @@
       gcc
       rustfmt
       clippy
+      innernet
 
       # For minecraft
       openjdk17
