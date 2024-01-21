@@ -75,11 +75,6 @@
         | disclosed to the appropriate authorities.          |
         +----------------------------------------------------+
       '';
-      ports = [ 584 ];
-    };
-    endlessh = {
-      enable = true;
-      port = 22;
     };
   };
   system.autoUpgrade = {
