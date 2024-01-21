@@ -30,9 +30,9 @@
               modules = [
                 {
                   # https://devenv.sh/reference/options/
-                  languages.rust = {
-                    enable = true;
-                  };
+                  packages = [ pkgs.python311Packages.requests ];
+                  languages.python.enable = true;
+                  languages.python.venv.enable = true;
                 }
               ];
             };
