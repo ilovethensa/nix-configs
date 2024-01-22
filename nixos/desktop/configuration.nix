@@ -126,6 +126,7 @@
         "/srv" # service data
         "/var/lib" # system service persistent data
         "/var/log" # the place that journald dumps it logs to
+        "/etc/innernet" # Innernet stuff
         {
           directory = "/home/tht";
           user = "tht";
