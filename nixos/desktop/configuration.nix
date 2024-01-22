@@ -131,6 +131,9 @@
           user = "tht";
         }
       ];
+      files = [
+        "/etc/hosts"
+      ];
     };
   };
 
@@ -138,7 +141,7 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   # Disabled firewall
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
