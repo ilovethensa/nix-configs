@@ -26,7 +26,9 @@ let
   windowManager = "sway";
 in
 {
-
+  imports = [
+    ./bar.nix
+  ];
   ${displayServer} = {
     windowManager.${windowManager} = {
       enable = true;
@@ -71,6 +73,13 @@ in
         ];
       };
       wrapperFeatures.gtk = true;
+
+      bars = [
+        {
+          position = "top";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+        }
+      ];
       extraConfig = ''
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 default_border none
@@ -78,6 +87,7 @@ default_floating_border none
 for_window [class="^steam$"] floating enable
 for_window [class="^Steam$"] floating enable
 for_window [class="^steam$" title="^Steam$"] floating disable
+
 '';
     };
   };
