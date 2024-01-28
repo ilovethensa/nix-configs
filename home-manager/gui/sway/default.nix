@@ -64,8 +64,8 @@ in
       };
       wrapperFeatures.gtk = true;
     };
+  };
     home.packages = [
       pkgs.foot
     ];
-  };
 }
