@@ -61,7 +61,7 @@ in
           { class = "steam"; title = "[^Steam]"; } # See https://github.com/ValveSoftware/steam-for-linux/issues/1040
           { class = "ghidra-Ghidra"; title = "^(?!(CodeBrowser.*|Ghidra.*))"; }
         ];
-        window.border = "none";
+        window.border = "0";
       };
       wrapperFeatures.gtk = true;
       extraConfig = ''
