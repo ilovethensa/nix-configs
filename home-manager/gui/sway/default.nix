@@ -64,5 +64,8 @@ in
       };
       wrapperFeatures.gtk = true;
     };
+    home.packages = [
+      foot
+    ];
   };
 }
