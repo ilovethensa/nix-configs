@@ -46,14 +46,15 @@ in
         };
 
         assigns = {
-          "${workspaces.ws2}" = [{ class = "electronplayer"; }];
-          "${workspaces.ws3}" = [
-            { class = "discord"; }
-            { class = "element"; }
+          "${workspaces.ws2}" = [{ class = "vesktop"; }];
+          "${workspaces.ws3}" = [{ class = "firefox"; }];
+          "${workspaces.ws4}" = [{ class = "Code"; }];
+          "${workspaces.ws5}" = [
+            { class = "steam"; } 
+            { class = "com.usebottles.bottles"; } 
+            { class = "lutris"; }
           ];
-          "${workspaces.ws4}" = [{ class = "Psst-gui"; }];
-          "${workspaces.ws10}" = [{ class = "Transmission-gtk"; }];
-          "${workspaces.ws5}" = [{ class = "steam"; }];
+          "${workspaces.ws10}" = [{ class = "org.qbittorrent.qBittorrent"; }];
         };
 
         floating.criteria = [
@@ -67,6 +68,9 @@ in
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 default_border none
 default_floating_border none
+for_window [class="^steam$"] floating enable
+for_window [class="^Steam$"] floating enable
+for_window [class="^steam$" title="^Steam$"] floating disable
 '';
     };
   };
