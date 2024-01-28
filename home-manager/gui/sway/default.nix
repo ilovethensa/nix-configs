@@ -66,6 +66,7 @@ in
       extraConfig = ''
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 '';
+      window.border = "none";
     };
   };
     home.packages = [
