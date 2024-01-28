@@ -12,18 +12,14 @@
         ublock-origin
         libredirect
         sponsorblock
-        skip-redirect
-        lovely-forks
-        localcdn
         istilldontcareaboutcookies
         indie-wiki-buddy
         dearrow
-        bulgarian-dictionary
+        violentmonkey
         boring-rss
         bitwarden
         augmented-steam
         enhanced-github
-        cookie-autodelete
       ];
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
