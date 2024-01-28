@@ -98,6 +98,7 @@ with lib.hm.gvariant;
         "app-hider@lynith.dev"
         "dash-to-dock@micxgx.gmail.com"
         "paperwm@paperwm.github.com"
+        "switcher@landau.fi"
       ];
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
