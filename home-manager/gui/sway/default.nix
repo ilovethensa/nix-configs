@@ -11,11 +11,11 @@ let
 
   workspaces = {
     ws1 = "1";
-    ws2 = "2: Coding";
+    ws2 = "2: Discord";
     ws3 = "3: Browser";
-    ws4 = "4: Music";
+    ws4 = "4: Coding";
     ws5 = "5: Games";
-    ws6 = "6";
+    ws6 = "6: Music";
     ws7 = "7";
     ws8 = "8";
     ws9 = "9";
@@ -54,6 +54,7 @@ in
             { class = "com.usebottles.bottles"; } 
             { class = "lutris"; }
           ];
+          "${workspaces.ws6}" = [{ class = "Spotify"; }];
           "${workspaces.ws10}" = [{ class = "org.qbittorrent.qBittorrent"; }];
         };
 
