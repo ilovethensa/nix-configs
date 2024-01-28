@@ -16,11 +16,6 @@
             block = "cpu";
             interval = 1;
           }
-          {
-            block = "load";
-            interval = 1;
-            format = " $icon $1m ";
-          }
           { block = "sound"; }
           {
             block = "time";
@@ -30,7 +25,7 @@
         ];
         settings = {
           theme =  {
-            theme = "ctp-mocha";
+            theme = "srcery";
             overrides = {
               idle_bg = "#123456";
               idle_fg = "#abcdef";
@@ -38,7 +33,7 @@
           };
         };
         icons = "material-nf";
-        theme = "ctp-mocha";
+        theme = "srcery";
       };
     };
   };
