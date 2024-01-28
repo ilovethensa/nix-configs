@@ -35,9 +35,6 @@
   "${mod}+Shift+Ctrl+h" = "split h";
   "${mod}+n" = "move workspace to output right";
   "${mod}+v" = "split v";
-  "${mod}+s" = "layout stacking";
-  "${mod}+w" = "layout tabbed";
-  "${mod}+e" = "layout toggle split";
   "${mod}+f" = "fullscreen toggle";
   "${mod}+Shift+space" = "floating toggle";
   "${mod}+space" = "focus mode_toggle";
