@@ -15,7 +15,7 @@
     ./gui/firefox.nix
     ./gui/vscode.nix
     ./gui/themes.nix
-    ./gui/sway.nix
+    ./gui/sway
     ./cli/shell.nix
     ./cli/mangohud.nix
     #./spicetify.nix
