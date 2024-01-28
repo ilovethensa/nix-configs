@@ -25,11 +25,11 @@
         ];
         settings = {
           theme =  {
-            theme = "ctp-mocha";
+            theme = "native";
           };
         };
         icons = "material-nf";
-        theme = "ctp-mocha";
+        theme = "native";
       };
     };
   };
