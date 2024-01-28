@@ -25,15 +25,11 @@
         ];
         settings = {
           theme =  {
-            theme = "native";
-            overrides = {
-              idle_bg = "#123456";
-              idle_fg = "#abcdef";
-            };
+            theme = "ctp-mocha";
           };
         };
         icons = "material-nf";
-        theme = "native";
+        theme = "ctp-mocha";
       };
     };
   };
