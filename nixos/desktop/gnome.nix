@@ -24,6 +24,8 @@
       gnomeExtensions.appindicator
       gnomeExtensions.app-hider
       gnomeExtensions.dash-to-dock
+      gnomeExtensions.paperwm
+      gnomeExtensions.switcher
       resources
       loupe
       newsflash

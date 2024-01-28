@@ -97,6 +97,7 @@ with lib.hm.gvariant;
         "blur-my-shell@aunetx"
         "app-hider@lynith.dev"
         "dash-to-dock@micxgx.gmail.com"
+        "paperwm@paperwm.github.com"
       ];
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
