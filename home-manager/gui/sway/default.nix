@@ -78,7 +78,7 @@ in
             fonts = {
               names = [ "FiraCode Nerd Font" ];
               style = "Bold Semi-Condensed";
-              size = 12.0;
+              size = 9.0;
             };
           }
         ];
