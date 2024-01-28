@@ -132,9 +132,6 @@
           user = "tht";
         }
       ];
-      files = [
-        "/etc/hosts"
-      ];
     };
   };
 
