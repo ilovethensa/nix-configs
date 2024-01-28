@@ -65,7 +65,7 @@ in
       wrapperFeatures.gtk = true;
       extraConfig = ''
 for_window [shell="xwayland"] title_format "[XWayland] %title"
-''
+'';
     };
   };
     home.packages = [
