@@ -11,7 +11,7 @@
   "${mod}+d" = "exec --no-startup-id ${pkgs.rofi}/bin/rofi -show drun";
 
   # General programs
-  "${mod}+Return" = "${pkgs.foot}/bin/foot";
+  "${mod}+Return" = "exec ${pkgs.foot}/bin/foot";
   "${mod}+Shift+w" = "exec \"${pkgs.i3-gaps}/bin/i3-msg 'workspace ${workspaces.ws2}; exec ${pkgs.qutebrowser}/bin/qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=2'\"";
   #"${mod}+Shift+d" = "exec ${pkgs.discord-with-openasar}/bin/Discord";
   "${mod}+Shift+Ctrl+d" = "exec pkill Discord && pkill Discord";
@@ -79,12 +79,5 @@
   # Brightness control
   "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
   "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
-} // lib.optionalAttrs (windowManager == "i3") {
-  "${mod}+Shift+r" = "exec i3-msg restart";
-  "${mod}+Shift+x" = "exec ${pkgs.i3lock-fancy}/bin/i3lock-fancy";
-  "--release Print" = "exec --no-startup-id ${pkgs.maim}/bin/maim -su /tmp/screenshot.png && ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png < /tmp/screenshot.png";
-} // lib.optionalAttrs (windowManager == "sway") {
   "${mod}+Shift+r" = "exec swaymsg reload";
-  "--release Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
-  "${mod}+Shift+x" = "exec ${pkgs.swaylock-fancy}/bin/swaylock-fancy";
 }
