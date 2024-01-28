@@ -61,12 +61,12 @@ in
           { class = "steam"; title = "[^Steam]"; } # See https://github.com/ValveSoftware/steam-for-linux/issues/1040
           { class = "ghidra-Ghidra"; title = "^(?!(CodeBrowser.*|Ghidra.*))"; }
         ];
+        window.border = "none";
       };
       wrapperFeatures.gtk = true;
       extraConfig = ''
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 '';
-      window.border = "none";
     };
   };
     home.packages = [
