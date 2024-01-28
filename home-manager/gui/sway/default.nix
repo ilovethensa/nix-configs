@@ -33,7 +33,7 @@ in
 
       config = {
         keybindings = import ./keybindings.nix { inherit config pkgs mod workspaces windowManager lib; };
-        terminal = "foot";
+        terminal = "${pkgs.foot}/bin/foot";
         defaultWorkspace = "workspace ${workspaces.ws1}";
         modifier = mod;
 
