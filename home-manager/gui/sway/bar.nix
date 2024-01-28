@@ -30,15 +30,15 @@
         ];
         settings = {
           theme =  {
-            theme = "dracula";
+            theme = "ctp-mocha";
             overrides = {
               idle_bg = "#123456";
               idle_fg = "#abcdef";
             };
           };
         };
-        icons = "awesome5";
-        theme = "dracula";
+        icons = "material-nf";
+        theme = "ctp-mocha";
       };
     };
   };
