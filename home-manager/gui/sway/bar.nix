@@ -25,7 +25,7 @@
         ];
         settings = {
           theme =  {
-            theme = "srcery";
+            theme = "native";
             overrides = {
               idle_bg = "#123456";
               idle_fg = "#abcdef";
@@ -33,7 +33,7 @@
           };
         };
         icons = "material-nf";
-        theme = "srcery";
+        theme = "native";
       };
     };
   };
