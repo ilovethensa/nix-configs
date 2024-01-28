@@ -66,6 +66,8 @@ in
       wrapperFeatures.gtk = true;
       extraConfig = ''
 for_window [shell="xwayland"] title_format "[XWayland] %title"
+default_border none
+default_floating_border none
 '';
     };
   };
