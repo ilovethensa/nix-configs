@@ -6,16 +6,11 @@
         blocks = [
           {
             block = "disk_space";
-            path = "/";
+            path = "/nix";
             info_type = "available";
             interval = 60;
             warning = 20.0;
             alert = 10.0;
-          }
-          {
-            block = "memory";
-            format_mem = " $icon $mem_used_percents ";
-            format_swap = " $icon $swap_used_percents ";
           }
           {
             block = "cpu";
@@ -35,7 +30,7 @@
         ];
         settings = {
           theme =  {
-            theme = "solarized-dark";
+            theme = "dracula";
             overrides = {
               idle_bg = "#123456";
               idle_fg = "#abcdef";
@@ -43,7 +38,7 @@
           };
         };
         icons = "awesome5";
-        theme = "gruvbox-dark";
+        theme = "dracula";
       };
     };
   };
