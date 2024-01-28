@@ -75,6 +75,11 @@ in
           {
             position = "top";
             statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+            fonts = {
+              names = [ "FiraCode Nerd Font" ];
+              style = "Bold Semi-Condensed";
+              size = 13.0;
+            };
           }
         ];
       };
