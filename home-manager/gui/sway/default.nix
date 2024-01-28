@@ -47,12 +47,12 @@ in
 
         assigns = {
           "${workspaces.ws2}" = [{ class = "vesktop"; }];
-          "${workspaces.ws3}" = [{ class = "firefox"; }];
+          "${workspaces.ws3}" = [{ app_id = "firefox"; }];
           "${workspaces.ws4}" = [{ class = "Code"; }];
           "${workspaces.ws5}" = [
             { class = "steam"; } 
-            { class = "com.usebottles.bottles"; } 
-            { class = "lutris"; }
+            { app_id = "com.usebottles.bottles"; } 
+            { app_id = "lutris"; }
           ];
           "${workspaces.ws6}" = [{ class = "Spotify"; }];
           "${workspaces.ws10}" = [{ class = "org.qbittorrent.qBittorrent"; }];
@@ -62,6 +62,12 @@ in
           # Default to floating windows for everything but the main window.
           { class = "steam"; title = "[^Steam]"; } # See https://github.com/ValveSoftware/steam-for-linux/issues/1040
           { class = "ghidra-Ghidra"; title = "^(?!(CodeBrowser.*|Ghidra.*))"; }
+        ];
+        startup = [
+          { command = "spotify"; }
+          { command = "vesktop"; }
+          { command = "firefox"; }
+          { command = "qbittorrent"; }
         ];
       };
       wrapperFeatures.gtk = true;
