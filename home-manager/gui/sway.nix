@@ -1,7 +1,4 @@
-{ pkgs, lib, inputs, ... }: 
-let
-  modifier = config.wayland.windowManager.sway.config.modifier;
-in {
+{ pkgs, lib, inputs, ... }: {
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
