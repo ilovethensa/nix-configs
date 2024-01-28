@@ -97,13 +97,10 @@
       spotify
       vesktop
       heroic
-      obs-studio
-      droidcam
       celeste
       qbittorrent
       vlc
       anytype
-      jetbrains.idea-community-bin
       # Cli
       tealdeer
       wget
