@@ -20,7 +20,7 @@
         cat = "${pkgs.bat}/bin/bat";
         cp = "${pkgs.fcp}/bin/fcp";
         find = "${pkgs.fd}/bin/fd";
-        movie = "${pkgs.fd}/bin/fd -e mpv -e mkv --type f ~/Downloads/ | ${pkgs.fzf}/bin/fzf} | ${pkgs.vlc}/bin/vlc";
+        movie = "${pkgs.fd}/bin/fd -e mpv -e mkv --type f ~/Downloads/ | ${pkgs.fzf}/bin/fzf | ${pkgs.vlc}/bin/vlc";
       };
       plugins = [
         {
