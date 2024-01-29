@@ -16,6 +16,7 @@
     ./gui/vscode.nix
     ./gui/themes.nix
     ./gui/sway
+    ./gui/foot.nix
     ./cli/shell.nix
     ./cli/mangohud.nix
     #./spicetify.nix
