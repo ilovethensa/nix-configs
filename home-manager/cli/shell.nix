@@ -16,7 +16,7 @@
     tldr $argv; or
     man $argv; or
     $argv --help; or
-    $argv -h''
+    $argv -h'';
         onEvent = "fish_command_not_found";
       };
       };
