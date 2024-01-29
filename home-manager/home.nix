@@ -19,6 +19,7 @@
     ./gui/foot.nix
     ./cli/shell.nix
     ./cli/mangohud.nix
+    ./cli/scripts.nix
     ./cli/neovim
     #./spicetify.nix
   ];
@@ -58,7 +59,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [ fzf kitty alacritty ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

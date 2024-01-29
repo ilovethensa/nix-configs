@@ -91,7 +91,7 @@ default_floating_border none
 for_window [class="^steam$"] floating enable
 for_window [class="^Steam$"] floating enable
 for_window [class="^steam$" title="^Steam$"] floating disable
-
+for_window [app_id="launcher"] floating enable, border pixel 2
 '';
     };
   };
