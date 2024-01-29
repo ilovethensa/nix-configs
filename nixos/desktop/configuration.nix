@@ -63,14 +63,14 @@
           '';
         });
       })
-      (final: prev: {
-        vesktop = prev.vesktop.overrideAttrs (oldAttrs: {
-          postInstall = (oldAttrs.postInstall or "") + ''
-            substituteInPlace $out/share/applications/vesktop.desktop \
-              --replace "vesktop %U" "vesktop %U --ozone-platform-hint=auto"
-          '';
-        });
-      })
+      #(final: prev: {
+      #  vesktop = prev.vesktop.overrideAttrs (oldAttrs: {
+      #    postInstall = (oldAttrs.postInstall or "") + ''
+      #      substituteInPlace $out/share/applications/vesktop.desktop \
+      #        --replace "vesktop %U" "vesktop %U --ozone-platform-hint=auto"
+      #    '';
+      #  });
+      #})
     ];
     # Configure your nixpkgs instance
     config = {
