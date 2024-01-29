@@ -20,6 +20,7 @@
     ./cli/shell.nix
     ./cli/mangohud.nix
     ./cli/neovim
+    ./cli/scripts
     #./spicetify.nix
   ];
 
