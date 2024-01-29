@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, ... }: {
   programs = {
     zsh = {
-      interactiveShellInit = ''
+      initExtra = ''
         eval "$(${pkgs.starship}/bin/starship init zsh)"
       '';
       enable = true;
