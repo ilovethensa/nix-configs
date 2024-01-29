@@ -7,7 +7,7 @@
     mangohud
     gamemode
     gamescope
-    wineWowPackages.staging
+    winePackages.wayland
   ];
   programs.steam.enable = true;
 }
