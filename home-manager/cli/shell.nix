@@ -6,20 +6,17 @@
       '';
       functions = {
         nix-init = ''
-            if test -z $argv
-                echo "Usage: nix-init <ARGUMENT>"
-            else
-                nix flake init -t ~/nix-configs#$argv
-            end'';
-      __fish_command_not_found_handler = {
-        body = ''
-    tldr $argv; or
-    man $argv; or
-    $argv --help; or
-    $argv -h'';
-        onEvent = "fish_command_not_found";
-      };
-      };
+          if test -z $argv
+              echo "Usage: nix-init <ARGUMENT>"
+          else
+              nix flake init -t ~/nix-configs#$argv
+          end'';
+        help = ''
+          tldr $argv; or
+          man $argv; or
+          $argv --help; or
+          $argv -h'';
+        };
       enable = true;
       shellAliases = {
         ls = "${pkgs.eza}/bin/eza";
