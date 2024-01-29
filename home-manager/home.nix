@@ -19,7 +19,7 @@
     ./gui/foot.nix
     ./cli/shell.nix
     ./cli/mangohud.nix
-    ./cli/nom.nix
+    ./cli/neovim
     #./spicetify.nix
   ];
 
