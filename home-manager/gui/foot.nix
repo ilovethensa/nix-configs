@@ -2,13 +2,10 @@
   programs.foot = {
     enable = true;
     settings = {
-      cursors = {
-        color = "c0caf5 2e3c64";
-      };
       main = {
         term = "xterm-256color";
 
-        font = "Fira Code:size=11";
+        font = "FiraCode Nerd Font:size=11";
         dpi-aware = "yes";
       };
 
@@ -40,8 +37,8 @@
         bright6 = "7dcfff";
         bright7 = "c0caf5";
 
-        16 = "ff9e64";
-        17 = "db4b4b";
+        "16" = "ff9e64";
+        "17" = "db4b4b";
       };
     };
   };
