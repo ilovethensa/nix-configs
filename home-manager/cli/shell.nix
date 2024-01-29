@@ -19,7 +19,7 @@
         };
       enable = true;
       shellAliases = {
-        ls = "${pkgs.eza}/bin/eza";
+        ls = "${pkgs.eza}/bin/eza -la";
         cat = "${pkgs.bat}/bin/bat";
         cp = "${pkgs.fcp}/bin/fcp";
         find = "${pkgs.fd}/bin/fd";
