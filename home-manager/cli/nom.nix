@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, overlays, ... }:
 let
   nomConfig = ''
 autoread: true
