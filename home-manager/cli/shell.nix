@@ -3,6 +3,11 @@
     zsh = {
       initExtra = ''
         eval "$(${pkgs.starship}/bin/starship init zsh)"
+	export PATH=/home/tht/.local/bin:$PATH
+	fn movie() {
+	   movie=$(${pkgs.fd}/bin/fd -e mkv -e mp4 . /home/tht/Downloads | uniq -u | ${pkgs.fzf}/bin/fzf)
+	   ${pkgs.vlc}/bin/vlc $movie
+	}
       '';
       enable = true;
       shellAliases = {
@@ -10,7 +15,6 @@
         cat = "${pkgs.bat}/bin/bat";
         cp = "${pkgs.fcp}/bin/fcp";
         find = "${pkgs.fd}/bin/fd";
-        movie = "${pkgs.fd}/bin/fd -e mpv -e mkv --type f ~/Downloads/ | ${pkgs.fzf}/bin/fzf | ${pkgs.vlc}/bin/vlc";
         nix-init = "nix flake init -t ~/Projects/nix-configs#$1";
         help = "curl -s cheat.sh/$@";
       };
