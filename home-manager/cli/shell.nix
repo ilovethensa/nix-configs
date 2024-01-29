@@ -3,7 +3,13 @@
     fish = {
       interactiveShellInit = ''
                 ${pkgs.starship}/bin/starship init fish | source
-                ${pkgs.fastfetch}/bin/fastfetch
+function movie
+    set file (find -e mpv -e mkv --type f ~/Downloads/ | fzf)
+    if test -n "$file"
+        vlc "$file"
+    end
+end
+
       '';
       functions = {
         nix-init = ''
@@ -14,9 +20,6 @@
           end'';
         help = ''
           curl -s cheat.sh/$argv'';
-        movie = ''
-          ${pkgs.foot}/bin/foot -a launcher command bash -c "${pkgs.findutils}/bin/find ~/Downloads -type f -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" | ${pkgs.fzf}/bin/fzf | ${pkgs.vlc}/bin/vlc"
-        '';
         };
       enable = true;
       shellAliases = {
