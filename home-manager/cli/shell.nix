@@ -3,6 +3,7 @@
     fish = {
       interactiveShellInit = ''
                 ${pkgs.starship}/bin/starship init fish | source
+                ${pkgs.pfetch-rs}/bin/pfetch-rs
       '';
       functions = {
         nix-init = ''
