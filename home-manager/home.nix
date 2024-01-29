@@ -19,6 +19,7 @@
     ./gui/foot.nix
     ./cli/shell.nix
     ./cli/mangohud.nix
+    ./cli/nom.nix
     #./spicetify.nix
   ];
 
