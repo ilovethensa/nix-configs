@@ -3,8 +3,7 @@
     zsh = {
       interactiveShellInit = ''
         eval "$(${pkgs.starship}/bin/starship init zsh)"
-
-      ''
+      '';
       enable = true;
       shellAliases = {
         ls = "${pkgs.eza}/bin/eza -la";
