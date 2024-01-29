@@ -15,6 +15,9 @@
         help = ''
           curl -s cheat.sh/$argv'';
         };
+        movie = ''
+${pkgs.foot}/bin/foot -a launcher command bash -c "${pkgs.findutils}/bin/find ~/Downloads -type f -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" | ${pkgs.fzf}/bin/fzf | xargs ${pkgs.vlc}/bin/vlc"
+'';
       enable = true;
       shellAliases = {
         ls = "${pkgs.eza}/bin/eza -la";
