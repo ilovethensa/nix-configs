@@ -9,13 +9,10 @@
           if test -z $argv
               echo "Usage: nix-init <ARGUMENT>"
           else
-              nix flake init -t ~/nix-configs#$argv
+              nix flake init -t ~/Projects/nix-configs#$argv
           end'';
         help = ''
           curl -s cheat.sh/$argv'';
-        movie = ''
-          set file (${pkgs.fd}/bin/fd -e mpv -e mkv --type f ~/Downloads/ | ${pkgs.fzf}/bin/fzf})
-          ${pkgs.vlc}/bin/vlc "$file"'';
         };
       enable = true;
       shellAliases = {
@@ -23,6 +20,7 @@
         cat = "${pkgs.bat}/bin/bat";
         cp = "${pkgs.fcp}/bin/fcp";
         find = "${pkgs.fd}/bin/fd";
+        movie = "${pkgs.fd}/bin/fd -e mpv -e mkv --type f ~/Downloads/ | ${pkgs.fzf}/bin/fzf} | ${pkgs.vlc}/bin/vlc"
       };
       plugins = [
         {
