@@ -12,10 +12,7 @@
               nix flake init -t ~/nix-configs#$argv
           end'';
         help = ''
-          tldr $argv; or
-          man $argv; or
-          $argv --help; or
-          $argv -h'';
+          curl -s cheat.sh/$@'';
         };
       enable = true;
       shellAliases = {
