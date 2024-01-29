@@ -51,13 +51,13 @@
         # note: ssh-copy-id will add user@your-machine after the public key
         # but we can remove the "@your-machine" part
       ];
-      shell = pkgs.fish;
+      shell = pkgs.zsh;
       initialHashedPassword =
         "$y$j9T$R.EtRiy8oN715gMKYNMRU1$oVT/2FeQb3YnQfchAxMhb0NiLeljwN7quPVuX2N.1wC";
     };
   };
 
-  programs.fish.enable = true;
+  programs.zsh.enable = true;
   services = {
     openssh = {
       enable = true;
@@ -88,5 +88,6 @@
     dates = "02:00";
     randomizedDelaySec = "45min";
   };
+  environment.pathsToLink = [ "/share/zsh" ];
 
 }
