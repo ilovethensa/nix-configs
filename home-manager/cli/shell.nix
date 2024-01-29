@@ -11,6 +11,14 @@
             else
                 nix flake init -t ~/nix-configs#$argv
             end'';
+      __fish_command_not_found_handler = {
+        body = ''
+    tldr $argv; or
+    man $argv; or
+    $argv --help; or
+    $argv -h''
+        onEvent = "fish_command_not_found";
+      };
       };
       enable = true;
       shellAliases = {
