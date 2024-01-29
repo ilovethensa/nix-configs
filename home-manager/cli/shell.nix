@@ -14,7 +14,8 @@
         help = ''
           curl -s cheat.sh/$argv'';
         movie = ''
-          set file (${pkgs.fd}/bin/fd -e mpv -e mkv --type f ~/Downloads/ | ${pkgs.fzf}/bin/fzf}) && ${pkgs.vlc}/bin/vlc "$file"'';
+          set file (${pkgs.fd}/bin/fd -e mpv -e mkv --type f ~/Downloads/ | ${pkgs.fzf}/bin/fzf})
+          ${pkgs.vlc}/bin/vlc "$file"'';
         };
       enable = true;
       shellAliases = {
