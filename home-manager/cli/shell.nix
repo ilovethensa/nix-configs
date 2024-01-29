@@ -22,6 +22,7 @@
         ls = "${pkgs.eza}/bin/eza";
         cat = "${pkgs.bat}/bin/bat";
         cp = "${pkgs.fcp}/bin/fcp";
+        find = "${pkgs.fd}/bin/fd";
       };
       plugins = [
         {

@@ -97,7 +97,6 @@
       spotify
       vesktop
       heroic
-      celeste
       qbittorrent
       vlc
       anytype
@@ -106,10 +105,9 @@
       wget
       hashcat
       appimage-run
+      gcc
       cargo
-      gcc
       rustc
-      gcc
       rustfmt
       clippy
       innernet
