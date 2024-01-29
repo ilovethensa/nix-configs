@@ -88,7 +88,7 @@
       nixosConfigurations = {
         # FIXME replace with your hostname
         desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs outputs overlays; };
           modules = [
             # > Our main nixos configuration file <
             ./nixos/desktop.nix
@@ -97,7 +97,7 @@
           ];
         };
         server = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs outputs overlays; };
           modules = [
             # > Our main nixos configuration file <
             ./nixos/server.nix
