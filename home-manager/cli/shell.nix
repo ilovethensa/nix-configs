@@ -4,7 +4,7 @@
       interactiveShellInit = ''
                 ${pkgs.starship}/bin/starship init fish | source
       '';
-      funtions = {
+      functions = {
         nix-init = ''
             if test -z $argv
                 echo "Usage: nix-init <ARGUMENT>"
