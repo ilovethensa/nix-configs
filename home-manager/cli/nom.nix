@@ -472,6 +472,6 @@ feeds:
 in {
   home.file.".config/nom/config.yml".text = nomConfig;
   home.packages = [
-    nom
+    pkgs.nom
   ];
 }
