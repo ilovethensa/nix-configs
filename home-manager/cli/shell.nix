@@ -4,9 +4,9 @@
       interactiveShellInit = ''
                 ${pkgs.starship}/bin/starship init fish | source
 function movie
-    set file (find -e mpv -e mkv --type f ~/Downloads/ | fzf)
+    set file (${pkgs.fd}/bin/fd -e mpv -e mkv --type f ~/Downloads/ | ${pkgs.fzf}/bin/fzf})
     if test -n "$file"
-        vlc "$file"
+        ${pkgs.vlc}/bin/vlc "$file"
     end
 end
 
