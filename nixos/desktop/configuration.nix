@@ -55,6 +55,14 @@
               });
             })
       */
+      (final: prev: {
+        spotify = prev.spotify.overrideAttrs (oldAttrs: {
+          postInstall = (oldAttrs.postInstall or "") + ''
+            substituteInPlace $out/share/applications/spotify.desktop \
+              --replace "/bin/spotify %U" "/bin/spotify %U --enable-features=UseOzonePlatform --ozone-platform=wayland"
+          '';
+        });
+      })
     ];
     # Configure your nixpkgs instance
     config = {
