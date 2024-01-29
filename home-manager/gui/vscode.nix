@@ -1,7 +1,7 @@
 { pkgs, lib, ... }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhsWithPackages
+    package = pkgs.vscodium.fhsWithPackages
       (ps: with ps; [ zlib openssl.dev pkg-config ]);
     extensions = with pkgs.vscode-extensions; [
       rust-lang.rust-analyzer

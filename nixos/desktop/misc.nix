@@ -3,6 +3,7 @@
 {
   environment.variables = {
     ROC_ENABLE_PRE_VEGA = "1"; # Enable ROCM on my RX 580
+    NIXOS_OZONE_WL = "1"; # Run electron apps with wayland
     RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
   };
   systemd = {
