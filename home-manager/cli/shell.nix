@@ -31,5 +31,6 @@
       ];
 
     };
+    starship.enable = true;
   };
 }
