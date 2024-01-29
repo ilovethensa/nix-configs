@@ -3,13 +3,6 @@
     fish = {
       interactiveShellInit = ''
                 ${pkgs.starship}/bin/starship init fish | source
-function movie
-    set file (${pkgs.fd}/bin/fd -e mpv -e mkv --type f ~/Downloads/ | ${pkgs.fzf}/bin/fzf})
-    if test -n "$file"
-        ${pkgs.vlc}/bin/vlc "$file"
-    end
-end
-
       '';
       functions = {
         nix-init = ''
@@ -20,6 +13,8 @@ end
           end'';
         help = ''
           curl -s cheat.sh/$argv'';
+        movie = ''
+          set file (${pkgs.fd}/bin/fd -e mpv -e mkv --type f ~/Downloads/ | ${pkgs.fzf}/bin/fzf}) && ${pkgs.vlc}/bin/vlc "$file"'';
         };
       enable = true;
       shellAliases = {
