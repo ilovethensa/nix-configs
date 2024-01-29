@@ -2,26 +2,34 @@
   programs = {
     fish = {
       interactiveShellInit = ''
-                starship init fish | source
-        function nix-init
+                ${pkgs.starship}/bin/starship init fish | source
+      '';
+      funtions = {
+        nix-init = ''
             if test -z $argv
                 echo "Usage: nix-init <ARGUMENT>"
             else
                 nix flake init -t ~/nix-configs#$argv
-            end
-        end
-
-      '';
+            end'';
+      };
       enable = true;
       shellAliases = {
-        ls = "exa";
-        cat = "bat";
-        cp = "fcp";
+        ls = "${pkgs.eza}/bin/eza";
+        cat = "${pkgs.bat}/bin/bat";
+        cp = "${pkgs.fcp}/bin/fcp";
       };
+      plugins = [
+        {
+          name = "fish-insulter";
+          src = pkgs.fetchFromGitHub {
+            owner = "Alaz-Oz";
+            repo = "fish-insulter";
+            rev = "d9538a189c9cdabc90d6b62c2cdd716284954708";
+            sha256 = "VCORARW5tJYJlRxVdwLf3CMET4PY7Qzy28CT1EzBq5I=";
+          };
+        }
+      ];
 
     };
-    thefuck.enable = true;
-    starship.enable = true;
   };
-  home.packages = with pkgs; [ eza fuc bat fd fcp ];
 }

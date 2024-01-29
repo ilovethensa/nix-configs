@@ -95,7 +95,4 @@ for_window [class="^steam$" title="^Steam$"] floating disable
 '';
     };
   };
-    home.packages = [
-      pkgs.foot
-    ];
 }
