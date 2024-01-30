@@ -1,0 +1,48 @@
+[0000000000bec520] main libvlc: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+QApplication: invalid style override 'adwaita-dark' passed, ignoring it.
+	Available styles: bb10dark, bb10bright, cleanlooks, gtk2, cde, motif, plastique, Windows, Fusion
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.801: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.801: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.801: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.802: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.802: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.818: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.818: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.821: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.821: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.821: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.821: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.821: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.821: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.821: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.821: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.823: Default font does not have a positive size
+
+(vlc:52645): Gtk-WARNING **: 00:16:45.823: Default font does not have a positive size
+[0000000000cb89b0] main audio output error: too low audio sample frequency (0)
+[00007fd4a9ba4ce0] main decoder error: failed to create audio output
+[0000000000cb89b0] vlcpulse audio output error: digital pass-through stream connection failure: Input/Output error
+[0000000000cb89b0] main audio output error: module not functional
+[00007fd4a9ba4ce0] main decoder error: failed to create audio output
+[00007fd4880052e0] gl gl: Initialized libplacebo v5.264.1 (API v264)
+libva info: VA-API version 1.20.0
+libva info: Trying to open /run/opengl-driver/lib/dri/radeonsi_drv_video.so
+libva info: Found init function __vaDriverInit_1_20
+libva info: va_openDriver() returns 0
+[00007fd4884430e0] gl gl: Initialized libplacebo v5.264.1 (API v264)

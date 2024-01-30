@@ -31,4 +31,6 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
   ];
+  # Remove lightdm
+  services.xserver.displayManager.startx.enable = true;
 }

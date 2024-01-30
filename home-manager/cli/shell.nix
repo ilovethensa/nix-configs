@@ -4,10 +4,6 @@
       initExtra = ''
         eval "$(${pkgs.starship}/bin/starship init zsh)"
 	export PATH=/home/tht/.local/bin:$PATH
-	fn movie() {
-	   movie=$(${pkgs.fd}/bin/fd -e mkv -e mp4 . /home/tht/Downloads | uniq -u | ${pkgs.fzf}/bin/fzf)
-	   ${pkgs.vlc}/bin/vlc $movie
-	}
       '';
       enable = true;
       shellAliases = {

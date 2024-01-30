@@ -1,11 +1,11 @@
 { pkgs, lib, inputs, ... }:
 let
-  movieScript = ''
-    fn movie() {
-       movie=$(${pkgs.fd}/bin/fd -e mkv -e mp4 . /home/tht/Downloads | uniq -u | ${pkgs.fzf}/bin/fzf)
-       ${pkgs.vlc}/bin/vlc $movie
-    }
-    '';
+  movie-script = pkgs.writeScriptBin "movie" ''
+#!${pkgs.stdenv.shell}
+movie=$("${pkgs.fd}/bin/fd" -e mkv -e mp4 . /home/tht/Downloads | uniq -u | grep -v -e "Sample" -e "sample" | "${pkgs.fzf}/bin/fzf" --prompt='Play movie: ' --height 100% --cycle )
+swaymsg exec "${pkgs.vlc}/bin/vlc" "$movie"
+  '';
 in {
-  home.file.".local/bin/movie".text = movieScript;
+   home.packages = [ movie-script ];
 }
+

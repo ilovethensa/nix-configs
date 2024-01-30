@@ -8,8 +8,11 @@
 
 {
   "${mod}+Shift+e" = "exec [ \"$(printf \"No\\nYes\" | ${pkgs.dmenu}/bin/dmenu -i -p \"Would you like to exit i3?\")\" = \"Yes\" ] && ${pkgs.i3-gaps}/bin/i3-msg exit";
-  "${mod}+d" = "exec --no-startup-id ${pkgs.rofi}/bin/rofi -show drun";
-
+  "${mod}+d" = "exec --no-startup-id ${pkgs.foot}/bin/foot -a launcher ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu=\"${pkgs.fzf}/bin/fzf --prompt='Run: ' --height 100% --cycle\" --term=\"${pkgs.foot}/bin/foot\" --wrapper='swaymsg exec'";
+   
+  # Movie launcher
+  "${mod}+m" = "exec --no-startup-id ${pkgs.foot}/bin/foot -a launcher movie";
+  
   # General programs
   "${mod}+Return" = "exec ${pkgs.foot}/bin/foot";
 
