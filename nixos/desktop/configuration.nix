@@ -116,6 +116,7 @@
       qbittorrent
       vlc
       anytype
+      newsflash
       # Cli
       tealdeer
       wget

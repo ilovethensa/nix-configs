@@ -59,7 +59,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ fzf kitty alacritty ];
+  home.packages = with pkgs; [ fzf ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
