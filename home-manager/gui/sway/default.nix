@@ -48,7 +48,7 @@ in
         };
 
         assigns = {
-          "${workspaces.ws2}" = [{ class = "vesktop"; }];
+          "${workspaces.ws2}" = [{ app_id = "vesktop"; }];
           "${workspaces.ws3}" = [{ app_id = "firefox"; }];
           "${workspaces.ws4}" = [{ class = "Code"; }];
           "${workspaces.ws5}" = [
@@ -56,8 +56,8 @@ in
             { app_id = "com.usebottles.bottles"; } 
             { app_id = "lutris"; }
           ];
-          "${workspaces.ws6}" = [{ class = "Spotify"; }];
-          "${workspaces.ws10}" = [{ class = "org.qbittorrent.qBittorrent"; }];
+          "${workspaces.ws6}" = [{ title = "Spotify"; }];
+          "${workspaces.ws10}" = [{ app_id = "org.qbittorrent.qBittorrent"; }];
         };
 
         floating.criteria = [
@@ -92,6 +92,8 @@ for_window [class="^steam$"] floating enable
 for_window [class="^Steam$"] floating enable
 for_window [class="^steam$" title="^Steam$"] floating disable
 for_window [app_id="launcher"] floating enable, border pixel 2
+for_window [app_id="firefox" title="^Picture-in-Picture$"] \
+    floating enable, move position 1265 696, resize set 580 328, sticky enable
 '';
     };
   };
