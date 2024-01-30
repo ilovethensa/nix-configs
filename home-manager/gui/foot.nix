@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, config, lib, ... }: {
   programs.foot = {
     enable = true;
     settings = {
@@ -12,25 +12,25 @@
       mouse = {
         hide-when-typing = "yes";
       };
-      colors = {
-        background = "282828";
-        foreground = "ebdbb2";
-        regular0 = "282828";
-        regular1 = "cc241d";
-        regular2 = "98971a";
-        regular3 = "d79921";
-        regular4 = "458588";
-        regular5 = "b16286";
-        regular6 = "689d6a";
-        regular7 = "a89984";
-        bright0 = "928374";
-        bright1 = "fb4934";
-        bright2 = "b8bb26";
-        bright3 = "fabd2f";
-        bright4 = "83a598";
-        bright5 = "d3869b";
-        bright6 = "8ec07c";
-        bright7 = "ebdbb2";
+      colors = with config.colorScheme.colors; {
+        background = "${base00}";
+        foreground = "${base06}";
+        regular0 = "${base00}";
+        regular1 = "${base08}";
+        regular2 = "${base0B}";
+        regular3 = "${base0A}";
+        regular4 = "${base0D}";
+        regular5 = "${base0E}";
+        regular6 = "${base0C}";
+        regular7 = "${base05}";
+        bright0 = "${base03}";
+        bright1 = "${base09}";
+        bright2 = "${base01}";
+        bright3 = "${base02}";
+        bright4 = "${base04}";
+        bright5 = "${base06}";
+        bright6 = "${base0F}";
+        bright7 = "${base07}";
       };
     };
   };

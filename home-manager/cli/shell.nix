@@ -3,7 +3,10 @@
     zsh = {
       initExtra = ''
         eval "$(${pkgs.starship}/bin/starship init zsh)"
-	export PATH=/home/tht/.local/bin:$PATH
+        export PATH=/home/tht/.local/bin:$PATH
+        cheat() {
+          curl "cheat.sh/$1"
+        }
       '';
       enable = true;
       shellAliases = {
@@ -12,7 +15,6 @@
         cp = "${pkgs.fcp}/bin/fcp";
         find = "${pkgs.fd}/bin/fd";
         nix-init = "nix flake init -t ~/Projects/nix-configs#$1";
-        help = "curl -s cheat.sh/$@";
       };
       enableAutosuggestions = true;
       enableCompletion = true;

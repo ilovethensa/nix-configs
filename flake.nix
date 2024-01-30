@@ -16,9 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-alien.url = "github:thiagokokada/nix-alien";
-
-
     impermanence.url = "github:nix-community/impermanence";
 
     # Spicetify
@@ -44,11 +41,11 @@
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
-    # nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = { self, nixpkgs, home-manager, firefox-addons, impermanence
-    , spicetify-nix, nur, morewaita, nix-alien, ... }@inputs:
+    , spicetify-nix, nur, morewaita, nix-colors, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
