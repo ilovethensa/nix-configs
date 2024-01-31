@@ -172,6 +172,12 @@
         "browser.menu.showViewImageInfo" = true;
         "findbar.highlightAll" = true;
         "layout.word_select.eat_space_to_next_word" = false;
+        "network.trr.mode" = 3;
+        "network.trr.odoh.enabled" = true;
+        "network.trr.odoh.configs_uri" = "https://odoh.cloudflare-dns.com/.well-known/odohconfigs";
+        "network.trr.odoh.target_host" = "https://odoh.cloudflare-dns.com/";
+        "network.trr.odoh.target_path" = "dns-query";
+        "network.trr.odoh.proxy_uri" = "https://odoh1.surfdomeinen.nl/proxy";
       };
       userChrome = ''
         @import "firefox-gnome-theme/userChrome.css";
