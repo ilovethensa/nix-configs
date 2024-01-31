@@ -13,8 +13,14 @@
   # Movie launcher
   "${mod}+m" = "exec --no-startup-id ${pkgs.foot}/bin/foot -a launcher movie";
   
+  # Opening bookmarks
+  "${mod}+b" = "exec --no-startup-id ${pkgs.foot}/bin/foot -a launcher bookmark-open";
+  
   # General programs
   "${mod}+Return" = "exec ${pkgs.foot}/bin/foot";
+
+  # Screenshot
+  "Print" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\"";
 
   # Navigation
   "${mod}+left" = "focus left";
