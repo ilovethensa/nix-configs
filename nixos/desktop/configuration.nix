@@ -23,6 +23,7 @@
     ./gaming.nix
     ./misc.nix
     ./neovim.nix
+    ./networking.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -153,41 +154,7 @@
   programs.virt-manager.enable = true;
   # Disabled firewall
   networking.firewall.enable = false;
-  services.tor.settings.DNSPort = lib.mkForce 53;
-  services.tor.enable = true;
-  services.tor.client.enable = true;
-  services.tor.client.dns.enable = true;
-    services.stubby = {
-      enable = true;
-      settings = pkgs.stubby.passthru.settingsExample // {
-        listen_addresses = [
-          "127.0.0.15"
-        ];
-        upstream_recursive_servers = [{
-          address_data = "1.1.1.1";
-          tls_auth_name = "cloudflare-dns.com";
-          tls_pubkey_pinset = [{
-            digest = "sha256";
-            value = "GP8Knf7qBae+aIfythytMbYnL+yowaWVeD6MoLHkVRg=";
-          }];
-        } {
-          address_data = "1.0.0.1";
-          tls_auth_name = "cloudflare-dns.com";
-          tls_pubkey_pinset = [{
-            digest = "sha256";
-            value = "GP8Knf7qBae+aIfythytMbYnL+yowaWVeD6MoLHkVRg=";
-          }];
-        }];
-      };
-    };
 
-  networking = {
-    nameservers = [ "127.0.0.1" "127.0.0.15" ];
-    # If using dhcpcd:
-    dhcpcd.extraConfig = "nohook resolv.conf";
-    # If using NetworkManager:
-    networkmanager.dns = "none";
-  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

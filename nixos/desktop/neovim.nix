@@ -2,6 +2,7 @@
 
 {
   programs.nixvim = {
+    enable = true;
   keymaps = [
   {
     action = "<cmd>CHADopen --always-focus<cr>";
