@@ -35,6 +35,13 @@
       url = "github:somepaulo/MoreWaita";
       flake = false;
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+      # url = "github:nix-community/nixvim/nixos-23.05";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -45,7 +52,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, firefox-addons, impermanence
-    , spicetify-nix, nur, morewaita, nix-colors, ... }@inputs:
+    , spicetify-nix, nur, morewaita, nix-colors, nixvim, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
@@ -90,6 +97,7 @@
             # > Our main nixos configuration file <
             ./nixos/desktop.nix
             impermanence.nixosModules.impermanence
+            nixvim.nixosModules.nixvim
             nur.nixosModules.nur
           ];
         };

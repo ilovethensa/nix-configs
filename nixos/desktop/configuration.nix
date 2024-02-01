@@ -22,6 +22,7 @@
     ./audio.nix
     ./gaming.nix
     ./misc.nix
+    ./neovim.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -187,6 +188,7 @@
     # If using NetworkManager:
     networkmanager.dns = "none";
   };
+
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {

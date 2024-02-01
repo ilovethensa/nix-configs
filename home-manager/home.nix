@@ -20,7 +20,6 @@
     ./cli/shell.nix
     ./cli/mangohud.nix
     ./cli/scripts.nix
-    ./cli/neovim
     #./spicetify.nix
   ];
 
@@ -59,7 +58,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ fzf ripgrep nb ];
+  home.packages = with pkgs; [ fzf ripgrep nb yazi ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

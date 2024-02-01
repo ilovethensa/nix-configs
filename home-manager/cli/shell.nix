@@ -7,6 +7,7 @@
         function cheat
           curl "cheat.sh/$argv"
         end
+        ${pkgs.nitch}/bin/nitch
       '';
       enable = true;
       shellAliases = {
