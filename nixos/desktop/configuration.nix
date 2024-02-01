@@ -95,6 +95,7 @@
   }) config.nix.registry;
 
   # FIXME: Add the rest of your current configuration
+  time.timeZone = "Europe/Sofia";
 
   # TODO: Set your hostname
   networking.hostName = "desktop";
@@ -118,7 +119,6 @@
       qbittorrent
       vlc
       anytype
-      newsflash
       # Cli
       tealdeer
       wget
