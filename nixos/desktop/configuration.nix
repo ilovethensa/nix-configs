@@ -155,6 +155,7 @@
   # Disabled firewall
   networking.firewall.enable = false;
 
+  environment.variables.NB_MARKDOWN_TOOL = "${pkgs.bat}/bin/bat";
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

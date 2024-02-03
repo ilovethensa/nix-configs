@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, ... }:
 let
   bookmark-open = pkgs.writeScriptBin "bookmark-open" ''
-url=$(${pkgs.nb}/bin/nb list | ${pkgs.fzf}/bin/fzf --ansi --header="Select a bookmark" | ${pkgs.gnused}/bin/sed -n 's/.*(\(.*\))/\1/p')
+url=$(${pkgs.nb}/bin/nb list --type bookmark | ${pkgs.fzf}/bin/fzf --ansi --header="Select a bookmark" | ${pkgs.gnused}/bin/sed -n 's/.*(\(.*\))/\1/p')
 if [ ! -z "$url" ]; then
     swaymsg exec xdg-open "https://$url"
 else

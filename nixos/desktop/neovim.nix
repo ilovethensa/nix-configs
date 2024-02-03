@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  environment.variables.EDITOR = "nvim";
+  programs.neovim.defaultEditor = lib.mkForce true;
+  programs.neovim.enable = true;
   programs.nixvim = {
     enable = true;
   keymaps = [
