@@ -7,122 +7,8 @@
 
   # Enable docker socket for homepage docker integration
   virtualisation.podman.dockerSocket.enable = true;
-  services = {
-    nextcloud = {
-      enable = true;
-      package = pkgs.nextcloud28;
-      hostName = "server";
-      config.adminpassFile = "/srv/AppData/Nextcloud/config/pass";
-      extraOptions.trusted_domains = [
-        "192.168.1.100"
-        "server.tail8383e.ts.net"
-        "100.108.163.105"
-        "cloud.theholytachanka.com"
-      ];
-      home = "/srv/AppData/Nextcloud/storage";
-      configureRedis = true;
-    };
-    openvscode-server = {
-      enable = true;
-      telemetryLevel = "off";
-      serverDataDir = "/srv/AppData/Openvscode/data";
-      host = "0.0.0.0";
-      #connectionTokenFile = "/srv/AppData/Openvscode/token";
-      withoutConnectionToken = true;
-      extraPackages = with pkgs; [ git ];
-    };
-    nginx.virtualHosts."server".listen = [{
-      addr = "0.0.0.0";
-      port = 6245;
-    }];
-    invidious = {
-      enable = true;
-
-      domain = "yt.theholytachanka.com";
-      address = "0.0.0.0";
-      port = 8007;
-
-      database = { createLocally = true; };
-
-      settings = {
-        db = {
-          user = "invidious";
-          dbname = "invidious";
-        };
-
-        use_quic = true;
-
-        statistics_enabled = true;
-
-        registration_enabled = false;
-        login_enabled = false;
-        captcha_enabled = false;
-        admins = [ ];
-
-        use_pubsub_feeds = false;
-        channel_refresh_interval = "15m";
-      };
-
-      nginx.enable = false;
-    };
-    libreddit = {
-      enable = true;
-      port = 2938;
-    };
-  };
 
   virtualisation.oci-containers.containers = {
-    bazarr = {
-      image = "docker://lscr.io/linuxserver/bazarr:latest";
-      volumes =
-        [ "/srv/AppData/Bazarr:/config" "/srv/Movies:/movies" "/srv/TV:/tv" ];
-      ports = [ "6767:6767" ];
-      autoStart = true;
-    };
-    sonarr = {
-      image = "docker://lscr.io/linuxserver/sonarr:latest";
-      volumes = [
-        "/srv/AppData/Sonarr:/config"
-        "/srv/Downloads:/downloads"
-        "/srv/TV:/tv"
-      ];
-      ports = [ "8989:8989" ];
-      autoStart = true;
-    };
-    qbittorrent = {
-      image = "docker://lscr.io/linuxserver/qbittorrent:latest";
-      volumes = [
-        "/srv/AppData/Qbittorrent:/config"
-        "/srv/Downloads:/downloads"
-        "/srv/TV:/tv"
-        "/srv/Movies:/movies"
-      ];
-      ports = [ "7654:7654" "13098:13098" "13098:13098/udp" ];
-      environment = { WEBUI_PORT = "7654"; };
-      autoStart = true;
-    };
-    radarr = {
-      image = "docker://lscr.io/linuxserver/radarr:latest";
-      volumes = [
-        "/srv/AppData/Radarr:/config"
-        "/srv/Downloads:/downloads"
-        "/srv/Movies:/movies"
-      ];
-      ports = [ "7878:7878" ];
-      autoStart = true;
-    };
-    prowlarr = {
-      image = "docker://lscr.io/linuxserver/prowlarr:latest";
-      volumes = [ "/srv/AppData/Prowlarr:/config" ];
-      ports = [ "9696:9696" ];
-      autoStart = true;
-    };
-    jellyseerr = {
-      image = "docker://fallenbagel/jellyseerr:latest";
-      volumes = [ "/srv/AppData/Jellyseer:/app/config" ];
-      ports = [ "5055:5055" ];
-      autoStart = true;
-    };
     homepage = {
       image = "docker://ghcr.io/gethomepage/homepage:v0.8.4";
       volumes = [
@@ -139,14 +25,6 @@
       extraOptions = [ "--network=host" ];
       autoStart = true;
     };
-    vaultwarden = {
-      image = "docker://vaultwarden/server:latest";
-      volumes = [ "/srv/AppData/Vaultwarden:/data" ];
-
-      ports = [ "2456:80" ];
-      autoStart = true;
-    };
-
     glances = {
       image = "docker://nicolargo/glances:latest-full";
       extraOptions = [ "--network=host" "--pid" "host" "--privileged" ];
@@ -164,36 +42,6 @@
       autoStart = true;
     };
 
-    flaresolverr = {
-      image = "docker://ghcr.io/flaresolverr/flaresolverr:latest";
-      ports = [ "8191:8191" ];
-      autoStart = true;
-    };
-
-    mealie = {
-      image = "docker://ghcr.io/mealie-recipes/mealie:v1.0.0-RC1.1";
-      volumes = [ "/srv/AppData/Mealie:/app/data/" ];
-      ports = [ "9925:9000" ];
-      environment = {
-        ALLOW_SIGNUP = "true";
-        MAX_WORKERS = "1";
-        WEB_CONCURRENCY = "1";
-      };
-      autoStart = true;
-    };
-
-    unmanic = {
-      image = "docker://josh5/unmanic:latest";
-      extraOptions = [ "--device=/dev/dri" ];
-      volumes = [
-        "/srv/AppData/Unmanic/config:/config"
-        "/srv/AppData/Unmanic/cache:/tmp/unmanic"
-        "/srv/TV:/library/TV"
-        "/srv/Movies:/library/Movies"
-      ];
-      ports = [ "8888:8888" ];
-      autoStart = true;
-    };
     crafty = {
       image = "docker://registry.gitlab.com/crafty-controller/crafty-4:latest";
       volumes = [ 
