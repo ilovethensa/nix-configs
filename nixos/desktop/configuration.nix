@@ -22,7 +22,6 @@
     ./audio.nix
     ./gaming.nix
     ./misc.nix
-    ./neovim.nix
     #./networking.nix
     inputs.home-manager.nixosModules.home-manager
   ];

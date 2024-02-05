@@ -15,6 +15,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./thinkpad/configuration.nix
+    ./neovim.nix
     ./common.nix
   ];
 }
