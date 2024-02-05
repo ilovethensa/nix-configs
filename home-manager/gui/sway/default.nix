@@ -70,6 +70,7 @@ in
           { command = "vesktop"; }
           { command = "firefox"; }
           { command = "qbittorrent"; }
+          { command = "${pkgs.gammastep}/bin/gammastep -t 6500:2000"; }
         ];
         bars = [
           {
@@ -94,6 +95,14 @@ for_window [class="^steam$" title="^Steam$"] floating disable
 for_window [app_id="launcher"] floating enable, border pixel 2
 for_window [app_id="firefox" title="^Picture-in-Picture$"] \
     floating enable, move position 1265 696, resize set 580 328, sticky enable
+
+input "2:8:AlpsPS/2_ALPS_DualPoint_TouchPad" {
+   tap enabled
+   natural_scroll enabled
+}
+bindgesture swipe:right workspace prev 
+bindgesture swipe:left workspace next 
+
 '';
     };
   };
