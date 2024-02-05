@@ -7,7 +7,7 @@
 }:
 
 let
-  mod = "Mod4";
+  mod = "Mod1";
 
   workspaces = {
     ws1 = "1";

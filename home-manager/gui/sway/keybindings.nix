@@ -23,16 +23,16 @@
   "Print" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\"";
 
   # Navigation
-  "${mod}+left" = "focus left";
-  "${mod}+right" = "focus right";
-  "${mod}+up" = "focus up";
-  "${mod}+down" = "focus down";
-  "${mod}+Shift+left" = "move left";
-  "${mod}+Shift+right" = "move right";
-  "${mod}+Shift+up" = "move up";
-  "${mod}+Shift+down" = "move down";
-  "${mod}+Ctrl+left" = "resize shrink width 10 px or 10 ppt";
-  "${mod}+Ctrl+right" = "resize grow width 10 px or 10 ppt";
+  "${mod}+h" = "focus left";
+  "${mod}+l" = "focus right";
+  "${mod}+k" = "focus up";
+  "${mod}+j" = "focus down";
+  "${mod}+Shift+h" = "move left";
+  "${mod}+Shift+l" = "move right";
+  "${mod}+Shift+k" = "move up";
+  "${mod}+Shift+j" = "move down";
+  "${mod}+Ctrl+h" = "resize shrink width 10 px or 10 ppt";
+  "${mod}+Ctrl+l" = "resize grow width 10 px or 10 ppt";
   "${mod}+Ctrl+k" = "resize shrink height 10 px or 10 ppt";
   "${mod}+Ctrl+j" = "resize grow height 10 px or 10 ppt";
   "${mod}+Shift+Ctrl+h" = "split h";

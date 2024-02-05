@@ -63,8 +63,8 @@
       enable = true;
       allowSFTP = true;
       settings = {
-        KbdInteractiveAuthentication = false;
-        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = true;
+        PasswordAuthentication = true;
         PermitRootLogin = "yes";
       };
       banner = ''

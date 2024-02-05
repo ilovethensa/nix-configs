@@ -172,6 +172,7 @@
         "browser.menu.showViewImageInfo" = true;
         "findbar.highlightAll" = true;
         "layout.word_select.eat_space_to_next_word" = false;
+        "ui.key.menuAccessKeyFocuses" = false;
       };
       userChrome = ''
         @import "firefox-gnome-theme/userChrome.css";
