@@ -5,6 +5,16 @@
       top = {
         blocks = [
           {
+            block = "battery";
+            missing_format = "";
+          }
+          #{
+          #  block = "hueshift";
+          #  hue_shifter = "gammastep";
+          #  step = 50;
+          #  click_temp = 2000;
+          #}
+          {
             block = "disk_space";
             path = "/nix";
             info_type = "available";
@@ -33,4 +43,7 @@
       };
     };
   };
+  home.packages = with pkgs; [
+    gammastep
+  ];
 }

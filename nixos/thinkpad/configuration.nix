@@ -15,7 +15,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    ./gnome.nix
+    #./gnome.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -69,8 +69,9 @@
 
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = false;
+      desktopManager.gnome.enable = false;
+      displayManager.startx.enable = true;
       excludePackages = with pkgs; [ xterm ];
     };
 
@@ -119,7 +120,9 @@
     };
 
   };
-
+  
+  networking.networkmanager.enable = true;
+  programs.dconf.enable = true;
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
@@ -132,6 +135,7 @@
     vesktop
     acpi
     powertop
+    sway
   ];
 
   # rtkit is optional but recommended
