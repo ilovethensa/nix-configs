@@ -15,7 +15,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    #./gnome.nix
+    ./gnome.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -69,9 +69,8 @@
 
     xserver = {
       enable = true;
-      displayManager.gdm.enable = false;
-      desktopManager.gnome.enable = false;
-      displayManager.startx.enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
       excludePackages = with pkgs; [ xterm ];
     };
 
