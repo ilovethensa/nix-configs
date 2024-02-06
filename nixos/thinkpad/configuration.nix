@@ -144,6 +144,10 @@
     enable = true;
     package = pkgs.bluez5-experimental;
   };
+  services.printing.enable = true;
+  services.printing.drivers = [ 
+    pkgs.hplip
+   ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

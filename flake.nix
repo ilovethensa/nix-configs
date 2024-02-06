@@ -113,6 +113,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main nixos configuration file <
+            nixvim.nixosModules.nixvim
             ./nixos/thinkpad.nix
           ];
         };
