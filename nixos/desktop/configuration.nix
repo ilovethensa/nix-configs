@@ -15,7 +15,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    #./gnome.nix
+    ./gnome.nix
     #./kde.nix
     ./kernel.nix
     ./gpu.nix
@@ -148,6 +148,11 @@
       ];
     };
   };
+
+  services.printing.enable = true;
+  services.printing.drivers = [ 
+    pkgs.hplip
+   ];
 
   # Virtual machines
   virtualisation.libvirtd.enable = true;
