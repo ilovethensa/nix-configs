@@ -48,11 +48,17 @@
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.3.0";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = { self, nixpkgs, home-manager, firefox-addons, impermanence
-    , spicetify-nix, nur, morewaita, nix-colors, nixvim, ... }@inputs:
+    , spicetify-nix, nur, morewaita, nix-colors, nixvim, lanzaboote, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
@@ -114,6 +120,8 @@
           modules = [
             # > Our main nixos configuration file <
             nixvim.nixosModules.nixvim
+            impermanence.nixosModules.impermanence
+            lanzaboote.nixosModules.lanzaboote
             ./nixos/thinkpad.nix
           ];
         };

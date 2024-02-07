@@ -4,28 +4,33 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-  boot = {
-    initrd = {
-      availableKernelModules =
-        [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
-      kernelModules = [ ];
-    };
-    kernelModules = [ ];
-    extraModulePackages = [ ];
-  };
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ ];
+  boot.extraModulePackages = [ ];
 
-  fileSystems = {
-    "/" = {
-      device = "UUID=c1e78c2f-ada8-464b-84b5-4e72c9704077";
-      fsType = "bcachefs";
+  fileSystems."/" =
+    { device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=2G" "mode=755" ];
     };
-    "/boot" = {
-      device = "/dev/disk/by-uuid/C70C-EA11";
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/10DE-CC97";
       fsType = "vfat";
     };
-  };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/70ef31c0-02ad-4dd3-9a79-e83788a42f15";
+      fsType = "xfs";
+    };
+
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/5b3b1e72-3dce-44a3-a24f-2271797e6c3a";
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -37,6 +42,5 @@
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

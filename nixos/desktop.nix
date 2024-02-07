@@ -16,6 +16,7 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./desktop/configuration.nix
     ./neovim.nix
+    ./networking.nix
     ./common.nix
   ];
 }
