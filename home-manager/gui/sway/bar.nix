@@ -1,6 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   programs.i3status-rust = {
-    enable = true;
+    enable = false;
     bars = {
       top = {
         blocks = [
