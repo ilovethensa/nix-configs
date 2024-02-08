@@ -1,6 +1,6 @@
 { pkgs, config, lib, ... }: {
   programs.foot = {
-    enable = true;
+    enable = false;
     settings = {
       main = {
         term = "xterm-256color";

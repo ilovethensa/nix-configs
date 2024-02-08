@@ -70,7 +70,7 @@ in
           { command = "vesktop"; }
           { command = "firefox"; }
           { command = "qbittorrent"; }
-          { command = "${pkgs.gammastep}/bin/gammastep -t 6500:2000"; }
+          #{ command = "${pkgs.gammastep}/bin/gammastep -t 6500:2000"; }
         ];
         bars = [
           {
