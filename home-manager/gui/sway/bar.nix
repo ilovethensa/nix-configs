@@ -43,7 +43,7 @@
       };
     };
   };
-  home.packages = with pkgs; [
-    gammastep
-  ];
+  #home.packages = with pkgs; [
+  #  gammastep
+  #];
 }
