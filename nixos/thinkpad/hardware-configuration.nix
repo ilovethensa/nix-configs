@@ -16,7 +16,7 @@
   fileSystems."/" =
     { device = "none";
       fsType = "tmpfs";
-      options = [ "defaults" "size=2G" "mode=755" ];
+      options = [ "defaults" "size=2G" "mode=755" "noexec" ];
     };
 
   fileSystems."/boot" =
@@ -28,6 +28,15 @@
     { device = "/dev/disk/by-uuid/70ef31c0-02ad-4dd3-9a79-e83788a42f15";
       fsType = "xfs";
     };
+  fileSystems."/etc/nixos".options = [ "noexec" ];
+  fileSystems."/srv".options = [ "noexec" ];
+  fileSystems."/var/lib".options = [ "noexec" ];
+  fileSystems."/var/log".options = [ "noexec" ];
+  fileSystems."/etc/innernet".options = [ "noexec" ];
+  fileSystems."/usr/share/secureboot/".options = [ "noexec" ];
+  fileSystems."/etc/secureboot".options = [ "noexec" ];
+  fileSystems."/home/tht".options = [ "noexec" ];
+
 
   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/5b3b1e72-3dce-44a3-a24f-2271797e6c3a";
 

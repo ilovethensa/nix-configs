@@ -56,6 +56,7 @@
     name = "nix/path/${name}";
     value.source = value.flake;
   }) config.nix.registry;
+  nix.allowedUsers = [ "@wheel" ];
 
   # FIXME: Add the rest of your current configuration
 
@@ -123,8 +124,14 @@
   networking.networkmanager.enable = true;
   programs.dconf.enable = true;
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  boot.loader.systemd-boot.enable = true;
   boot.bootspec.enable = true;
+  boot = {
+    loader.systemd-boot.enable = lib.mkForce false;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -156,6 +163,8 @@
         "/var/lib" # system service persistent data
         "/var/log" # the place that journald dumps it logs to
         "/etc/innernet" # Innernet stuff
+        "/usr/share/secureboot/"
+        "/etc/secureboot"
         {
           directory = "/home/tht";
           user = "tht";
