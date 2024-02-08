@@ -8,7 +8,8 @@
   };
   systemd = {
     oomd.enable = false;
-    tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
+    tmpfiles.rules =
+      [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
   };
   hardware.opengl = {
     driSupport = true; # This is already enabled by default
@@ -28,9 +29,7 @@
     magicOrExtension = "\\x7fELF....AI\\x02";
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
   # Remove lightdm
   services.xserver.displayManager.startx.enable = true;
 }

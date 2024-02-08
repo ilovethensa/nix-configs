@@ -9,9 +9,7 @@
         dpi-aware = "yes";
       };
 
-      mouse = {
-        hide-when-typing = "yes";
-      };
+      mouse = { hide-when-typing = "yes"; };
       colors = with config.colorScheme.colors; {
         background = "${base00}";
         foreground = "${base06}";

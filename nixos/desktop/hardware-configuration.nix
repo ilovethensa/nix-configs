@@ -4,30 +4,28 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "none";
-      fsType = "tmpfs";
-      options = [ "defaults" "size=4G" "mode=755" ];
-    };
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "defaults" "size=4G" "mode=755" ];
+  };
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/0ca2586f-4af0-4629-926e-e0c59dfb2fb3";
-      fsType = "xfs";
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/0ca2586f-4af0-4629-926e-e0c59dfb2fb3";
+    fsType = "xfs";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/2A71-1DA4";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/2A71-1DA4";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
@@ -39,5 +37,6 @@
   # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

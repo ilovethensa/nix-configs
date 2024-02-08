@@ -120,7 +120,7 @@
     };
 
   };
-  
+
   networking.networkmanager.enable = true;
   programs.dconf.enable = true;
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
@@ -153,24 +153,22 @@
     package = pkgs.bluez5-experimental;
   };
   services.printing.enable = true;
-  services.printing.drivers = [ 
-    pkgs.hplip
-   ];
-    environment.persistence."/nix/persist" = {
-      directories = [
-        "/etc/nixos" # nixos system config files, can be considered optional
-        "/srv" # service data
-        "/var/lib" # system service persistent data
-        "/var/log" # the place that journald dumps it logs to
-        "/etc/innernet" # Innernet stuff
-        "/usr/share/secureboot/"
-        "/etc/secureboot"
-        {
-          directory = "/home/tht";
-          user = "tht";
-        }
-      ];
-    };
+  services.printing.drivers = [ pkgs.hplip ];
+  environment.persistence."/nix/persist" = {
+    directories = [
+      "/etc/nixos" # nixos system config files, can be considered optional
+      "/srv" # service data
+      "/var/lib" # system service persistent data
+      "/var/log" # the place that journald dumps it logs to
+      "/etc/innernet" # Innernet stuff
+      "/usr/share/secureboot/"
+      "/etc/secureboot"
+      {
+        directory = "/home/tht";
+        user = "tht";
+      }
+    ];
+  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

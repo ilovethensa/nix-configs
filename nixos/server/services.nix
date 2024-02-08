@@ -44,15 +44,15 @@
 
     crafty = {
       image = "docker://registry.gitlab.com/crafty-controller/crafty-4:latest";
-      volumes = [ 
+      volumes = [
         "/srv/AppData/Crafty/backups:/crafty/backups"
         "/srv/AppData/Crafty/logs:/crafty/logs"
         "/srv/AppData/Crafty/servers:/crafty/servers"
         "/srv/AppData/Crafty/config:/crafty/app/config"
         "/srv/AppData/Crafty/import:/crafty/import"
-        ];
-      ports = [ 
-        "8000:8000" 
+      ];
+      ports = [
+        "8000:8000"
         "8443:8443"
         "8123:8123"
         "19132:19132/udp"
@@ -72,18 +72,14 @@
         BASE_URL = "rss.theholytachanka.com";
         INVIDIOUS_INSTANCE = "yt.theholytachanka.com";
       };
-      ports = [ 
-        "6554:8080"
-      ];
+      ports = [ "6554:8080" ];
       autoStart = true;
       dependsOn = [ "db" ];
     };
 
     db = {
       image = "docker://postgres:15";
-      volumes = [ 
-        "/srv/AppData/Miniflux/db:/var/lib/postgresql/data"
-        ];
+      volumes = [ "/srv/AppData/Miniflux/db:/var/lib/postgresql/data" ];
       environment = {
         POSTGRES_USER = "miniflux";
         POSTGRES_PASSWORD = "secret";

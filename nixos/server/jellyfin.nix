@@ -1,4 +1,5 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+{
   # Enable vaapi on OS-level
   #nixpkgs.config.packageOverrides = pkgs: {
   #  vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };

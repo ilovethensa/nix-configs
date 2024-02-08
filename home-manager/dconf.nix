@@ -123,6 +123,5 @@ with lib.hm.gvariant;
       transparency-mode = "FIXED";
     };
 
-
   };
 }

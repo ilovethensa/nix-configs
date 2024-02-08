@@ -149,9 +149,7 @@
   };
 
   services.printing.enable = true;
-  services.printing.drivers = [ 
-    pkgs.hplip
-   ];
+  services.printing.drivers = [ pkgs.hplip ];
 
   # Virtual machines
   virtualisation.libvirtd.enable = true;

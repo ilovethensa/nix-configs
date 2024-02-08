@@ -1,26 +1,23 @@
-{ pkgs
-, lib
-, config
-, mod
-, workspaces
-, windowManager
-}:
+{ pkgs, lib, config, mod, workspaces, windowManager }:
 
 {
-  "${mod}+Shift+e" = "exec [ \"$(printf \"No\\nYes\" | ${pkgs.dmenu}/bin/dmenu -i -p \"Would you like to exit i3?\")\" = \"Yes\" ] && ${pkgs.i3-gaps}/bin/i3-msg exit";
-  "${mod}+d" = "exec --no-startup-id ${pkgs.foot}/bin/foot -a launcher ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu=\"${pkgs.fzf}/bin/fzf --prompt='Run: ' --height 100% --cycle\" --term=\"${pkgs.foot}/bin/foot\" --wrapper='swaymsg exec'";
-   
+  "${mod}+Shift+e" = ''
+    exec [ "$(printf "No\nYes" | ${pkgs.dmenu}/bin/dmenu -i -p "Would you like to exit i3?")" = "Yes" ] && ${pkgs.i3-gaps}/bin/i3-msg exit'';
+  "${mod}+d" =
+    "exec --no-startup-id ${pkgs.foot}/bin/foot -a launcher ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu=\"${pkgs.fzf}/bin/fzf --prompt='Run: ' --height 100% --cycle\" --term=\"${pkgs.foot}/bin/foot\" --wrapper='swaymsg exec'";
+
   # Movie launcher
   "${mod}+m" = "exec --no-startup-id ${pkgs.foot}/bin/foot -a launcher movie";
-  
+
   # Opening bookmarks
-  "${mod}+b" = "exec --no-startup-id ${pkgs.foot}/bin/foot -a launcher bookmark-open";
-  
+  "${mod}+b" =
+    "exec --no-startup-id ${pkgs.foot}/bin/foot -a launcher bookmark-open";
+
   # General programs
   "${mod}+Return" = "exec ${pkgs.foot}/bin/foot";
 
   # Screenshot
-  "Print" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\"";
+  "Print" = ''exec ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)"'';
 
   # Navigation
   "${mod}+h" = "focus left";
@@ -68,7 +65,8 @@
   "XF86AudioRaiseVolume" = "exec ${pkgs.pamixer}/bin/pamixer --increase 5";
   "XF86AudioLowerVolume" = "exec ${pkgs.pamixer}/bin/pamixer --decrease 5";
   # Mute both the input and output devices
-  "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer --toggle-mute && ${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute";
+  "XF86AudioMute" =
+    "exec ${pkgs.pamixer}/bin/pamixer --toggle-mute && ${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute";
 
   # Media player control
   "XF86AudioPause" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -77,7 +75,9 @@
   "XF86AudioStop" = "exec ${pkgs.playerctl}/bin/playerctl stop";
 
   # Brightness control
-  "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
-  "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
+  "XF86MonBrightnessUp" =
+    "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
+  "XF86MonBrightnessDown" =
+    "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
   "${mod}+Shift+r" = "exec swaymsg reload";
 }

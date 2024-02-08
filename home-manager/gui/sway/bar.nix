@@ -33,11 +33,7 @@
             format = " $timestamp.datetime(f:'%a %d/%m %R') ";
           }
         ];
-        settings = {
-          theme =  {
-            theme = "native";
-          };
-        };
+        settings = { theme = { theme = "native"; }; };
         icons = "material-nf";
         theme = "native";
       };

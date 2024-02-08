@@ -58,7 +58,8 @@
   };
 
   outputs = { self, nixpkgs, home-manager, firefox-addons, impermanence
-    , spicetify-nix, nur, morewaita, nix-colors, nixvim, lanzaboote, ... }@inputs:
+    , spicetify-nix, nur, morewaita, nix-colors, nixvim, lanzaboote, ...
+    }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
