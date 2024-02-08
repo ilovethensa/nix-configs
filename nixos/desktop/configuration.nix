@@ -15,7 +15,6 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    ./gnome.nix
     #./kde.nix
     ./kernel.nix
     ./gpu.nix

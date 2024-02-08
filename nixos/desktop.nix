@@ -17,6 +17,7 @@
     ./desktop/configuration.nix
     ./neovim.nix
     ./networking.nix
+    ./gnome.nix
     ./common.nix
   ];
 }
