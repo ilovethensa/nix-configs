@@ -5,26 +5,29 @@
 
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "defaults" "size=4G" "mode=755" ];
+  boot = {
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+      kernelModules = [ ];
+    };
   };
 
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/0ca2586f-4af0-4629-926e-e0c59dfb2fb3";
-    fsType = "xfs";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2A71-1DA4";
-    fsType = "vfat";
+  filesystems = {
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=4G" "mode=755" ];
+    };
+    "/nix" = {
+      device = "/dev/disk/by-uuid/0ca2586f-4af0-4629-926e-e0c59dfb2fb3";
+      fsType = "xfs";
+    };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/2A71-1DA4";
+      fsType = "vfat";
+    };
   };
 
   swapDevices = [ ];

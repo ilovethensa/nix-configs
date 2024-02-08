@@ -88,10 +88,6 @@
   # This will additionally add your inputs to the system's legacy channels
   # Making legacy nix commands consistent as well, awesome!
   nix.nixPath = [ "/etc/nix/path" ];
-  environment.etc = lib.mapAttrs' (name: value: {
-    name = "nix/path/${name}";
-    value.source = value.flake;
-  }) config.nix.registry;
 
   # FIXME: Add the rest of your current configuration
   time.timeZone = "Europe/Sofia";
@@ -146,18 +142,24 @@
         }
       ];
     };
+    variables.NB_MARKDOWN_TOOL = "${pkgs.bat}/bin/bat";
+    etc = lib.mapAttrs' (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    }) config.nix.registry;
   };
 
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.hplip ];
-
+  services = {
+    printing = {
+      enable = true;
+      drivers = [ pkgs.hplip ];
+    };
+  };
   # Virtual machines
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   # Disabled firewall
   networking.firewall.enable = false;
-
-  environment.variables.NB_MARKDOWN_TOOL = "${pkgs.bat}/bin/bat";
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

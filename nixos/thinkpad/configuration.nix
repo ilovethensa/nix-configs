@@ -46,17 +46,43 @@
 
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
-  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; }))
-    ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+  nix = {
+    registry = (lib.mapAttrs (_: flake: { inherit flake; }))
+      ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+    nixPath = [ "/etc/nix/path" ];
+    allowedUsers = [ "@wheel" ];
+  };
 
-  # This will additionally add your inputs to the system's legacy channels
-  # Making legacy nix commands consistent as well, awesome!
-  nix.nixPath = [ "/etc/nix/path" ];
-  environment.etc = lib.mapAttrs' (name: value: {
-    name = "nix/path/${name}";
-    value.source = value.flake;
-  }) config.nix.registry;
-  nix.allowedUsers = [ "@wheel" ];
+  environment = {
+    etc = lib.mapAttrs' (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    }) config.nix.registry;
+    systemPackages = with pkgs; [
+      # Gui
+      firefox
+      spotify
+      vesktop
+      acpi
+      powertop
+      sway
+    ];
+    persistence."/nix/persist" = {
+      directories = [
+        "/etc/nixos" # nixos system config files, can be considered optional
+        "/srv" # service data
+        "/var/lib" # system service persistent data
+        "/var/log" # the place that journald dumps it logs to
+        "/etc/innernet" # Innernet stuff
+        "/usr/share/secureboot/"
+        "/etc/secureboot"
+        {
+          directory = "/home/tht";
+          user = "tht";
+        }
+      ];
+    };
+  };
 
   # FIXME: Add the rest of your current configuration
 
@@ -124,26 +150,15 @@
   networking.networkmanager.enable = true;
   programs.dconf.enable = true;
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  boot.bootspec.enable = true;
   boot = {
+    bootspec.enable = true;
     loader.systemd-boot.enable = lib.mkForce false;
     lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
+    kernelPackages = pkgs.linuxPackages_latest;
   };
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  environment.systemPackages = with pkgs; [
-    # Gui
-    firefox
-    spotify
-    vesktop
-    acpi
-    powertop
-    sway
-  ];
 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
@@ -154,21 +169,6 @@
   };
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip ];
-  environment.persistence."/nix/persist" = {
-    directories = [
-      "/etc/nixos" # nixos system config files, can be considered optional
-      "/srv" # service data
-      "/var/lib" # system service persistent data
-      "/var/log" # the place that journald dumps it logs to
-      "/etc/innernet" # Innernet stuff
-      "/usr/share/secureboot/"
-      "/etc/secureboot"
-      {
-        directory = "/home/tht";
-        user = "tht";
-      }
-    ];
-  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
