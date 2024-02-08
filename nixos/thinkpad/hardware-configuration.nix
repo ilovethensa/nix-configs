@@ -33,7 +33,7 @@
   fileSystems."/var/lib".options = [ "noexec" ];
   fileSystems."/var/log".options = [ "noexec" ];
   fileSystems."/etc/innernet".options = [ "noexec" ];
-  fileSystems."/usr/share/secureboot/".options = [ "noexec" ];
+  fileSystems."/usr/share/secureboot".options = [ "noexec" ];
   fileSystems."/etc/secureboot".options = [ "noexec" ];
   fileSystems."/home/tht".options = [ "noexec" ];
 
