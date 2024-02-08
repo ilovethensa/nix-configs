@@ -31,7 +31,7 @@ in
   ];
   ${displayServer} = {
     windowManager.${windowManager} = {
-      enable = true;
+      enable = false;
 
       config = {
         keybindings = import ./keybindings.nix { inherit config pkgs mod workspaces windowManager lib; };
